@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Harmony Health — Handoff Setup Guide (Chase)</title>
+  <style>
+    :root {
+      --cream: #FAF8F4;
+      --tint: #F7F9F8;
+      --dark: #1F2A25;
+      --sage: #6B9680;
+      --sage-dark: #517563;
+      --sage-light: #80BE9F;
+      --sage-mint: #9BD3B6;
+      --body: #30373E;
+      --muted: #535353;
+      --ring: #E5ECE8;
+      --alert: #B0413E;
+      --warn-bg: #FEF3E2;
+      --warn-border: #E6A23C;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 120px;
+    }
+    @media (min-width: 768px) {
+      .container { padding: 72px 56px 140px; }
+    }
+    header { margin-bottom: 48px; }
+    .eyebrow {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(107, 150, 128, 0.1);
+      color: var(--sage-dark);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--dark);
+      margin: 0 0 16px;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 56px; }
+    }
+    h1 .italic {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--sage-dark);
+    }
+    .lede {
+      font-size: 18px;
+      color: var(--body);
+      max-width: 62ch;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--dark);
+      margin: 56px 0 20px;
+    }
+    @media (min-width: 768px) {
+      h2 { font-size: 32px; margin-top: 72px; }
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 28px 0 12px;
+    }
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 20px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--sage-dark);
+    }
+    p { margin: 0 0 14px; max-width: 72ch; }
+    a { color: var(--sage-dark); font-weight: 500; }
+    a:hover { color: var(--sage); }
+    strong { color: var(--dark); font-weight: 600; }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--ring);
+      margin: 56px 0;
+    }
+
+    /* TOC */
+    .toc {
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 20px;
+      padding: 24px;
+      margin: 24px 0 0;
+    }
+    .toc h4 {
+      margin: 0 0 14px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 24px;
+      color: var(--body);
+    }
+    .toc li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .toc a { text-decoration: none; }
+    .toc .duration {
+      color: var(--muted);
+      font-size: 13px;
+      margin-left: 6px;
+    }
+
+    /* Part blocks */
+    .part {
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 40px -24px rgba(31, 42, 37, 0.06);
+    }
+    .part > h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .subpart { margin-top: 24px; }
+
+    /* Copy block */
+    .copy {
+      position: relative;
+      background: var(--tint);
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      padding: 16px 84px 16px 20px;
+      margin: 12px 0 16px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--dark);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy.url {
+      font-family: -apple-system, sans-serif;
+      font-size: 15px;
+      background: white;
+    }
+    .copy.url a {
+      color: var(--sage-dark);
+      text-decoration: none;
+    }
+    .copy.dark {
+      background: var(--dark);
+      color: white;
+      border: none;
+      font-family: -apple-system, sans-serif;
+      font-size: 15px;
+      padding: 20px 84px 20px 22px;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: -apple-system, sans-serif;
+    }
+    .copy-btn:hover { background: var(--sage-dark); }
+    .copy-btn:active { transform: scale(0.96); }
+    .copy-btn.copied { background: var(--sage-light); }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid var(--ring);
+      vertical-align: top;
+    }
+    th {
+      background: var(--tint);
+      font-weight: 600;
+      color: var(--dark);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+    }
+    tr:last-child td { border-bottom: none; }
+    td code {
+      background: var(--tint);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    /* Alerts */
+    .alert {
+      background: white;
+      border-left: 4px solid var(--sage);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+    .alert.warn {
+      border-left-color: var(--warn-border);
+      background: var(--warn-bg);
+    }
+    .alert.danger {
+      border-left-color: var(--alert);
+      background: white;
+    }
+    .alert .label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--sage-dark);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .alert.warn .label { color: #CA8A04; }
+    .alert.danger .label { color: var(--alert); }
+
+    /* Pinned tip callout — very visually prominent */
+    .tip {
+      position: relative;
+      background: linear-gradient(135deg, #1F2A25 0%, #2A3832 100%);
+      color: white;
+      border-radius: 20px;
+      padding: 24px 28px 24px 84px;
+      margin: 24px 0;
+      box-shadow: 0 24px 48px -20px rgba(107, 150, 128, 0.4);
+    }
+    .tip::before {
+      content: "📸";
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .tip .label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-mint);
+      margin-bottom: 8px;
+    }
+    .tip h4 {
+      margin: 0 0 8px;
+      color: white;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .tip p {
+      margin: 0 0 10px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+    }
+    .tip .kbd {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .tip code {
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    /* Lists */
+    ol, ul { max-width: 72ch; }
+    li { margin-bottom: 6px; }
+
+    /* Utility */
+    .kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--tint);
+      border: 1px solid var(--ring);
+      border-radius: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      color: var(--dark);
+    }
+
+    footer {
+      margin-top: 96px;
+      padding-top: 32px;
+      border-top: 1px solid var(--ring);
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--sage-mint);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Inline copy chip — for any command or value paste-worthy that lives mid-sentence */
+    .ic {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--tint);
+      padding: 3px 4px 3px 10px;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      color: var(--dark);
+      border: 1px solid var(--ring);
+      vertical-align: 1px;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+    .ic button {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: -apple-system, sans-serif;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .ic button:hover { background: var(--sage-dark); }
+    .ic button:active { transform: scale(0.94); }
+    .ic button.copied { background: var(--sage-mint); color: var(--dark); }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="eyebrow">For Chase — during the Zoom handoff call</span>
+      <h1>Harmony Health handoff.<br /><span class="italic">Everything you click, copy, and read.</span></h1>
+      <p class="lede" style="margin-top: 18px;">
+        Before the call, ZIP the project folder and send it to them. On the Zoom, work through the 8 parts below in order (~45 min). They interact entirely through the <strong>VS Code Claude extension's chat panel</strong> — Claude runs any setup commands for them, asks for approval before running each one, and explains what it's doing. The team member never types a shell command themselves.
+        Every URL and prompt has a <strong>Copy</strong> button. Click once, paste on the call.
+      </p>
+
+      <div class="toc">
+        <h4>Parts</h4>
+        <ol>
+          <li><a href="#p0">Prerequisites</a></li>
+          <li><a href="#p1">Part 1 — Accounts <span class="duration">(10 min)</span></a></li>
+          <li><a href="#p2">Part 2 — Install VS Code + Claude extension <span class="duration">(10 min)</span></a></li>
+          <li><a href="#p3">Part 3 — Unzip + connect to GitHub <span class="duration">(10 min)</span></a></li>
+          <li><a href="#p4">Part 4 — Connect their GitHub to Vercel <span class="duration">(5 min)</span></a></li>
+          <li><a href="#p5">Part 5 — Point GoDaddy at Vercel <span class="duration">(10 min + wait)</span></a></li>
+          <li><a href="#p6">Part 6 — Desktop shortcut launcher <span class="duration">(5 min)</span></a></li>
+          <li><a href="#p7">Part 7 — Place the editing guide <span class="duration">(3 min)</span></a></li>
+          <li><a href="#p8">Part 8 — Practice edit <span class="duration">(5 min)</span></a></li>
+          <li><a href="#after">After the call + rollback policy</a></li>
+        </ol>
+      </div>
+    </header>
+
+    <hr />
+
+    <section id="p0">
+      <div class="part">
+        <h2>Prerequisites</h2>
+        <p>Confirm before the call starts:</p>
+
+        <h4>Harmony Health team has</h4>
+        <ul>
+          <li>Their Mac, plugged in</li>
+          <li>Admin password (for installs)</li>
+          <li>GoDaddy login for <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span></li>
+          <li>Access to practice email for verification codes</li>
+          <li>Claude Pro / Max / Team / Enterprise subscription — the free plan does not include Claude Code</li>
+        </ul>
+
+        <h4>Chase has</h4>
+        <ul>
+          <li>Zoom ready with screen share</li>
+          <li>A ZIP of the project folder (without <code>.git</code>, <code>node_modules</code>, <code>.next</code>, <code>.vercel</code>, <code>_source</code>) ready to send</li>
+          <li>Transfer method (Dropbox, WeTransfer, Google Drive — whatever)</li>
+        </ul>
+
+        <p style="margin-top: 16px;"><strong>Quick ZIP command (run this on Chase's Mac before the call):</strong></p>
+        <div class="copy" id="zip-cmd">cd /Users/chase/Documents/apps/code
+zip -r harmony-health-modern.zip harmony-health-modern \
+  -x "harmony-health-modern/.git/*" \
+  -x "harmony-health-modern/node_modules/*" \
+  -x "harmony-health-modern/.next/*" \
+  -x "harmony-health-modern/.vercel/*" \
+  -x "harmony-health-modern/_source/*"<button class="copy-btn" onclick="copyEl('zip-cmd', this)">Copy</button></div>
+
+        <p style="margin-top: 16px;"><strong>Send them this subscription link ahead of time:</strong></p>
+        <div class="copy url" id="claude-upgrade-url">https://claude.ai/upgrade<button class="copy-btn" onclick="copyEl('claude-upgrade-url', this)">Copy</button></div>
+      </div>
+    </section>
+
+    <section id="p1">
+      <div class="part">
+        <h2><span class="badge">1</span> Accounts (10 min)</h2>
+
+        <div class="subpart">
+          <h3>1.1 GitHub account</h3>
+          <ol>
+            <li>Go to:
+              <div class="copy url" id="github-signup">https://github.com/signup<button class="copy-btn" onclick="copyEl('github-signup', this)">Copy</button></div>
+            </li>
+            <li>Sign up with the practice email</li>
+            <li>Verify email (check inbox for code)</li>
+            <li>Skip onboarding survey</li>
+            <li><strong>Take note of their GitHub username</strong> — needed in Part 3</li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>1.2 Vercel account</h3>
+          <ol>
+            <li>Go to:
+              <div class="copy url" id="vercel-signup">https://vercel.com/signup<button class="copy-btn" onclick="copyEl('vercel-signup', this)">Copy</button></div>
+            </li>
+            <li>Click <strong>Continue with GitHub</strong> — links accounts in one click</li>
+            <li>Authorize Vercel to access their GitHub</li>
+            <li>Pick <strong>Hobby plan</strong> (free)</li>
+            <li>Skip team creation — use personal account</li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>1.3 Claude (should already be purchased)</h3>
+          <p>Confirm they can log into:</p>
+          <div class="copy url" id="claude-login">https://claude.ai<button class="copy-btn" onclick="copyEl('claude-login', this)">Copy</button></div>
+          <p style="margin-top: 10px;">Same login works for the Claude extension in Part 2.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="p2">
+      <div class="part">
+        <h2><span class="badge">2</span> Install VS Code + Claude extension (10 min)<span class="pill">no terminal</span></h2>
+
+        <div class="subpart">
+          <h3>2.1 VS Code</h3>
+          <ol>
+            <li>Download:
+              <div class="copy url" id="vscode-download">https://code.visualstudio.com/Download<button class="copy-btn" onclick="copyEl('vscode-download', this)">Copy</button></div>
+            </li>
+            <li>Click the big <strong>Mac Universal</strong> button</li>
+            <li>Open the <code>.zip</code> — it extracts <code>Visual Studio Code.app</code></li>
+            <li><strong>Drag <code>Visual Studio Code.app</code> into the <code>Applications</code> folder.</strong> Not optional. Desktop installs break settings persistence.</li>
+            <li>Open VS Code (Spotlight → type "VS Code" → Enter)</li>
+            <li>If macOS says "Are you sure you want to open it?" click <strong>Open</strong></li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>2.2 Install the Claude extension (all clicks, no typing)</h3>
+          <ol>
+            <li>In VS Code, click the <strong>Extensions</strong> icon in the left sidebar (it looks like four little squares)</li>
+            <li>In the search box at the top, type:
+              <div class="copy" id="ext-search">Claude Code<button class="copy-btn" onclick="copyEl('ext-search', this)">Copy</button></div>
+            </li>
+            <li>Find the one published by <strong>Anthropic</strong> (has a blue verified checkmark)</li>
+            <li>Click <strong>Install</strong></li>
+            <li>When installed, you'll see a new Claude icon in the left sidebar (looks like a little chat bubble)</li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>2.3 Sign in to Claude</h3>
+          <ol>
+            <li>Click the new Claude icon in VS Code's left sidebar</li>
+            <li>A panel opens on the right. Click <strong>Sign In</strong>.</li>
+            <li>Browser opens to Claude's auth page. Log in with their Pro account.</li>
+            <li>Browser says "You're logged in." The VS Code panel now shows a chat box.</li>
+          </ol>
+          <div class="alert">
+            <span class="label">You're done with setup typing</span>
+            From here on, everything happens in a chat window. Sign-in persists forever on this Mac — they'll never have to sign in again unless they get a new machine.
+          </div>
+        </div>
+
+        <div class="tip">
+          <span class="label">Tell them this now — it's the most important habit</span>
+          <h4>Any time something looks confusing, take a screenshot and give it to Claude.</h4>
+          <p>
+            Claude can see images. If the UI looks different from this guide, a button isn't where you expect,
+            an error pops up, or you just don't know what something means — don't guess and don't panic.
+          </p>
+          <p>
+            Press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
+            to copy a screenshot to the clipboard, then paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
+            and ask <em>"What am I looking at?"</em> or <em>"What should I click?"</em>
+          </p>
+          <p style="margin: 0;">
+            Or press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">4</span> to save to Desktop, then drag the image into the Claude chat.
+            <strong style="color: var(--sage-mint);">Either way works — Claude will read the screenshot and tell you what to do.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="p3">
+      <div class="part">
+        <h2><span class="badge">3</span> Unzip + let Claude set up GitHub (10 min)<span class="pill">no commands from them</span></h2>
+
+        <div class="subpart">
+          <h3>3.1 Unzip the folder Chase sent</h3>
+          <ol>
+            <li>Chase sends <code>harmony-health-modern.zip</code> via Dropbox / WeTransfer / AirDrop</li>
+            <li>They download to their Downloads folder</li>
+            <li>Double-click the zip — creates a <code>harmony-health-modern</code> folder</li>
+            <li>In Finder, drag that folder to their home folder and rename it to <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span></li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>3.2 Open the folder in VS Code</h3>
+          <ol>
+            <li>In VS Code: <strong>File → Open Folder</strong></li>
+            <li>Pick <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span> in their home folder</li>
+            <li>Click <strong>Yes, I trust the authors</strong> when prompted</li>
+            <li>All the site files appear in the left sidebar</li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>3.3 Open the Claude panel and paste the setup prompt</h3>
+          <ol>
+            <li>Click the <strong>Claude icon</strong> in the left sidebar (chat bubble)</li>
+            <li>In the chat box at the bottom, paste this prompt and press Return:</li>
+          </ol>
+
+          <div class="copy dark" id="setup-prompt">I just received this project from Chase. This is my very first time setting it up on my Mac. I'm not technical — I don't know what Terminal is and I'm nervous about running commands.
+
+Please walk me through the full first-time setup. I need you to:
+
+1. Install the project's dependencies (run npm install for me)
+2. Install the GitHub CLI (gh) if it's not already installed
+3. Help me authenticate with GitHub — I'll do the browser sign-in part, you tell me exactly what to click
+4. Create a new PRIVATE GitHub repo for me, named "harmony-health-site"
+5. Push all the code in this folder to that new GitHub repo
+
+Ask me to approve each command before you run it. Tell me in plain English what each command does before you run it. If anything fails, explain what went wrong and how to fix it in simple terms.
+
+When you're finished, give me the GitHub URL of my new repo so I can use it to connect to Vercel in the next step.<button class="copy-btn" onclick="copyEl('setup-prompt', this)">Copy</button></div>
+
+          <div class="alert">
+            <span class="label">What happens next</span>
+            Claude reads the folder, starts running commands one at a time, and asks the team member to click <strong>Allow</strong> (or similar) before each one. Claude will:
+            <ul style="margin: 8px 0 0;">
+              <li>Run <code>npm install</code> (1-2 min)</li>
+              <li>Check for Homebrew; if missing, install it or tell them to use the <code>.pkg</code> installer for <code>gh</code></li>
+              <li>Run <code>gh auth login</code> — this opens a browser window where they click Authorize once</li>
+              <li>Run <code>gh repo create harmony-health-site --private --source . --push</code> — creates the repo AND pushes code in one command</li>
+              <li>Report back with the repo URL</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="subpart">
+          <h3>3.4 Fallback — if anything gets weird</h3>
+          <p>The most likely failure point is GitHub auth. If Claude says it can't auth, have them paste this:</p>
+          <div class="copy dark" id="setup-fallback">The GitHub auth step isn't working. Can you try a different approach — maybe install gh differently, or use git's built-in credential manager? Walk me through whatever will work.<button class="copy-btn" onclick="copyEl('setup-fallback', this)">Copy</button></div>
+
+          <p>If Node.js isn't installed (npm install fails), Claude will tell them. Have them install it manually from:</p>
+          <div class="copy url" id="node-url">https://nodejs.org/en/download<button class="copy-btn" onclick="copyEl('node-url', this)">Copy</button></div>
+          <p style="margin-top: 6px; font-size: 14px; color: var(--muted);"><em>Download the LTS version, Mac .pkg installer. Restart VS Code after. Then have Claude retry.</em></p>
+        </div>
+
+        <div class="subpart">
+          <h3>3.5 Confirm it worked</h3>
+          <ol>
+            <li>Claude gives them the GitHub URL (copy it somewhere — they'll need it in Part 4)</li>
+            <li>Have them open the URL in a browser. They should see all the site files.</li>
+          </ol>
+
+          <div class="alert">
+            <span class="label">That's the last time Claude runs setup commands</span>
+            From now on, Claude only runs <code>git commit</code> and <code>git push</code> when they say "publish." Setup is a one-time thing.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="p4">
+      <div class="part">
+        <h2><span class="badge">4</span> Connect GitHub to Vercel (5 min)</h2>
+        <ol>
+          <li>Go to:
+            <div class="copy url" id="vercel-new">https://vercel.com/new<button class="copy-btn" onclick="copyEl('vercel-new', this)">Copy</button></div>
+          </li>
+          <li>Their GitHub repos appear. Click <strong>Import</strong> next to <span class="ic">harmony-health-site<button onclick="copyText('harmony-health-site', this)">Copy</button></span>.</li>
+          <li>Vercel auto-detects Next.js. Leave all settings at defaults.</li>
+          <li>No environment variables needed.</li>
+          <li>Click <strong>Deploy</strong>.</li>
+          <li>Wait ~90 seconds. First deploy goes live at something like <code>harmony-health-site-abc123.vercel.app</code>.</li>
+          <li>Open the URL. Confirm the site renders.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="p5">
+      <div class="part">
+        <h2><span class="badge">5</span> Point GoDaddy at Vercel (10 min + wait)</h2>
+
+        <div class="alert danger">
+          <span class="label">Critical</span>
+          Harmony Health's email is Google Workspace. <strong>Do NOT change nameservers.</strong> Only change the A record and CNAME — this preserves MX records and keeps email working.
+        </div>
+
+        <div class="subpart">
+          <h3>5.1 In Vercel</h3>
+          <ol>
+            <li>Go to the new project → <strong>Settings → Domains</strong></li>
+            <li>Enter <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span> → click <strong>Add</strong></li>
+            <li>Vercel shows the required DNS config. Confirm it matches the table below.</li>
+            <li>Also add <span class="ic">www.yourharmonyhealth.com<button onclick="copyText('www.yourharmonyhealth.com', this)">Copy</button></span> (Vercel auto-redirects one to the other)</li>
+          </ol>
+        </div>
+
+        <div class="subpart">
+          <h3>5.2 In GoDaddy</h3>
+          <p>GoDaddy → Domain Portfolio → click <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span> → <strong>DNS → Manage Zones</strong>.</p>
+
+          <p><strong>Copy-ready DNS values:</strong></p>
+          <div class="copy" id="dns-a-value">76.76.21.21<button class="copy-btn" onclick="copyEl('dns-a-value', this)">Copy A record value</button></div>
+          <div class="copy" id="dns-cname-value">cname.vercel-dns.com<button class="copy-btn" onclick="copyEl('dns-cname-value', this)">Copy CNAME value</button></div>
+
+          <table>
+            <thead>
+              <tr><th>Action</th><th>Type</th><th>Name</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Edit existing</strong></td>
+                <td>A</td>
+                <td><span class="ic">@<button onclick="copyText('@', this)">Copy</button></span></td>
+                <td>Change from <span class="ic">160.153.0.74<button onclick="copyText('160.153.0.74', this)">Copy</button></span> to <span class="ic">76.76.21.21<button onclick="copyText('76.76.21.21', this)">Copy</button></span></td>
+              </tr>
+              <tr>
+                <td><strong>Edit or add</strong></td>
+                <td>CNAME</td>
+                <td><span class="ic">www<button onclick="copyText('www', this)">Copy</button></span></td>
+                <td>Set to <span class="ic">cname.vercel-dns.com<button onclick="copyText('cname.vercel-dns.com', this)">Copy</button></span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><strong>Leave untouched:</strong> MX records (Google Workspace), SPF/TXT records, nameservers.</p>
+        </div>
+
+        <div class="subpart">
+          <h3>5.3 Wait for DNS to propagate</h3>
+          <ul>
+            <li>Usually 10–30 minutes</li>
+            <li>Up to 48 hours worst case</li>
+            <li>Check in a private browser window. Refresh every few minutes.</li>
+            <li>Vercel's Domain page shows a green checkmark when ready</li>
+            <li>SSL auto-issues once DNS resolves — no action needed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="p6">
+      <div class="part">
+        <h2><span class="badge">6</span> Desktop shortcut launcher (3 min)<span class="pill">claude does it</span></h2>
+        <p>Goal: double-click the Desktop icon → VS Code opens to the project → Claude chat is ready. Claude creates the shortcut for them.</p>
+
+        <div class="subpart">
+          <h3>6.1 Paste this prompt into Claude</h3>
+          <p>In the Claude chat panel (same one they've been using), paste:</p>
+          <div class="copy dark" id="shortcut-prompt">Create a Desktop shortcut called "Harmony Health editing" that opens this project folder in VS Code when I double-click it. I'm on a Mac. I don't know what Terminal is. Please handle everything — creating the file, making it executable, and placing it on my Desktop. Use ~/harmony-health as the folder path so it works no matter what my Mac username is. When done, tell me it's ready to test.<button class="copy-btn" onclick="copyEl('shortcut-prompt', this)">Copy</button></div>
+
+          <p>Claude will:</p>
+          <ul>
+            <li>Create <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on their Desktop</li>
+            <li>Make it executable (no user action needed)</li>
+            <li>Confirm it's ready</li>
+          </ul>
+        </div>
+
+        <div class="subpart">
+          <h3>6.2 Test it</h3>
+          <ol>
+            <li>Go to their Desktop (minimize VS Code, or <strong>⌘</strong>+<strong>F3</strong> to show Desktop)</li>
+            <li>Double-click <strong>Harmony Health editing</strong></li>
+            <li>A small black Terminal window flashes open briefly, then VS Code opens to the project folder</li>
+            <li>Click the Claude icon in VS Code's left sidebar — the chat is ready</li>
+          </ol>
+
+          <div class="alert warn">
+            <span class="label">First-time permission popup</span>
+            On first double-click, macOS may ask to confirm because the file came from an unknown source. Click <strong>Open</strong>. It won't ask again.
+          </div>
+        </div>
+
+        <div class="subpart">
+          <h3>6.3 (Optional) Give it a Harmony Health icon</h3>
+          <ol>
+            <li>Find any Harmony Health logo image on your computer (a <code>.png</code> or <code>.jpg</code>)</li>
+            <li>Double-click to open it in Preview</li>
+            <li>Press <strong>⌘</strong>+<strong>A</strong> to select all, then <strong>⌘</strong>+<strong>C</strong> to copy</li>
+            <li>On the Desktop, single-click the <strong>Harmony Health editing</strong> file to highlight it</li>
+            <li>Press <strong>⌘</strong>+<strong>I</strong> to open <strong>Get Info</strong></li>
+            <li>Single-click the little icon in the top-left corner of the Get Info window (it will highlight blue)</li>
+            <li>Press <strong>⌘</strong>+<strong>V</strong> to paste the logo</li>
+            <li>Close the Get Info window. The shortcut now has a branded icon.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="p7">
+      <div class="part">
+        <h2><span class="badge">7</span> Place the editing guide (3 min)</h2>
+        <p>The repo includes a self-contained HTML guide at <code>Harmony Health Guide.html</code>. Copy it to their Desktop.</p>
+
+        <p>Easiest way — they drag it in Finder:</p>
+        <ol>
+          <li>Open Finder → go to <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span> folder</li>
+          <li>Find <span class="ic">Harmony Health Guide.html<button onclick="copyText('Harmony Health Guide.html', this)">Copy</button></span></li>
+          <li>Drag a copy to Desktop (hold Option while dragging to keep the original in place)</li>
+        </ol>
+
+        <p><strong>Also bookmark on their phone:</strong> the guide is live on the site at:</p>
+        <div class="copy url" id="help-url">https://yourharmonyhealth.com/help.html<button class="copy-btn" onclick="copyEl('help-url', this)">Copy</button></div>
+        <p style="margin-top: 6px; color: var(--muted); font-size: 14px;">
+          <em>(Before DNS cuts over, bookmark the Vercel preview URL instead — <code>https://[project].vercel.app/help.html</code>.)</em>
+        </p>
+
+        <p>The guide covers the daily routine, master prompt, 10 common edits, photo attachment, publishing, screenshot protocol, and when to text Chase.</p>
+      </div>
+    </section>
+
+    <section id="p8">
+      <div class="part">
+        <h2><span class="badge">8</span> Practice edit (5 min)</h2>
+        <p>Walk them through the full loop end-to-end so they see how easy it is.</p>
+
+        <ol>
+          <li>They double-click <strong>Harmony Health editing</strong> on Desktop</li>
+          <li>VS Code opens. Click the Claude icon in the left sidebar if the chat panel isn't already showing.</li>
+          <li>Paste this into the Claude chat box:
+            <div class="copy dark" id="practice-prompt">Change the tagline "Personalized care led by Megan Cryder, NP-C" at the bottom of the homepage hero to "Personalized care led by Megan Cryder, NP-C · Est. 2024." Then publish it.<button class="copy-btn" onclick="copyEl('practice-prompt', this)">Copy</button></div>
+          </li>
+          <li>Press Return. Claude finds the file, makes the change, and shows them the diff.</li>
+          <li>Claude may ask for permission to commit + push. Click <strong>Allow</strong>.</li>
+          <li>Wait 90 seconds. Refresh yourharmonyhealth.com in a private browser window.</li>
+          <li>They see their change live.</li>
+          <li>Have them reverse it:
+            <div class="copy dark" id="practice-revert">Actually, change it back to "Personalized care led by Megan Cryder, NP-C" and publish.<button class="copy-btn" onclick="copyEl('practice-revert', this)">Copy</button></div>
+          </li>
+        </ol>
+
+        <p>Now they've seen the full editing loop. They know it works.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <section id="after">
+      <h2>After the call</h2>
+
+      <p>Send them an email linking to:</p>
+      <ul>
+        <li>The guide on their Desktop (already there from Part 7)</li>
+        <li>Mobile URL <a href="https://yourharmonyhealth.com/help.html">yourharmonyhealth.com/help.html</a></li>
+        <li>Chase's phone number for when things get weird</li>
+      </ul>
+
+      <h3>Rollback policy</h3>
+      <div class="alert warn">
+        <span class="label">Never auto-rollback</span>
+        <ul style="margin: 8px 0 0;">
+          <li>Vercel auto-serves the last working version until a new build succeeds. A failed build cannot replace a live site.</li>
+          <li>If a deploy succeeds but looks wrong, the team member should text Chase. Do NOT have Claude make more edits to fix it.</li>
+          <li>Chase rolls back via Vercel dashboard → Deployments → prior working one → <strong>Promote to Production</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>Live copy of this doc at the repo root.<br />
+      Questions or weirdness during a call: text yourself a reminder to update this doc.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function copyEl(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText
+        .replace(/Copy.*$/, '')
+        .replace(/^\s+|\s+$/g, '');
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 1600);
+      });
+    }
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 1200);
+      });
+    }
+  </script>
+</body>
+</html>
