@@ -749,40 +749,49 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
 
     <section id="p6">
       <div class="part">
-        <h2><span class="badge">6</span> Desktop shortcut launcher (5 min)</h2>
-        <p>Goal: double-click the Desktop icon → VS Code opens to the project → Claude extension panel is right there, ready to chat.</p>
+        <h2><span class="badge">6</span> Desktop shortcut launcher (3 min)<span class="pill">claude does it</span></h2>
+        <p>Goal: double-click the Desktop icon → VS Code opens to the project → Claude chat is ready. Claude creates the shortcut for them.</p>
 
         <div class="subpart">
-          <h3>6.1 Easiest path — pin the folder to VS Code's recent list</h3>
-          <ol>
-            <li>In VS Code, go to <strong>File → Open Recent</strong></li>
-            <li>Hover over <strong>harmony-health</strong> → click the pin icon that appears next to it</li>
-            <li>Now it's always at the top of the Open Recent list</li>
-          </ol>
+          <h3>6.1 Paste this prompt into Claude</h3>
+          <p>In the Claude chat panel (same one they've been using), paste:</p>
+          <div class="copy dark" id="shortcut-prompt">Create a Desktop shortcut called "Harmony Health editing" that opens this project folder in VS Code when I double-click it. I'm on a Mac. I don't know what Terminal is. Please handle everything — creating the file, making it executable, and placing it on my Desktop. Use ~/harmony-health as the folder path so it works no matter what my Mac username is. When done, tell me it's ready to test.<button class="copy-btn" onclick="copyEl('shortcut-prompt', this)">Copy</button></div>
 
-          <p>Daily use: they open VS Code from Spotlight → <strong>File → Open Recent → harmony-health</strong>. 3 clicks.</p>
+          <p>Claude will:</p>
+          <ul>
+            <li>Create <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on their Desktop</li>
+            <li>Make it executable (no user action needed)</li>
+            <li>Confirm it's ready</li>
+          </ul>
         </div>
 
         <div class="subpart">
-          <h3>6.2 Even easier — Desktop shortcut (recommended)</h3>
-          <p>Create <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on their Desktop. Right-click Desktop → <strong>New Document</strong> (or open TextEdit → New).</p>
+          <h3>6.2 Test it</h3>
+          <ol>
+            <li>Go to their Desktop (minimize VS Code, or <strong>⌘</strong>+<strong>F3</strong> to show Desktop)</li>
+            <li>Double-click <strong>Harmony Health editing</strong></li>
+            <li>A small black Terminal window flashes open briefly, then VS Code opens to the project folder</li>
+            <li>Click the Claude icon in VS Code's left sidebar — the chat is ready</li>
+          </ol>
 
-          <p><strong>Paste this into the file. Replace <code>YOUR-MAC-USERNAME</code> with their actual Mac username:</strong></p>
-          <div class="copy" id="command-template">#!/bin/bash
-cd /Users/YOUR-MAC-USERNAME/harmony-health
-open -a "Visual Studio Code" .<button class="copy-btn" onclick="copyEl('command-template', this)">Copy</button></div>
-
-          <p><strong>Save as</strong> <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on Desktop. If TextEdit adds <code>.txt</code>, remove it.</p>
-
-          <p>Then in VS Code's Terminal (one last terminal moment for setup), make it executable:</p>
-          <div class="copy" id="chmod-cmd">chmod +x "/Users/YOUR-MAC-USERNAME/Desktop/Harmony Health editing.command"<button class="copy-btn" onclick="copyEl('chmod-cmd', this)">Copy</button></div>
-
-          <p>Right-click the <code>.command</code> → <strong>Get Info → Custom Icon</strong> → paste a Harmony Health logo image.</p>
-
-          <div class="alert">
-            <span class="label">Daily experience</span>
-            Double-click opens VS Code straight to the project folder. The Claude extension panel is pinned open from their last session. Click the Claude icon in the sidebar if it's not already visible, and start chatting.
+          <div class="alert warn">
+            <span class="label">First-time permission popup</span>
+            On first double-click, macOS may ask to confirm because the file came from an unknown source. Click <strong>Open</strong>. It won't ask again.
           </div>
+        </div>
+
+        <div class="subpart">
+          <h3>6.3 (Optional) Give it a Harmony Health icon</h3>
+          <ol>
+            <li>Find any Harmony Health logo image on your computer (a <code>.png</code> or <code>.jpg</code>)</li>
+            <li>Double-click to open it in Preview</li>
+            <li>Press <strong>⌘</strong>+<strong>A</strong> to select all, then <strong>⌘</strong>+<strong>C</strong> to copy</li>
+            <li>On the Desktop, single-click the <strong>Harmony Health editing</strong> file to highlight it</li>
+            <li>Press <strong>⌘</strong>+<strong>I</strong> to open <strong>Get Info</strong></li>
+            <li>Single-click the little icon in the top-left corner of the Get Info window (it will highlight blue)</li>
+            <li>Press <strong>⌘</strong>+<strong>V</strong> to paste the logo</li>
+            <li>Close the Get Info window. The shortcut now has a branded icon.</li>
+          </ol>
         </div>
       </div>
     </section>
