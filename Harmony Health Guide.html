@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Harmony Health — Editing Guide</title>
+  <style>
+    :root {
+      --cream: #FAF8F4;
+      --tint: #F7F9F8;
+      --dark: #1F2A25;
+      --sage: #6B9680;
+      --sage-dark: #517563;
+      --sage-light: #80BE9F;
+      --sage-mint: #9BD3B6;
+      --body: #30373E;
+      --muted: #535353;
+      --ring: #E5ECE8;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--body);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px 96px;
+    }
+    @media (min-width: 768px) {
+      .container { padding: 80px 48px 120px; }
+    }
+    header { margin-bottom: 48px; }
+    .eyebrow {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(107, 150, 128, 0.1);
+      color: var(--sage-dark);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--dark);
+      margin: 0 0 16px;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 56px; }
+    }
+    h1 .italic {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--sage-dark);
+    }
+    .lede {
+      font-size: 18px;
+      color: var(--body);
+      max-width: 56ch;
+      margin: 0;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--dark);
+      margin: 64px 0 24px;
+    }
+    @media (min-width: 768px) {
+      h2 { font-size: 36px; margin-top: 80px; }
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 32px 0 12px;
+    }
+    p { margin: 0 0 16px; max-width: 64ch; }
+    a { color: var(--sage-dark); }
+    a:hover { color: var(--sage); }
+    strong { color: var(--dark); font-weight: 600; }
+    hr {
+      border: 0;
+      border-top: 1px solid var(--ring);
+      margin: 64px 0;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 20px 40px -24px rgba(31, 42, 37, 0.08);
+    }
+    .card.dark {
+      background: var(--dark);
+      color: white;
+      border: none;
+    }
+    .card.dark h3 { color: white; }
+    .card.dark p { color: rgba(255,255,255,0.75); }
+
+    /* Step list */
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+    .steps > li {
+      counter-increment: step;
+      position: relative;
+      padding: 28px 28px 28px 84px;
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .steps h3 { margin: 0 0 6px; font-size: 18px; }
+    .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    /* Copy block */
+    .copy-block {
+      position: relative;
+      background: var(--tint);
+      border: 1px solid var(--ring);
+      border-radius: 16px;
+      padding: 20px 56px 20px 20px;
+      margin: 16px 0 20px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--dark);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy-block.large {
+      background: var(--dark);
+      color: white;
+      border: none;
+      font-family: -apple-system, sans-serif;
+      font-size: 15px;
+      padding: 24px 56px 24px 24px;
+      line-height: 1.6;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: -apple-system, sans-serif;
+    }
+    .copy-btn:hover { background: var(--sage-dark); }
+    .copy-btn:active { transform: scale(0.96); }
+    .copy-btn.copied { background: var(--sage-light); }
+
+    /* Quick edits grid */
+    .edits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 640px) {
+      .edits { grid-template-columns: 1fr 1fr; }
+    }
+    .edit-card {
+      background: white;
+      border: 1px solid var(--ring);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .edit-card .tag {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--sage-dark);
+      margin-bottom: 8px;
+    }
+    .edit-card h4 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .edit-card .prompt {
+      background: var(--tint);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.5;
+      font-family: -apple-system, sans-serif;
+      margin: 0 0 12px;
+      flex: 1;
+    }
+    .edit-card .prompt em {
+      color: var(--sage-dark);
+      font-style: normal;
+      font-weight: 600;
+    }
+    .mini-copy {
+      align-self: flex-start;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: white;
+      border: none;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: -apple-system, sans-serif;
+    }
+    .mini-copy:hover { background: #2a3832; }
+    .mini-copy.copied { background: var(--sage); }
+
+    /* Icons */
+    .icon-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(107, 150, 128, 0.1);
+      color: var(--sage-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Alerts */
+    .alert {
+      background: white;
+      border-left: 4px solid var(--sage);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .alert strong { color: var(--sage-dark); }
+
+    /* Footer */
+    footer {
+      margin-top: 96px;
+      padding-top: 32px;
+      border-top: 1px solid var(--ring);
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Utility */
+    .kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--tint);
+      border: 1px solid var(--ring);
+      border-radius: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      color: var(--dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <span class="eyebrow">For the Harmony Health team</span>
+      <h1>Your editing guide.<br /><span class="italic">Everything you need to update the site.</span></h1>
+      <p class="lede" style="margin-top: 20px;">
+        Edit any page on yourharmonyhealth.com by chatting with Claude in plain English.
+        No coding knowledge required. When you're done, say <strong>"publish"</strong> and it goes live in about 90 seconds.
+      </p>
+    </header>
+
+    <hr />
+
+    <h2>The 3 steps, every time</h2>
+    <ol class="steps">
+      <li>
+        <h3>Double-click "Harmony Health editing" on your Desktop.</h3>
+        <p>VS Code opens to your project folder. Wait about 10 seconds — Claude launches automatically in the panel at the bottom.</p>
+      </li>
+      <li>
+        <h3>Paste the master prompt below.</h3>
+        <p>Press <span class="kbd">⌘</span> + <span class="kbd">V</span> in the Claude terminal. Press Return. Claude will ask what you want to change.</p>
+      </li>
+      <li>
+        <h3>Tell Claude what you want, in plain English.</h3>
+        <p>When you're done, say <strong>"publish"</strong> or <strong>"ship it"</strong>. Your changes go live in 90 seconds.</p>
+      </li>
+    </ol>
+
+    <hr />
+
+    <h2>The master prompt</h2>
+    <p>Paste this into Claude at the start of every new session. Press the copy button → click into the Claude terminal → press <span class="kbd">⌘</span> + <span class="kbd">V</span> → press Return.</p>
+
+    <div class="copy-block large" id="master-prompt">You are helping me edit the Harmony Health website. I am not a developer.
+
+Rules:
+1. Ask me what I want to change before doing anything.
+2. Make only the change I ask for. Don't "improve" other things.
+3. If I describe something vague, ask me one clarifying question first.
+4. If I attach a photo, ask where it should go before using it.
+5. After the edit, explain what you changed in plain English (not code).
+6. When I say "publish", "ship it", "deploy", or "go live", commit and push to main so Vercel deploys it.
+7. Never invent medical statistics, patient counts, or clinical claims. If I ask you to add a stat, ask me for a source first.
+8. If a build looks broken or risky, stop and ask me before pushing.
+9. Keep responses short and friendly. No jargon.
+
+Now ask me: "What would you like to change today?"<button class="copy-btn" onclick="copyEl('master-prompt', this)">Copy</button></div>
+
+    <hr />
+
+    <h2>Attaching a photo</h2>
+    <div class="card">
+      <h3>Drag and drop straight into Claude.</h3>
+      <p>
+        If you want to replace a photo on the site, drag the image file from your Mac's Finder or Desktop
+        directly into the Claude panel at the bottom of VS Code. Claude will tell you the file was attached,
+        then ask where it should go.
+      </p>
+      <p style="margin: 0;">
+        Tell it plainly, like: <em>"Put this on the About page as the main Megan photo"</em> or
+        <em>"Replace the hero image on the Peptide Therapy page with this."</em>
+      </p>
+    </div>
+
+    <hr />
+
+    <h2>10 quick edits — copy and paste</h2>
+    <p>Common changes. Click <strong>Copy</strong>, paste into Claude, fill in the blanks marked with <em>[brackets]</em>.</p>
+
+    <div class="edits">
+
+      <div class="edit-card">
+        <span class="tag">Contact info</span>
+        <h4>Update the phone number everywhere</h4>
+        <div class="prompt" id="edit-1">Change the office phone number from (706) 614-6818 to <em>[new number]</em> on every page it appears.</div>
+        <button class="mini-copy" onclick="copyEl('edit-1', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Contact info</span>
+        <h4>Update office hours</h4>
+        <div class="prompt" id="edit-2">Change the office hours from "Tuesday, Wednesday, Thursday 9am-3pm" to <em>[new hours]</em> on the contact page, footer, and top bar.</div>
+        <button class="mini-copy" onclick="copyEl('edit-2', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Photos</span>
+        <h4>Replace Megan's photo on the About page</h4>
+        <div class="prompt" id="edit-3">I'm dragging in a new photo of Megan. Replace the current Megan photo on the About page with this one. Keep the same cropping/styling.</div>
+        <button class="mini-copy" onclick="copyEl('edit-3', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Photos</span>
+        <h4>Swap a service page photo</h4>
+        <div class="prompt" id="edit-4">I'm dragging in a new photo. Replace the <em>[section name, e.g. "Semaglutide"]</em> image on the <em>[page name]</em> page with this one.</div>
+        <button class="mini-copy" onclick="copyEl('edit-4', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">FAQs</span>
+        <h4>Add a new FAQ</h4>
+        <div class="prompt" id="edit-5">Add a new FAQ to the <em>[service]</em> page. Question: <em>"[exact question]"</em>. Answer: <em>"[exact answer]"</em>. Put it after the existing "<em>[question title it should follow]</em>" question.</div>
+        <button class="mini-copy" onclick="copyEl('edit-5', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">FAQs</span>
+        <h4>Edit an existing FAQ answer</h4>
+        <div class="prompt" id="edit-6">On the <em>[service]</em> page FAQ, find the question "<em>[existing question]</em>" and change the answer to: <em>[new answer]</em>.</div>
+        <button class="mini-copy" onclick="copyEl('edit-6', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Pricing</span>
+        <h4>Update a service price</h4>
+        <div class="prompt" id="edit-7">On the Services & Pricing page, change <em>[item name, e.g. "Semaglutide"]</em> from <em>[current price]</em> to <em>[new price]</em>.</div>
+        <button class="mini-copy" onclick="copyEl('edit-7', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Hero text</span>
+        <h4>Change the homepage headline</h4>
+        <div class="prompt" id="edit-8">Change the homepage hero headline from "Feel your absolute best." to <em>"[new headline]"</em>. Keep the italic/sage styling on the second line.</div>
+        <button class="mini-copy" onclick="copyEl('edit-8', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Announcements</span>
+        <h4>Add a promotion banner</h4>
+        <div class="prompt" id="edit-9">Add a small promotion banner above the homepage hero that says: <em>"[announcement text]"</em>. Sage background, white text. Should be dismissible.</div>
+        <button class="mini-copy" onclick="copyEl('edit-9', this)">Copy prompt</button>
+      </div>
+
+      <div class="edit-card">
+        <span class="tag">Meta</span>
+        <h4>Change the SEO description for a page</h4>
+        <div class="prompt" id="edit-10">On the <em>[page name]</em> page, change the SEO description (the short summary that appears in Google search results) to: <em>"[new description, max ~160 characters]"</em>.</div>
+        <button class="mini-copy" onclick="copyEl('edit-10', this)">Copy prompt</button>
+      </div>
+
+    </div>
+
+    <hr />
+
+    <h2>Publishing — how "ship it" works</h2>
+    <div class="card">
+      <p>
+        When you say <strong>"publish"</strong>, <strong>"ship it"</strong>, <strong>"deploy"</strong>, or <strong>"go live"</strong>,
+        Claude will:
+      </p>
+      <ol style="margin: 0; padding-left: 20px;">
+        <li>Save your changes to the project's history (a "commit")</li>
+        <li>Upload the change to GitHub (a "push")</li>
+        <li>Vercel automatically detects the push and rebuilds the site</li>
+        <li>Your change is live at yourharmonyhealth.com in ~90 seconds</li>
+      </ol>
+      <p style="margin: 20px 0 0;">
+        Open the site in a fresh browser window to see the update. If it hasn't changed yet, wait another minute and refresh.
+      </p>
+    </div>
+
+    <div class="alert">
+      <strong>If a change doesn't appear after 3-4 minutes</strong> — don't panic and don't tell Claude to "re-deploy" or "try again." Text Chase. He can check what happened in under a minute.
+    </div>
+
+    <hr />
+
+    <h2>When something goes wrong</h2>
+
+    <h3>If Claude says something confusing, or you can't find what it's describing</h3>
+    <p>Take a screenshot and show it to Claude.</p>
+    <ol>
+      <li>Press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">4</span></li>
+      <li>Drag a box around the thing you want to show</li>
+      <li>The screenshot saves to your Desktop</li>
+      <li>Drag it into the Claude panel, and say <em>"I'm stuck on this — can you help?"</em></li>
+    </ol>
+
+    <h3>If a site is broken after publishing</h3>
+    <p>
+      Vercel keeps the last working version of your site live while it builds the new one. If the new build fails, <strong>the site doesn't break</strong> — it just keeps serving the last good version.
+    </p>
+    <p>If the site <em>does</em> look wrong, don't have Claude keep editing to fix it. Text Chase — he can restore the previous version in under a minute.</p>
+
+    <h3>If the desktop shortcut doesn't work</h3>
+    <p>Make sure VS Code is in your Applications folder. Then try opening VS Code manually: <span class="kbd">⌘</span> + Space, type "VS Code", press Return. From the File menu, choose <strong>Open Recent → harmony-health</strong>.</p>
+
+    <hr />
+
+    <h2>When to ask Chase instead of Claude</h2>
+    <div class="card">
+      <p>For these, text Chase first — Claude can handle them but the risk is higher if something goes wrong:</p>
+      <ul>
+        <li>Adding an entirely new service page (not editing an existing one)</li>
+        <li>Changing the overall color or visual style of the site</li>
+        <li>Anything involving the domain (<strong>yourharmonyhealth.com</strong>) itself</li>
+        <li>Changing the way the booking link works</li>
+        <li>Removing whole sections</li>
+        <li>Any time Claude says "this might break something" or asks you to confirm twice</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>
+        Questions? Text Chase.<br />
+        This guide also lives at <a href="https://yourharmonyhealth.com/help.html">yourharmonyhealth.com/help.html</a> for easy access from your phone.
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    function copyEl(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText
+        .replace(/Copy$/, '')
+        .replace(/^\s+|\s+$/g, '');
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 1600);
+      });
+    }
+  </script>
+</body>
+</html>
