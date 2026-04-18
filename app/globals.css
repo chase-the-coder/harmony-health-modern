@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: harmony --default;
+}
+
+@plugin "daisyui/theme" {
+  name: "harmony";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: #FFFFFF;
+  --color-base-200: #F7F9F8;
+  --color-base-300: #E5ECE8;
+  --color-base-content: #1F2A25;
+
+  --color-primary: #517563;
+  --color-primary-content: #FFFFFF;
+
+  --color-secondary: #80BE9F;
+  --color-secondary-content: #1F2A25;
+
+  --color-accent: #6B9680;
+  --color-accent-content: #FFFFFF;
+
+  --color-neutral: #2A3832;
+  --color-neutral-content: #FFFFFF;
+
+  --color-info: #80BE9F;
+  --color-success: #6B9680;
+  --color-warning: #E6B85C;
+  --color-error: #C0554D;
+
+  --radius-selector: 5px;
+  --radius-field: 5px;
+  --radius-box: 5px;
+}
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", sans-serif;
+  --font-display: "Plus Jakarta Sans", "sans-serif";
+  
+  --animate-shimmer: shimmer 3s ease-out infinite alternate;
+  --animate-opacity: opacity 0.25s ease-in-out;
+  --animate-appearFromRight: appearFromRight 300ms ease-in-out;
+  --animate-wiggle: wiggle 1.5s ease-in-out infinite;
+  --animate-popup: popup 0.25s ease-in-out;
+
+  @keyframes shimmer {
+    0% { background-position: 0 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes opacity {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes appearFromRight {
+    0% { opacity: 0.3; transform: translate(15%, 0px); }
+    100% { opacity: 1; transform: translate(0); }
+  }
+
+  @keyframes wiggle {
+    0%, 20%, 80%, 100% { transform: rotate(0deg); }
+    30%, 60% { transform: rotate(-2deg); }
+    40%, 70% { transform: rotate(2deg); }
+    45% { transform: rotate(-4deg); }
+    55% { transform: rotate(4deg); }
+  }
+
+  @keyframes popup {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+}
+
+html,
+body {
+  scroll-behavior: smooth !important;
+  color: #535353;
+}
+
+body {
+  font-size: 16px;
+  line-height: 24px;
+  background: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #30373E;
+}
+
+/* Eyebrow / small h3 style used throughout the site */
+.hh-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6B9680;
+  text-transform: uppercase;
+  letter-spacing: 3.4px;
+  line-height: 20px;
+}
+
+/* Main section H2 */
+.hh-h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #30373E;
+  line-height: 52px;
+  letter-spacing: -0.7px;
+}
+
+@media (max-width: 768px) {
+  .hh-h2 { font-size: 32px; line-height: 38px; }
+}
+
+progress::-webkit-progress-value {
+  transition: 0.6s width ease-out;
+}
+
+.btn-gradient {
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82) !important;
+  background-size: 300% 300% !important;
+  animation: var(--animate-shimmer) !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  color: white !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+.btn-gradient:hover {
+  filter: saturate(1.2) !important;
+}
+
+.btn-gradient:disabled {
+  background: rgb(107 114 128 / 0.3) !important;
+  color: rgb(156 163 175) !important;
+}
+
+.btn {
+  text-transform: capitalize !important;
+}
+
+/* Video hero gradient mask - inward radial masking per Kashef pattern */
+.hero-video-mask {
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Stronger mask for text-heavy hero with darker overlay needs */
+.hero-video-mask-strong {
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 90%);
+}
+
+::selection {
+  background-color: #6B9680;
+  color: white;
+}
