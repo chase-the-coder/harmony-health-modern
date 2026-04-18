@@ -380,6 +380,39 @@
       margin-left: 8px;
       vertical-align: middle;
     }
+
+    /* Inline copy chip — for any command or value paste-worthy that lives mid-sentence */
+    .ic {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--tint);
+      padding: 3px 4px 3px 10px;
+      border-radius: 10px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      color: var(--dark);
+      border: 1px solid var(--ring);
+      vertical-align: 1px;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+    .ic button {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 7px;
+      background: var(--sage);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: -apple-system, sans-serif;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .ic button:hover { background: var(--sage-dark); }
+    .ic button:active { transform: scale(0.94); }
+    .ic button.copied { background: var(--sage-mint); color: var(--dark); }
   </style>
 </head>
 <body>
@@ -421,7 +454,7 @@
         <ul>
           <li>Their Mac, plugged in</li>
           <li>Admin password (for installs)</li>
-          <li>GoDaddy login for <code>yourharmonyhealth.com</code></li>
+          <li>GoDaddy login for <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span></li>
           <li>Access to practice email for verification codes</li>
           <li>Claude Pro / Max / Team / Enterprise subscription — the free plan does not include Claude Code</li>
         </ul>
@@ -561,7 +594,7 @@ zip -r harmony-health-modern.zip harmony-health-modern \
             <li>Chase sends <code>harmony-health-modern.zip</code> via Dropbox / WeTransfer / AirDrop</li>
             <li>They download to their Downloads folder</li>
             <li>Double-click the zip — creates a <code>harmony-health-modern</code> folder</li>
-            <li>In Finder, drag that folder to their home folder and rename it to <code>harmony-health</code></li>
+            <li>In Finder, drag that folder to their home folder and rename it to <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span></li>
           </ol>
         </div>
 
@@ -569,7 +602,7 @@ zip -r harmony-health-modern.zip harmony-health-modern \
           <h3>3.2 Open the folder in VS Code</h3>
           <ol>
             <li>In VS Code: <strong>File → Open Folder</strong></li>
-            <li>Pick <code>harmony-health</code> in their home folder</li>
+            <li>Pick <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span> in their home folder</li>
             <li>Click <strong>Yes, I trust the authors</strong> when prompted</li>
             <li>All the site files appear in the left sidebar</li>
           </ol>
@@ -641,7 +674,7 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
           <li>Go to:
             <div class="copy url" id="vercel-new">https://vercel.com/new<button class="copy-btn" onclick="copyEl('vercel-new', this)">Copy</button></div>
           </li>
-          <li>Their GitHub repos appear. Click <strong>Import</strong> next to <code>harmony-health-site</code>.</li>
+          <li>Their GitHub repos appear. Click <strong>Import</strong> next to <span class="ic">harmony-health-site<button onclick="copyText('harmony-health-site', this)">Copy</button></span>.</li>
           <li>Vercel auto-detects Next.js. Leave all settings at defaults.</li>
           <li>No environment variables needed.</li>
           <li>Click <strong>Deploy</strong>.</li>
@@ -664,15 +697,15 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
           <h3>5.1 In Vercel</h3>
           <ol>
             <li>Go to the new project → <strong>Settings → Domains</strong></li>
-            <li>Enter <code>yourharmonyhealth.com</code> → click <strong>Add</strong></li>
+            <li>Enter <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span> → click <strong>Add</strong></li>
             <li>Vercel shows the required DNS config. Confirm it matches the table below.</li>
-            <li>Also add <code>www.yourharmonyhealth.com</code> (Vercel auto-redirects one to the other)</li>
+            <li>Also add <span class="ic">www.yourharmonyhealth.com<button onclick="copyText('www.yourharmonyhealth.com', this)">Copy</button></span> (Vercel auto-redirects one to the other)</li>
           </ol>
         </div>
 
         <div class="subpart">
           <h3>5.2 In GoDaddy</h3>
-          <p>GoDaddy → Domain Portfolio → click <code>yourharmonyhealth.com</code> → <strong>DNS → Manage Zones</strong>.</p>
+          <p>GoDaddy → Domain Portfolio → click <span class="ic">yourharmonyhealth.com<button onclick="copyText('yourharmonyhealth.com', this)">Copy</button></span> → <strong>DNS → Manage Zones</strong>.</p>
 
           <p><strong>Copy-ready DNS values:</strong></p>
           <div class="copy" id="dns-a-value">76.76.21.21<button class="copy-btn" onclick="copyEl('dns-a-value', this)">Copy A record value</button></div>
@@ -683,8 +716,18 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
               <tr><th>Action</th><th>Type</th><th>Name</th><th>Value</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Edit existing</strong></td><td>A</td><td><code>@</code></td><td>Change from <code>160.153.0.74</code> to <code>76.76.21.21</code></td></tr>
-              <tr><td><strong>Edit or add</strong></td><td>CNAME</td><td><code>www</code></td><td>Set to <code>cname.vercel-dns.com</code></td></tr>
+              <tr>
+                <td><strong>Edit existing</strong></td>
+                <td>A</td>
+                <td><span class="ic">@<button onclick="copyText('@', this)">Copy</button></span></td>
+                <td>Change from <span class="ic">160.153.0.74<button onclick="copyText('160.153.0.74', this)">Copy</button></span> to <span class="ic">76.76.21.21<button onclick="copyText('76.76.21.21', this)">Copy</button></span></td>
+              </tr>
+              <tr>
+                <td><strong>Edit or add</strong></td>
+                <td>CNAME</td>
+                <td><span class="ic">www<button onclick="copyText('www', this)">Copy</button></span></td>
+                <td>Set to <span class="ic">cname.vercel-dns.com<button onclick="copyText('cname.vercel-dns.com', this)">Copy</button></span></td>
+              </tr>
             </tbody>
           </table>
 
@@ -722,14 +765,14 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
 
         <div class="subpart">
           <h3>6.2 Even easier — Desktop shortcut (recommended)</h3>
-          <p>Create <code>Harmony Health editing.command</code> on their Desktop. Right-click Desktop → <strong>New Document</strong> (or open TextEdit → New).</p>
+          <p>Create <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on their Desktop. Right-click Desktop → <strong>New Document</strong> (or open TextEdit → New).</p>
 
           <p><strong>Paste this into the file. Replace <code>YOUR-MAC-USERNAME</code> with their actual Mac username:</strong></p>
           <div class="copy" id="command-template">#!/bin/bash
 cd /Users/YOUR-MAC-USERNAME/harmony-health
 open -a "Visual Studio Code" .<button class="copy-btn" onclick="copyEl('command-template', this)">Copy</button></div>
 
-          <p><strong>Save as</strong> <code>Harmony Health editing.command</code> on Desktop. If TextEdit adds <code>.txt</code>, remove it.</p>
+          <p><strong>Save as</strong> <span class="ic">Harmony Health editing.command<button onclick="copyText('Harmony Health editing.command', this)">Copy</button></span> on Desktop. If TextEdit adds <code>.txt</code>, remove it.</p>
 
           <p>Then in VS Code's Terminal (one last terminal moment for setup), make it executable:</p>
           <div class="copy" id="chmod-cmd">chmod +x "/Users/YOUR-MAC-USERNAME/Desktop/Harmony Health editing.command"<button class="copy-btn" onclick="copyEl('chmod-cmd', this)">Copy</button></div>
@@ -751,8 +794,8 @@ open -a "Visual Studio Code" .<button class="copy-btn" onclick="copyEl('command-
 
         <p>Easiest way — they drag it in Finder:</p>
         <ol>
-          <li>Open Finder → go to <code>harmony-health</code> folder</li>
-          <li>Find <code>Harmony Health Guide.html</code></li>
+          <li>Open Finder → go to <span class="ic">harmony-health<button onclick="copyText('harmony-health', this)">Copy</button></span> folder</li>
+          <li>Find <span class="ic">Harmony Health Guide.html<button onclick="copyText('Harmony Health Guide.html', this)">Copy</button></span></li>
           <li>Drag a copy to Desktop (hold Option while dragging to keep the original in place)</li>
         </ol>
 
@@ -834,6 +877,17 @@ open -a "Visual Studio Code" .<button class="copy-btn" onclick="copyEl('command-
           btn.innerText = orig;
           btn.classList.remove('copied');
         }, 1600);
+      });
+    }
+    function copyText(text, btn) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerText;
+        btn.innerText = '✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = orig;
+          btn.classList.remove('copied');
+        }, 1200);
       });
     }
   </script>
