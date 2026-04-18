@@ -63,9 +63,11 @@ export default function ModernMeetMegan() {
               Meet your provider
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-6">
-              You won&rsquo;t see a different face
+              Clinical precision.
               <br />
-              <span className="text-[#6B9680]">every time you come in.</span>
+              <span className="italic font-light text-[#517563]">
+                Delivered personally.
+              </span>
             </h2>
             <p className="text-lg text-[#30373E] leading-relaxed max-w-[56ch] mb-6">
               Harmony Health is Megan Cryder, NP-C. She founded the practice
