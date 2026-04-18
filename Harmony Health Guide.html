@@ -279,6 +279,57 @@
     }
     .alert strong { color: var(--sage-dark); }
 
+    /* Pinned tip callout — very visually prominent */
+    .tip {
+      position: relative;
+      background: linear-gradient(135deg, #1F2A25 0%, #2A3832 100%);
+      color: white;
+      border-radius: 20px;
+      padding: 24px 28px 24px 84px;
+      margin: 32px 0;
+      box-shadow: 0 24px 48px -20px rgba(107, 150, 128, 0.4);
+    }
+    .tip::before {
+      content: "📸";
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .tip .label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-mint);
+      margin-bottom: 8px;
+    }
+    .tip h4 {
+      margin: 0 0 8px;
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .tip p {
+      margin: 0 0 10px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+      max-width: none;
+    }
+    .tip .kbd {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.2);
+      color: white;
+    }
+
     /* Footer */
     footer {
       margin-top: 96px;
@@ -314,28 +365,45 @@
       </p>
     </header>
 
+    <div class="tip">
+      <span class="label">The most important habit</span>
+      <h4>Confused by anything? Take a screenshot and give it to Claude.</h4>
+      <p>
+        If the screen looks different from this guide, a button isn't where you expect, an error pops up,
+        or you just don't know what something means — don't guess. Claude can see images.
+      </p>
+      <p>
+        Press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
+        to copy a screenshot to the clipboard. Paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
+        and ask <em>"What am I looking at?"</em> or <em>"What should I click?"</em>
+      </p>
+      <p style="margin: 0;">
+        Works every time. Use it whenever you're stuck.
+      </p>
+    </div>
+
     <hr />
 
     <h2>The 3 steps, every time</h2>
     <ol class="steps">
       <li>
         <h3>Double-click "Harmony Health editing" on your Desktop.</h3>
-        <p>VS Code opens to your project folder. Wait about 10 seconds — Claude launches automatically in the panel at the bottom.</p>
+        <p>VS Code opens to your project folder.</p>
       </li>
       <li>
-        <h3>Paste the master prompt below.</h3>
-        <p>Press <span class="kbd">⌘</span> + <span class="kbd">V</span> in the Claude terminal. Press Return. Claude will ask what you want to change.</p>
+        <h3>Click the Claude icon in the left sidebar.</h3>
+        <p>It looks like a small chat bubble. The chat panel opens on the right.</p>
       </li>
       <li>
         <h3>Tell Claude what you want, in plain English.</h3>
-        <p>When you're done, say <strong>"publish"</strong> or <strong>"ship it"</strong>. Your changes go live in 90 seconds.</p>
+        <p>Describe the change. Attach photos by dragging them in. When you're done, say <strong>"publish"</strong> or <strong>"ship it"</strong>. Your changes go live in 90 seconds.</p>
       </li>
     </ol>
 
     <hr />
 
     <h2>The master prompt</h2>
-    <p>Paste this into Claude at the start of every new session. Press the copy button → click into the Claude terminal → press <span class="kbd">⌘</span> + <span class="kbd">V</span> → press Return.</p>
+    <p>Paste this into Claude at the start of every new session. Press the copy button → click into the Claude chat panel → press <span class="kbd">⌘</span> + <span class="kbd">V</span> → press Return.</p>
 
     <div class="copy-block large" id="master-prompt">You are helping me edit the Harmony Health website. I am not a developer.
 
