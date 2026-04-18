@@ -32,10 +32,10 @@ const ModernHero = () => {
 
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(250,248,244,0) 0%, rgba(250,248,244,0.65) 60%, rgba(250,248,244,0.95) 100%)",
+            "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(250,248,244,0.45) 0%, rgba(250,248,244,0.75) 55%, rgba(250,248,244,0.97) 100%)",
         }}
       />
 
