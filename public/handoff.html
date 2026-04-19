@@ -519,9 +519,9 @@ zip -r harmony-health-modern.zip harmony-health-modern \
         </div>
 
         <div class="subpart">
-          <h3>1.3 Claude (should already be purchased)</h3>
-          <p>Confirm they can log into:</p>
-          <div class="copy url" id="claude-login">https://claude.ai<button class="copy-btn" onclick="copyEl('claude-login', this)">Copy</button></div>
+          <h3>1.3 Claude</h3>
+          <p>Have them create an account using your referral link (free 7-day trial):</p>
+          <div class="copy url" id="claude-login">https://claude.ai/referral/8Naj_4CXtg<button class="copy-btn" onclick="copyEl('claude-login', this)">Copy</button></div>
           <p style="margin-top: 10px;">Same login works for the Claude extension in Part 2.</p>
         </div>
       </div>
@@ -728,7 +728,7 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
                 <td><strong>Edit existing</strong></td>
                 <td>A</td>
                 <td><span class="ic">@<button onclick="copyText('@', this)">Copy</button></span></td>
-                <td>Change from <span class="ic">160.153.0.74<button onclick="copyText('160.153.0.74', this)">Copy</button></span> to <span class="ic">76.76.21.21<button onclick="copyText('76.76.21.21', this)">Copy</button></span></td>
+                <td>Change from <code>160.153.0.74</code> to <span class="ic">76.76.21.21<button onclick="copyText('76.76.21.21', this)">Copy</button></span></td>
               </tr>
               <tr>
                 <td><strong>Edit or add</strong></td>
@@ -761,8 +761,15 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
         <p>Goal: double-click the Desktop icon → VS Code opens to the project → Claude chat is ready. Claude creates the shortcut for them.</p>
 
         <div class="subpart">
-          <h3>6.1 Paste this prompt into Claude</h3>
-          <p>In the Claude chat panel (same one they've been using), paste:</p>
+          <h3>6.1 Open a Claude chat</h3>
+          <p>Press <span class="kbd">Command</span> + <span class="kbd">Shift</span> + <span class="kbd">P</span> to open the command palette. Type:</p>
+          <div class="copy" id="cmd-palette-handoff" style="margin-top: 8px; margin-bottom: 12px;">Chat: New Claude Session<button class="copy-btn" onclick="copyEl('cmd-palette-handoff', this)">Copy</button></div>
+          <p>Click it when it appears in the dropdown. A fresh Claude chat panel opens on the right.</p>
+        </div>
+
+        <div class="subpart">
+          <h3>6.2 Paste this prompt into Claude</h3>
+          <p>In the Claude chat panel, paste:</p>
           <div class="copy dark" id="shortcut-prompt">Create a Desktop shortcut called "Harmony Health editing" that opens this project folder in VS Code when I double-click it. I'm on a Mac. I don't know what Terminal is. Please handle everything — creating the file, making it executable, and placing it on my Desktop. Use ~/harmony-health as the folder path so it works no matter what my Mac username is. When done, tell me it's ready to test.<button class="copy-btn" onclick="copyEl('shortcut-prompt', this)">Copy</button></div>
 
           <p>Claude will:</p>
@@ -774,12 +781,11 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
         </div>
 
         <div class="subpart">
-          <h3>6.2 Test it</h3>
+          <h3>6.3 Test it</h3>
           <ol>
-            <li>Go to their Desktop (minimize VS Code, or <strong>⌘</strong>+<strong>F3</strong> to show Desktop)</li>
+            <li>Go to their Desktop (minimize VS Code, or <strong>Command</strong>+<strong>F3</strong> to show Desktop)</li>
             <li>Double-click <strong>Harmony Health editing</strong></li>
-            <li>A small black Terminal window flashes open briefly, then VS Code opens to the project folder</li>
-            <li>Click the Claude icon in VS Code's left sidebar — the chat is ready</li>
+            <li>VS Code opens to the project folder and the Claude chat sidebar appears</li>
           </ol>
 
           <div class="alert warn">
@@ -789,7 +795,28 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
         </div>
 
         <div class="subpart">
-          <h3>6.3 (Optional) Give it a Harmony Health icon</h3>
+          <h3>6.4 Paste the editing instructions</h3>
+          <p>Every time they edit the site, they need to start a fresh Claude session and give it the rules. They already have one open from step 6.1. Paste this master prompt into the chat and press Return:</p>
+          <div class="copy dark" id="master-prompt-handoff" style="margin-top: 8px;">You are helping me edit the Harmony Health website. I am not a developer.
+
+Rules:
+1. Start by running the dev server (npm run dev) so I can preview changes at http://localhost:3000 before publishing. Keep it running the whole session.
+2. Ask me what I want to change before doing anything.
+3. Make only the change I ask for. Don't "improve" other things.
+4. If I describe something vague, ask me one clarifying question first.
+5. If I attach a photo, ask where it should go before using it.
+6. After the edit, explain what you changed in plain English (not code). Tell me to check localhost:3000 to preview it.
+7. When I say "publish", "ship it", "deploy", or "go live", commit and push to main so Vercel deploys it.
+8. Never invent medical statistics, patient counts, or clinical claims. If I ask you to add a stat, ask me for a source first.
+9. If a build looks broken or risky, stop and ask me before pushing.
+10. Keep responses short and friendly. No jargon.
+
+Now ask me: "What would you like to change today?"<button class="copy-btn" onclick="copyEl('master-prompt-handoff', this)">Copy</button></div>
+          <p style="margin-top: 10px;">This is what they'll do at the start of every editing session. Make sure they understand: <strong>new session, paste the prompt, then ask for changes.</strong></p>
+        </div>
+
+        <div class="subpart">
+          <h3>6.5 (Optional) Give it a Harmony Health icon</h3>
           <ol>
             <li>Find any Harmony Health logo image on your computer (a <code>.png</code> or <code>.jpg</code>)</li>
             <li>Double-click to open it in Preview</li>
@@ -817,9 +844,9 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
         </ol>
 
         <p><strong>Also bookmark on their phone:</strong> the guide is live on the site at:</p>
-        <div class="copy url" id="help-url">https://yourharmonyhealth.com/help.html<button class="copy-btn" onclick="copyEl('help-url', this)">Copy</button></div>
+        <div class="copy url" id="help-url">https://yourharmonyhealth.com/help<button class="copy-btn" onclick="copyEl('help-url', this)">Copy</button></div>
         <p style="margin-top: 6px; color: var(--muted); font-size: 14px;">
-          <em>(Before DNS cuts over, bookmark the Vercel preview URL instead — <code>https://[project].vercel.app/help.html</code>.)</em>
+          <em>(Before DNS cuts over, bookmark the Vercel preview URL instead — <code>https://[project].vercel.app/help</code>.)</em>
         </p>
 
         <p>The guide covers the daily routine, master prompt, 10 common edits, photo attachment, publishing, screenshot protocol, and when to text Chase.</p>
@@ -858,7 +885,7 @@ When you're finished, give me the GitHub URL of my new repo so I can use it to c
       <p>Send them an email linking to:</p>
       <ul>
         <li>The guide on their Desktop (already there from Part 7)</li>
-        <li>Mobile URL <a href="https://yourharmonyhealth.com/help.html">yourharmonyhealth.com/help.html</a></li>
+        <li>Mobile URL <a href="https://yourharmonyhealth.com/help">yourharmonyhealth.com/help</a></li>
         <li>Chase's phone number for when things get weird</li>
       </ul>
 

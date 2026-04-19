@@ -202,7 +202,7 @@ The repo includes a self-contained HTML guide at `Harmony Health Guide.html`. Co
 cp ~/harmony-health/"Harmony Health Guide.html" ~/Desktop/
 ```
 
-Also bookmark on their phone: the same guide is deployed at **`https://yourharmonyhealth.com/help.html`** (or on the staging URL until DNS cuts over). Save that URL to their phone home screen so they can reference it on the go.
+Also bookmark on their phone: the same guide is deployed at **`https://yourharmonyhealth.com/help`** (or on the staging URL until DNS cuts over). Save that URL to their phone home screen so they can reference it on the go.
 
 The guide covers:
 - The 3-step daily routine
