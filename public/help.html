@@ -312,6 +312,7 @@
       color: var(--sage-mint);
       margin-bottom: 8px;
     }
+    .tip strong { color: white; }
     .tip h4 {
       margin: 0 0 8px;
       color: white;
@@ -323,6 +324,9 @@
       color: rgba(255,255,255,0.88);
       line-height: 1.55;
       max-width: none;
+    }
+    .tip.allow::before {
+      content: "\2705" !important;
     }
     .tip .kbd {
       background: rgba(255,255,255,0.15);
@@ -360,15 +364,6 @@
       <span class="eyebrow">For the Harmony Health team</span>
       <h1>Your editing guide.<br /><span class="italic">Everything you need to update the site.</span></h1>
     </header>
-
-    <hr />
-
-    <h2>One-time setup</h2>
-    <p><strong>Step 1:</strong> Create a Claude account using this link (free 7-day trial):</p>
-    <div class="copy-block" id="claude-signup" style="margin-top: 12px; margin-bottom: 0;">https://claude.ai/referral/8Naj_4CXtg<button class="copy-btn" onclick="copyEl('claude-signup', this)">Copy</button></div>
-    <p style="margin-top: 16px;"><strong>Step 2:</strong> Open Terminal (press <span class="kbd">Command</span> + <span class="kbd">Space</span>, type <strong>Terminal</strong>, press Enter) and paste this command:</p>
-    <div class="copy-block" id="setup-cmd" style="margin-top: 12px; margin-bottom: 0;">curl -fsSL https://harmony-health-modern.vercel.app/setup.sh | bash<button class="copy-btn" onclick="copyEl('setup-cmd', this)">Copy</button></div>
-    <p style="margin-top: 10px;">This installs VS Code, the Claude extension, GitHub, and downloads the website project. It takes about 5-10 minutes and will walk you through each step. You only need to do this once.</p>
 
     <hr />
 
@@ -415,34 +410,34 @@ Now ask me: "What would you like to change today?"<button class="copy-btn" oncli
       </li>
     </ol>
 
+    <div class="tip allow">
+      <span class="label">Important</span>
+      <h4>Always click "Allow" when Claude asks to make a change.</h4>
+      <p>
+        Claude will ask for permission before editing files, running commands, or installing things.
+        A popup will appear that says something like "Allow Claude to edit this file?" or "Allow Claude to run this command?"
+      </p>
+      <p style="margin: 0;">
+        Always click <span class="kbd">Yes</span> or <span class="kbd">Allow</span>. Claude already knows the rules from your master prompt and will only make the changes you asked for. If something looks wrong after, you can always undo or text Chase.
+      </p>
+    </div>
+
     <div class="tip">
       <span class="label">The most important habit</span>
-      <h4>Confused by anything? Take a screenshot and give it to Claude.</h4>
+      <h4>Confused or stuck? Show Claude what you see.</h4>
       <p>
         If the screen looks different from this guide, a button isn't where you expect, an error pops up,
-        or you just don't know what something means — don't guess. Claude can see images.
+        or you just don't know what something means, Claude can see images.
       </p>
       <p>
-        Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
+        <strong>Screenshots:</strong> Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
         to copy a screenshot to the clipboard. Paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
         and ask <em>"What am I looking at?"</em> or <em>"What should I click?"</em>
       </p>
       <p style="margin: 0;">
-        Works every time. Use it whenever you're stuck.
-      </p>
-    </div>
-
-    <hr />
-
-    <h2>Attaching a photo</h2>
-    <div class="card">
-      <h3>Hold Shift and drag into the Claude chat.</h3>
-      <p>
-        If you want to replace a photo on the site, hold <span class="kbd">Shift</span> and drag the image file from Finder or your Desktop
-        into the Claude chat input box in VS Code. Without Shift, VS Code just opens the image as a tab instead of attaching it.
-      </p>
-      <p style="margin: 0;">
-        Tell it plainly, like: <em>"Put this on the About page as the main Megan photo"</em> or
+        <strong>Photos for the site:</strong> Hold <span class="kbd">Shift</span> and drag the image from Finder or your Desktop into the Claude chat.
+        Without Shift, VS Code opens the image as a tab instead of attaching it.
+        Tell Claude where it goes, like: <em>"Put this on the About page as the main Megan photo"</em> or
         <em>"Replace the hero image on the Peptide Therapy page with this."</em>
       </p>
     </div>
@@ -554,13 +549,11 @@ Now ask me: "What would you like to change today?"<button class="copy-btn" oncli
     <h2>When something goes wrong</h2>
 
     <h3>If Claude says something confusing, or you can't find what it's describing</h3>
-    <p>Take a screenshot and show it to Claude.</p>
-    <ol>
-      <li>Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">4</span></li>
-      <li>Drag a box around the thing you want to show</li>
-      <li>The screenshot saves to your Desktop</li>
-      <li>Drag it into the Claude panel, and say <em>"I'm stuck on this — can you help?"</em></li>
-    </ol>
+    <p>
+      Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
+      to copy a screenshot to the clipboard. Paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
+      and say <em>"I'm stuck on this — can you help?"</em>
+    </p>
 
     <h3>If a site is broken after publishing</h3>
     <p>
