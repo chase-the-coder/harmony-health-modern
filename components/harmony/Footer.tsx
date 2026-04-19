@@ -172,6 +172,18 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+
+        <div className="text-center text-[12px] text-white/35 mt-4">
+          Made with ❤️ by Chase from{" "}
+          <a
+            href="https://aiserviceengine.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-white/45 hover:text-white transition-colors"
+          >
+            AI Service Engine
+          </a>
+        </div>
       </div>
     </footer>
   );
