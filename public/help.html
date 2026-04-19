@@ -359,53 +359,35 @@
     <header>
       <span class="eyebrow">For the Harmony Health team</span>
       <h1>Your editing guide.<br /><span class="italic">Everything you need to update the site.</span></h1>
-      <p class="lede" style="margin-top: 20px;">
-        Edit any page on yourharmonyhealth.com by chatting with Claude in plain English.
-        No coding knowledge required. When you're done, say <strong>"publish"</strong> and it goes live in about 90 seconds.
-      </p>
     </header>
-
-    <div class="tip">
-      <span class="label">The most important habit</span>
-      <h4>Confused by anything? Take a screenshot and give it to Claude.</h4>
-      <p>
-        If the screen looks different from this guide, a button isn't where you expect, an error pops up,
-        or you just don't know what something means — don't guess. Claude can see images.
-      </p>
-      <p>
-        Press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
-        to copy a screenshot to the clipboard. Paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
-        and ask <em>"What am I looking at?"</em> or <em>"What should I click?"</em>
-      </p>
-      <p style="margin: 0;">
-        Works every time. Use it whenever you're stuck.
-      </p>
-    </div>
 
     <hr />
 
-    <h2>The 3 steps, every time</h2>
+    <h2>One-time setup</h2>
+    <p><strong>Step 1:</strong> Create a Claude account using this link (free 7-day trial):</p>
+    <div class="copy-block" id="claude-signup" style="margin-top: 12px; margin-bottom: 0;">https://claude.ai/referral/8Naj_4CXtg<button class="copy-btn" onclick="copyEl('claude-signup', this)">Copy</button></div>
+    <p style="margin-top: 16px;"><strong>Step 2:</strong> Open Terminal (press <span class="kbd">Command</span> + <span class="kbd">Space</span>, type <strong>Terminal</strong>, press Enter) and paste this command:</p>
+    <div class="copy-block" id="setup-cmd" style="margin-top: 12px; margin-bottom: 0;">curl -fsSL https://yourharmonyhealth.com/setup.sh | bash<button class="copy-btn" onclick="copyEl('setup-cmd', this)">Copy</button></div>
+    <p style="margin-top: 10px;">This installs VS Code, the Claude extension, GitHub, and downloads the website project. It takes about 5-10 minutes and will walk you through each step. You only need to do this once.</p>
+
+    <hr />
+
+    <h2>Every time you edit the site</h2>
     <ol class="steps">
       <li>
         <h3>Double-click "Harmony Health editing" on your Desktop.</h3>
         <p>VS Code opens to your project folder.</p>
       </li>
       <li>
-        <h3>Click the Claude icon in the left sidebar.</h3>
-        <p>It looks like a small chat bubble. The chat panel opens on the right.</p>
+        <h3>Open a new Claude chat.</h3>
+        <p>Press <span class="kbd">Command</span> + <span class="kbd">Shift</span> + <span class="kbd">P</span> to open the command palette. Type:</p>
+        <div class="copy-block" id="cmd-palette" style="margin-top: 12px; margin-bottom: 0;">Chat: New Claude Session<button class="copy-btn" onclick="copyEl('cmd-palette', this)">Copy</button></div>
+        <p style="margin-top: 10px;">Click it when it appears in the dropdown. A fresh Claude chat panel opens on the right.</p>
       </li>
       <li>
-        <h3>Tell Claude what you want, in plain English.</h3>
-        <p>Describe the change. Attach photos by dragging them in. Claude will start a local preview server so you can see changes at <strong>http://localhost:3000</strong> before they go live. When you're happy, say <strong>"publish"</strong> or <strong>"ship it"</strong>. Your changes go live in 90 seconds.</p>
-      </li>
-    </ol>
-
-    <hr />
-
-    <h2>The master prompt</h2>
-    <p>Paste this into Claude at the start of every new session. Press the copy button → click into the Claude chat panel → press <span class="kbd">⌘</span> + <span class="kbd">V</span> → press Return.</p>
-
-    <div class="copy-block large" id="master-prompt">You are helping me edit the Harmony Health website. I am not a developer.
+        <h3>Paste the master prompt.</h3>
+        <p>Copy the dark block below, paste it into the Claude chat, and press Return. This tells Claude the rules for editing your site. Do this at the start of every new session.</p>
+        <div class="copy-block large" id="master-prompt" style="margin-top: 12px;">You are helping me edit the Harmony Health website. I am not a developer.
 
 Rules:
 1. Start by running the dev server (npm run dev) so I can preview changes at http://localhost:3000 before publishing. Keep it running the whole session.
@@ -420,16 +402,44 @@ Rules:
 10. Keep responses short and friendly. No jargon.
 
 Now ask me: "What would you like to change today?"<button class="copy-btn" onclick="copyEl('master-prompt', this)">Copy</button></div>
+      </li>
+      <li>
+        <h3>Preview your changes at localhost:3000.</h3>
+        <p>Claude will start a local preview server for you. Open your browser and go to:</p>
+        <div class="copy-block" id="localhost-url" style="margin-top: 12px; margin-bottom: 0;">http://localhost:3000<button class="copy-btn" onclick="copyEl('localhost-url', this)">Copy</button></div>
+        <p style="margin-top: 10px;">This shows you exactly what the site will look like before it goes live. Check your changes here after every edit.</p>
+      </li>
+      <li>
+        <h3>When you're happy, say "publish" or "ship it".</h3>
+        <p>Claude will save your changes and push them live. The real site updates at <strong>yourharmonyhealth.com</strong> in about 90 seconds.</p>
+      </li>
+    </ol>
+
+    <div class="tip">
+      <span class="label">The most important habit</span>
+      <h4>Confused by anything? Take a screenshot and give it to Claude.</h4>
+      <p>
+        If the screen looks different from this guide, a button isn't where you expect, an error pops up,
+        or you just don't know what something means — don't guess. Claude can see images.
+      </p>
+      <p>
+        Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">Ctrl</span> + <span class="kbd">4</span>
+        to copy a screenshot to the clipboard. Paste it (<span class="kbd">⌘</span> + <span class="kbd">V</span>) into the Claude chat,
+        and ask <em>"What am I looking at?"</em> or <em>"What should I click?"</em>
+      </p>
+      <p style="margin: 0;">
+        Works every time. Use it whenever you're stuck.
+      </p>
+    </div>
 
     <hr />
 
     <h2>Attaching a photo</h2>
     <div class="card">
-      <h3>Drag and drop straight into Claude.</h3>
+      <h3>Hold Shift and drag into the Claude chat.</h3>
       <p>
-        If you want to replace a photo on the site, drag the image file from your Mac's Finder or Desktop
-        directly into the Claude panel at the bottom of VS Code. Claude will tell you the file was attached,
-        then ask where it should go.
+        If you want to replace a photo on the site, hold <span class="kbd">Shift</span> and drag the image file from Finder or your Desktop
+        into the Claude chat input box in VS Code. Without Shift, VS Code just opens the image as a tab instead of attaching it.
       </p>
       <p style="margin: 0;">
         Tell it plainly, like: <em>"Put this on the About page as the main Megan photo"</em> or
@@ -546,7 +556,7 @@ Now ask me: "What would you like to change today?"<button class="copy-btn" oncli
     <h3>If Claude says something confusing, or you can't find what it's describing</h3>
     <p>Take a screenshot and show it to Claude.</p>
     <ol>
-      <li>Press <span class="kbd">⌘</span> + <span class="kbd">⇧</span> + <span class="kbd">4</span></li>
+      <li>Press <span class="kbd">⌘</span> + <span class="kbd">Shift</span> + <span class="kbd">4</span></li>
       <li>Drag a box around the thing you want to show</li>
       <li>The screenshot saves to your Desktop</li>
       <li>Drag it into the Claude panel, and say <em>"I'm stuck on this — can you help?"</em></li>
