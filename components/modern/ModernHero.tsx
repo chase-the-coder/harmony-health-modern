@@ -58,9 +58,9 @@ const ModernHero = () => {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl lg:text-[88px] font-bold tracking-tighter leading-[0.95] text-[#1F2A25] mb-8"
           >
-            Chase
+            Feel your absolute
             <br />
-            <span className="italic font-light text-[#517563]">Test</span>
+            <span className="italic font-light text-[#517563]">best.</span>
           </motion.h1>
 
           <motion.p
