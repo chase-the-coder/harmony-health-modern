@@ -96,7 +96,7 @@ export default function Header() {
               alt="Harmony Health"
               width={707}
               height={400}
-              className="h-11 md:h-12 w-auto"
+              className="h-14 md:h-16 w-auto"
               priority
             />
           </Link>
