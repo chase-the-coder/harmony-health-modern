@@ -45,3 +45,5 @@ public/legacy-images/full-uploads/
 
 # source images kept locally for reversibility (WebP sources before compression)
 _source/
+specs/
+_archive/
