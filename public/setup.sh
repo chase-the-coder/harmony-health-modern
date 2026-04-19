@@ -1,7 +1,7 @@
 #!/bin/bash
 # =============================================================================
 # Harmony Health Editing Setup (Mac Only)
-# Run: curl -fsSL https://yourharmonyhealth.com/setup.sh | bash
+# Run: curl -fsSL https://harmony-health-modern.vercel.app/setup.sh | bash
 # =============================================================================
 
 set -e

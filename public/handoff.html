@@ -426,6 +426,14 @@
         Every URL and prompt has a <strong>Copy</strong> button. Click once, paste on the call.
       </p>
 
+      <div class="tip" style="margin-top: 24px;">
+        <span class="label">Quick alternative</span>
+        <h4>One-command setup script</h4>
+        <p>This script handles Parts 2, 3, and 6 automatically (VS Code, Claude extension, GitHub CLI, repo clone, npm install, Desktop shortcut). Have them open Terminal and paste:</p>
+        <div class="copy dark" id="setup-script" style="margin-top: 8px;">curl -fsSL https://harmony-health-modern.vercel.app/setup.sh | bash<button class="copy-btn" onclick="copyEl('setup-script', this)">Copy</button></div>
+        <p style="margin-top: 8px; margin-bottom: 0;">They still need to create accounts (Part 1) and connect Vercel + GoDaddy (Parts 4-5) manually.</p>
+      </div>
+
       <div class="toc">
         <h4>Parts</h4>
         <ol>
