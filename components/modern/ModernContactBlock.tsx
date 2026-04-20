@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, Phone, Clock, EnvelopeSimple } from "@phosphor-icons/react";
+import toast from "react-hot-toast";
 
 const TREATMENTS = [
   "Medical Weight Loss",
@@ -132,6 +133,42 @@ function InfoRow({
 
 function ContactForm() {
   const [count, setCount] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
+
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      firstName: fd.get("firstName"),
+      lastName: fd.get("lastName"),
+      email: fd.get("email"),
+      phone: fd.get("phone"),
+      treatment: fd.get("treatment"),
+      comments: fd.get("comments") || "",
+    };
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submit failed");
+
+      toast.success("Message sent! We'll be in touch within a business day.");
+      formRef.current?.reset();
+      setCount(0);
+    } catch {
+      toast.error("Something went wrong. Please call us or try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="rounded-[2rem] bg-white ring-1 ring-[#E5ECE8] p-8 md:p-10">
@@ -143,7 +180,7 @@ function ContactForm() {
         booking link in the nav.
       </p>
 
-      <form className="space-y-5" method="post" action="/api/lead">
+      <form ref={formRef} className="space-y-5" onSubmit={handleSubmit}>
         <div>
           <Label required>Name</Label>
           <div className="grid grid-cols-2 gap-3">
@@ -193,9 +230,10 @@ function ContactForm() {
 
         <button
           type="submit"
-          className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.99] transition-colors duration-300"
+          disabled={submitting}
+          className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.99] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Send message
+          {submitting ? "Sending..." : "Send message"}
           <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
             <path
               d="M1 9L9 1M9 1H2M9 1V8"
@@ -207,7 +245,7 @@ function ContactForm() {
           </svg>
         </button>
         <p className="text-xs text-[#535353] text-center">
-          Protected by Cloudflare Turnstile. We never share your info.
+          We never share your information.
         </p>
       </form>
     </div>
