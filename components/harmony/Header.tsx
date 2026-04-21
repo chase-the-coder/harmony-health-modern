@@ -30,6 +30,8 @@ const NAV: NavItem[] = [
       "/peptide-therapy-athens-ga",
       "/aesthetic-treatments-athens-ga",
       "/iv-hydration-therapy-athens-ga",
+      "/womens-pelvic-health",
+      "/mens-sexual-health",
     ],
     dropdown: [
       { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
@@ -37,6 +39,8 @@ const NAV: NavItem[] = [
       { label: "Peptide Therapy", href: "/peptide-therapy-athens-ga" },
       { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },
       { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
+      { label: "Women's Pelvic Health", href: "/womens-pelvic-health" },
+      { label: "Men's Sexual Health", href: "/mens-sexual-health" },
     ],
   },
   {

@@ -1,3 +1,4 @@
+// TODO: DELETE the under-construction block below (lines marked CONSTRUCTION) when ready to go live.
 import { NextResponse, type NextRequest } from "next/server";
 
 const REDIRECTS: Record<string, string> = {
@@ -11,6 +12,14 @@ const REDIRECTS: Record<string, string> = {
 
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname.replace(/\/+$/, "") || "/";
+
+  // CONSTRUCTION — redirect all visitors to under-construction page in production.
+  // TODO: Delete the next 4 lines when ready to go live.
+  if (process.env.NODE_ENV === "production" && path !== "/under-construction") {
+    return NextResponse.redirect(new URL("/under-construction", request.url));
+  }
+  // END CONSTRUCTION
+
   const target = REDIRECTS[path];
   if (target) {
     return NextResponse.redirect(new URL(target, request.url), 301);
