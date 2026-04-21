@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
 
   // CONSTRUCTION — redirect all visitors to under-construction page in production.
   // TODO: Delete the next 4 lines when ready to go live.
-  if (process.env.NODE_ENV === "production" && path !== "/under-construction") {
+  if (process.env.NODE_ENV === "production" && path !== "/under-construction" && path !== "/help.html") {
     return NextResponse.redirect(new URL("/under-construction", request.url));
   }
   // END CONSTRUCTION
