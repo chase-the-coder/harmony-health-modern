@@ -178,7 +178,7 @@ export default function MedicalWeightLossPage() {
           bookHref={BOOKING_URLS.weightLoss}
           bookLabel="Book GLP-1 consultation"
           image={{
-            src: "/assets/weight-loss/GLP-1.webp",
+            src: "/assets/weight-loss/semaglutide.webp",
             alt: "Woman cooking a fresh meal in her kitchen",
           }}
           imageSide="right"
@@ -201,7 +201,7 @@ export default function MedicalWeightLossPage() {
           bookHref={BOOKING_URLS.weightLoss}
           bookLabel="Book GLP-1 consultation"
           image={{
-            src: "/assets/weight-loss/GLP-1.webp",
+            src: "/assets/weight-loss/tirzepatide.webp",
             alt: "Fit man in his 40s after an outdoor run",
           }}
           imageSide="left"
