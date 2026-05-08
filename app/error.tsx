@@ -34,7 +34,7 @@ export default function Error({
       <div className="flex flex-wrap gap-3 justify-center pt-2">
         <button
           onClick={reset}
-          className="px-6 py-3 rounded-full bg-[#1F2A25] text-white text-sm font-medium hover:bg-[#2A3832] transition-colors"
+          className="px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
         >
           Refresh
         </button>

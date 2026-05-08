@@ -37,7 +37,7 @@ export default function ModernFAQ({
           className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20"
         >
           <div>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
               {eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">

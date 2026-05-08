@@ -32,7 +32,7 @@ const aboutLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#1F2A25] text-white/85">
+    <footer className="relative overflow-hidden bg-[#6B9680] text-white/85">
       <div
         aria-hidden
         className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6B9680]/15 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4 pointer-events-none"

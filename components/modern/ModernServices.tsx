@@ -26,10 +26,10 @@ const services = [
   {
     icon: Scales,
     label: "02 · Medical Weight Loss",
-    title: "Semaglutide and Tirzepatide, with a provider in your corner.",
+    title: "GLP-1, with a provider in your corner.",
     description:
       "Evidence-based GLP-1 protocols paired with nutrition coaching and monthly check-ins. An average ~15% body weight loss over 68 weeks in clinical trials, with the provider accountability to keep it off.",
-    features: ["Semaglutide & Tirzepatide", "Monthly management", "Sustainable pace"],
+    features: ["GLP-1 & GLP-1", "Monthly management", "Sustainable pace"],
     image: "/assets/services/weight.webp",
     href: "/medical-weight-loss-athens-ga",
   },
@@ -92,7 +92,7 @@ function SectionHeader() {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
           Treatments
         </span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] max-w-3xl">
@@ -132,7 +132,7 @@ function ServiceRow({
       className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
     >
       <div className={reversed ? "md:order-2" : "md:order-1"}>
-        <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
           {service.label}
         </span>
         <h3 className="text-2xl md:text-4xl font-bold tracking-tight text-[#1F2A25] leading-[1.1] mb-4">

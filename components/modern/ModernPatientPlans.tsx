@@ -7,7 +7,7 @@ import { Check, Star } from "@phosphor-icons/react";
 
 type Plan = {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
   includes: string[];
   priceLabel?: string;
@@ -44,7 +44,7 @@ export default function ModernPatientPlans({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-12 md:mb-14"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
             {eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
@@ -80,18 +80,18 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`relative rounded-[2rem] p-8 md:p-10 flex flex-col ${
         plan.featured
-          ? "bg-[#1F2A25] text-white ring-1 ring-[#6B9680]/30"
+          ? "bg-[#6B9680] text-white ring-1 ring-[#6B9680]/30"
           : "bg-[#F7F9F8] ring-1 ring-[#E5ECE8]"
       }`}
     >
       {plan.featured && (
-        <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B9680] text-white text-[11px] uppercase tracking-[0.2em] font-semibold">
+        <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B9680] text-white text-[22px] uppercase tracking-[0.2em] font-semibold">
           <Star size={10} weight="fill" /> Most value
         </div>
       )}
 
       <span
-        className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium w-fit mb-6 ${
+        className={`inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium w-fit mb-6 ${
           plan.featured
             ? "bg-white/10 text-[#9BD3B6]"
             : "bg-[#6B9680]/10 text-[#517563]"
@@ -181,7 +181,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
             className={`mt-4 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full text-base font-medium active:scale-[0.98] transition-colors duration-300 ${
               plan.featured
                 ? "bg-[#6B9680] hover:bg-[#80BE9F] text-white"
-                : "bg-[#1F2A25] hover:bg-[#2A3832] text-white"
+                : "bg-[#6B9680] hover:bg-[#517563] text-white"
             }`}
           >
             {plan.ctaLabel}
@@ -201,7 +201,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
             className={`mt-4 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full text-base font-medium active:scale-[0.98] transition-colors duration-300 ${
               plan.featured
                 ? "bg-[#6B9680] hover:bg-[#80BE9F] text-white"
-                : "bg-[#1F2A25] hover:bg-[#2A3832] text-white"
+                : "bg-[#6B9680] hover:bg-[#517563] text-white"
             }`}
           >
             {plan.ctaLabel}

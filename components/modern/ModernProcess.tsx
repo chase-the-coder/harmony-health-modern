@@ -39,7 +39,7 @@ const ModernProcess = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="bg-[#1F2A25] py-16 md:py-20">
+    <section id="process" className="bg-[#6B9680] py-16 md:py-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <motion.div
           ref={ref}
@@ -48,7 +48,7 @@ const ModernProcess = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 md:mb-16"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/5 text-[#80BE9F] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/5 text-[#80BE9F] mb-6">
             Your path
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter !text-white leading-[1.05] max-w-3xl">
@@ -84,7 +84,7 @@ function StepCard({
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-      className="bg-[#1F2A25] p-8 md:p-10 flex flex-col"
+      className="bg-[#6B9680] p-8 md:p-10 flex flex-col"
     >
       <div className="flex items-center justify-between mb-10">
         <span className="text-6xl font-bold text-white/15">{step.number}</span>

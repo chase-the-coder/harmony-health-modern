@@ -116,6 +116,7 @@ export default function WomensPelvicHealthPage() {
       <main>
         <ModernPageHero
           eyebrow="Women's Pelvic Health"
+          tagline="Vaginal rejuvenation, incontinence care, and pelvic floor therapy"
           headline={
             <>
               Feel like yourself again.
@@ -125,7 +126,7 @@ export default function WomensPelvicHealthPage() {
               </span>
             </>
           }
-          description="We offer advanced, non-surgical treatments to support vaginal health, pelvic floor strength, and overall wellness. From deep tissue remodeling to gentle maintenance care, we'll build a plan around your goals."
+          description="We offer advanced, non-surgical treatments to support vaginal health, urinary leaking and incontinence, pelvic floor strength, and overall wellness. From deep tissue remodeling to gentle maintenance care, we'll build a plan around your goals."
           image={{
             src: "/assets/hrt/women.webp",
             alt: "Woman feeling confident and healthy",
@@ -151,8 +152,8 @@ export default function WomensPelvicHealthPage() {
           bookHref={BOOKING_URL}
           bookLabel="Book a Morpheus8V consultation"
           image={{
-            src: "/assets/aesthetic/morpheus8.webp",
-            alt: "Morpheus8V treatment",
+            src: "/legacy-images/megan-inmode.jpg",
+            alt: "Megan Cryder with InMode device",
           }}
           imageSide="right"
         />
@@ -177,6 +178,7 @@ export default function WomensPelvicHealthPage() {
             src: "/assets/hrt/women.webp",
             alt: "Woman relaxing during a comfortable non-invasive treatment",
           }}
+          video={{ src: "/legacy-images/formav-treatment.mp4", poster: "/legacy-images/formav-poster.jpg" }}
           imageSide="left"
         />
 
@@ -200,6 +202,7 @@ export default function WomensPelvicHealthPage() {
             src: "/assets/hrt/women.webp",
             alt: "Active woman with strong core and healthy pelvic floor",
           }}
+          video={{ src: "/legacy-images/vtone-treatment.mp4", poster: "/legacy-images/vtone-poster.jpg" }}
           imageSide="right"
         />
 

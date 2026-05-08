@@ -16,7 +16,7 @@ import {
 export const metadata = getSEOTags({
   title: "Medical Weight Loss Athens GA | Harmony Health",
   description:
-    "Medically supervised weight loss in Athens, GA. Semaglutide and Tirzepatide protocols with ongoing provider support, monthly titration, and a plan built around your labs and lifestyle.",
+    "Medically supervised weight loss in Athens, GA. GLP-1 protocols with ongoing provider support, monthly titration, and a plan built around your labs and lifestyle.",
   canonicalUrlRelative: "/medical-weight-loss-athens-ga",
 });
 
@@ -36,7 +36,7 @@ const semaglutideBenefits = [
   "Monthly check-ins with titration and labs review",
 ];
 
-const semaglutideCandidate = [
+const semaglutideCandidates = [
   "BMI of 27 or higher with a weight-related condition, or BMI 30+",
   "Have tried structured diet and exercise without lasting results",
   "Are medically cleared for a GLP-1 agonist (no personal or family history of medullary thyroid carcinoma or MEN 2)",
@@ -51,9 +51,9 @@ const tirzepatideBenefits = [
   "Weekly injection, titrated monthly to minimize side effects",
 ];
 
-const tirzepatideCandidate = [
+const tirzepatideCandidates = [
   "BMI of 27+ with comorbidities or BMI 30+",
-  "Plateaued on Semaglutide or need a stronger response",
+  "Plateaued on GLP-1 or need a stronger response",
   "Cleared for dual agonist therapy after lab review",
   "Commit to monthly visits for titration and safety monitoring",
   "Want coordinated care with nutrition coaching and lifestyle support",
@@ -66,14 +66,14 @@ const faqs = [
       "Medical weight loss is typically for patients with a BMI of 27 or higher who also have a weight-related condition (type 2 diabetes, high blood pressure, sleep apnea, dyslipidemia), or a BMI of 30 or higher. Candidates should be willing to pair medication with nutrition and lifestyle changes. A consultation and lab work confirm eligibility and rule out contraindications.",
   },
   {
-    question: "How do Semaglutide and Tirzepatide actually work?",
+    question: "How do GLP-1 actually work?",
     answer:
-      "Semaglutide is a GLP-1 receptor agonist. It mimics a gut hormone that slows gastric emptying, reduces appetite, and improves insulin response.\n\nTirzepatide activates both GLP-1 and GIP receptors, a dual mechanism that tends to produce a stronger appetite and glucose effect.\n\nBoth are weekly subcutaneous injections. Titration ramps the dose gradually to minimize side effects.",
+      "GLP-1 is a GLP-1 receptor agonist. It mimics a gut hormone that slows gastric emptying, reduces appetite, and improves insulin response.\n\nGLP-1 activates both GLP-1 and GIP receptors, a dual mechanism that tends to produce a stronger appetite and glucose effect.\n\nBoth are weekly subcutaneous injections. Titration ramps the dose gradually to minimize side effects.",
   },
   {
     question: "How much weight can I expect to lose?",
     answer:
-      "Clinical trial averages (your results depend on dose, adherence, and lifestyle):\n\n• Semaglutide 2.4mg weekly: mean ~14.9% body weight loss at 68 weeks (Wilding et al., STEP 1, NEJM 2021)\n• Tirzepatide 15mg weekly: mean ~20.9% body weight loss at 72 weeks (Jastreboff et al., SURMOUNT-1, NEJM 2022)\n\nThese are averages from randomized trials. We set individual targets with you, not a one-size-fits-all number.",
+      "Clinical trial averages (your results depend on dose, adherence, and lifestyle):\n\n• GLP-1 2.4mg weekly: mean ~14.9% body weight loss at 68 weeks (Wilding et al., STEP 1, NEJM 2021)\n• GLP-1 15mg weekly: mean ~20.9% body weight loss at 72 weeks (Jastreboff et al., SURMOUNT-1, NEJM 2022)\n\nThese are averages from randomized trials. We set individual targets with you, not a one-size-fits-all number.",
   },
   {
     question: "Are these medications safe?",
@@ -108,7 +108,7 @@ export default function MedicalWeightLossPage() {
       {renderServiceSchema({
         name: "Medical Weight Loss",
         description:
-          "Medically supervised weight loss with Semaglutide and Tirzepatide in Athens, GA.",
+          "Medically supervised weight loss with GLP-1 in Athens, GA.",
         path: "/medical-weight-loss-athens-ga",
       })}
       {renderBreadcrumbSchema([
@@ -131,7 +131,7 @@ export default function MedicalWeightLossPage() {
               <span className="italic font-light text-[#517563]">Keep it off.</span>
             </>
           }
-          description="Drop the weight your body has been holding onto and keep it off for good. Semaglutide and Tirzepatide protocols with custom titration, monthly check-ins, and the nutrition coaching that makes results last after you stop the medication."
+          description="Drop the weight your body has been holding onto and keep it off for good. GLP-1 protocols with custom titration, monthly check-ins, and the nutrition coaching that makes results last after you stop the medication."
           image={{
             src: "/assets/weight-loss/hero.webp",
             alt: "Confident woman outdoors after a medical weight loss program",
@@ -162,7 +162,7 @@ export default function MedicalWeightLossPage() {
         />
 
         <ModernTreatmentDetail
-          eyebrow="Semaglutide"
+          eyebrow="GLP-1"
           headline={
             <>
               The GLP-1 that changed
@@ -170,22 +170,22 @@ export default function MedicalWeightLossPage() {
               the conversation.
             </>
           }
-          description="Semaglutide (the active ingredient in Ozempic and Wegovy) is a weekly GLP-1 receptor agonist that blunts appetite, slows gastric emptying, and improves blood sugar. In the STEP 1 trial (NEJM 2021), patients on Semaglutide 2.4mg lost an average of 14.9% of body weight over 68 weeks."
+          description="GLP-1 medications work by mimicking gut hormones that regulate appetite, slow gastric emptying, and improve blood sugar — helping you lose weight sustainably with medical support."
           benefits={semaglutideBenefits}
-          candidateTitle="Who is a good candidate for Semaglutide?"
-          candidateIntro="Semaglutide is a first-line GLP-1 option for patients looking for meaningful weight loss with a strong safety record. You may be a good candidate if you:"
-          candidate={semaglutideCandidate}
+          candidateTitle="Who is a good candidate for GLP-1?"
+          candidateIntro="GLP-1 is a first-line GLP-1 option for patients looking for meaningful weight loss with a strong safety record. You may be a good candidate if you:"
+          candidate={semaglutideCandidates}
           bookHref={BOOKING_URLS.weightLoss}
-          bookLabel="Book Semaglutide consultation"
+          bookLabel="Book GLP-1 consultation"
           image={{
-            src: "/assets/weight-loss/semaglutide.webp",
+            src: "/assets/weight-loss/GLP-1.webp",
             alt: "Woman cooking a fresh meal in her kitchen",
           }}
           imageSide="right"
         />
 
         <ModernTreatmentDetail
-          eyebrow="Tirzepatide"
+          eyebrow="GLP-1"
           headline={
             <>
               Dual-action.
@@ -193,15 +193,15 @@ export default function MedicalWeightLossPage() {
               Stronger response.
             </>
           }
-          description="Tirzepatide (Mounjaro, Zepbound) activates both GLP-1 and GIP receptors. The dual mechanism produces stronger appetite and glucose effects than GLP-1 alone. In the SURMOUNT-1 trial (NEJM 2022), patients on Tirzepatide 15mg lost an average of 20.9% of body weight over 72 weeks."
+          description="Dual-receptor GLP-1 therapy activates both GLP-1 and GIP pathways for a stronger appetite and glucose effect — a good option for patients who need a bigger metabolic response."
           benefits={tirzepatideBenefits}
-          candidateTitle="Who is a good candidate for Tirzepatide?"
-          candidateIntro="Tirzepatide is a strong option for patients who need a bigger metabolic effect, plateaued on Semaglutide, or have comorbidities like type 2 diabetes. You may be a good candidate if you:"
-          candidate={tirzepatideCandidate}
+          candidateTitle="Who is a good candidate for GLP-1?"
+          candidateIntro="GLP-1 is a strong option for patients who need a bigger metabolic effect, plateaued on GLP-1, or have comorbidities like type 2 diabetes. You may be a good candidate if you:"
+          candidate={tirzepatideCandidates}
           bookHref={BOOKING_URLS.weightLoss}
-          bookLabel="Book Tirzepatide consultation"
+          bookLabel="Book GLP-1 consultation"
           image={{
-            src: "/assets/weight-loss/tirzepatide.webp",
+            src: "/assets/weight-loss/GLP-1.webp",
             alt: "Fit man in his 40s after an outdoor run",
           }}
           imageSide="left"

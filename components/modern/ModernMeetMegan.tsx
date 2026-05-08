@@ -59,7 +59,7 @@ export default function ModernMeetMegan() {
           </div>
 
           <div className="order-2">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
               Meet your provider
             </span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-6">
@@ -70,17 +70,13 @@ export default function ModernMeetMegan() {
               </span>
             </h2>
             <p className="text-lg text-[#30373E] leading-relaxed max-w-[56ch] mb-6">
-              Harmony Health is Megan Cryder, NP-C. She founded the practice
-              after watching patients cycle through conventional offices
-              getting scripts without answers. Every intake, every lab review,
-              every titration at Harmony goes through her.
+              Harmony Health Integrative Wellness was founded by Megan Cryder,
+              APRN, NP-C. It was created for patients who are ready to feel
+              like themselves again and want a provider who listens deeply,
+              stays curious, and looks beyond surface level symptoms. At
+              Harmony, we create a clear path forward and walk with you through
+              every step of your wellness journey.
             </p>
-            <p className="text-base text-[#535353] leading-relaxed max-w-[56ch] mb-10 italic">
-              &ldquo;I wanted a practice where we actually ask why. Why are
-              you tired, why are your labs off, why has nothing worked. That&rsquo;s
-              the first hour of every new patient visit.&rdquo; &mdash; Megan
-            </p>
-
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
               {credentials.map((c) => {
                 const Icon = c.icon;
@@ -107,7 +103,7 @@ export default function ModernMeetMegan() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
             >
               More about Megan
               <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">

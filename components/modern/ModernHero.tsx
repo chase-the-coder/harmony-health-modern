@@ -39,14 +39,14 @@ const ModernHero = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 w-full pt-28 pb-16 md:pt-32 md:pb-20">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 w-full pt-4 pb-16 md:pt-6 md:pb-20">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680] animate-pulse" />
               Athens, GA · In-Person & Virtual
             </span>
@@ -69,10 +69,10 @@ const ModernHero = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg md:text-xl text-[#30373E] leading-relaxed max-w-[58ch] mx-auto mb-12"
           >
-            More energy, better sleep, a body that responds again, and a
-            provider who actually knows your labs. Hormone therapy, medical
-            weight loss, peptides, and aesthetics, all guided by your
-            biochemistry.
+            More energy, better sleep, a body that responds again — with a
+            provider who reads your labs and listens. Hormone therapy, medical
+            weight loss, peptides, and aesthetics, guided by your biochemistry,
+            your story, and your goals.
           </motion.p>
 
           <motion.div
@@ -85,7 +85,7 @@ const ModernHero = () => {
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
             >
               Book an appointment
               <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">

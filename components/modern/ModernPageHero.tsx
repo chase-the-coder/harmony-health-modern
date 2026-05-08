@@ -13,6 +13,7 @@ type CTA = {
 
 type Props = {
   eyebrow: string;
+  tagline?: string;
   headline: React.ReactNode;
   description: string;
   image: { src: string; alt: string };
@@ -23,6 +24,7 @@ type Props = {
 
 export default function ModernPageHero({
   eyebrow,
+  tagline,
   headline,
   description,
   image,
@@ -51,12 +53,22 @@ export default function ModernPageHero({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
                 {eyebrow}
               </span>
             </motion.div>
 
+            {tagline && (
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="text-xl text-[#517563] tracking-wide mb-4 -mt-4"
+              >
+                {tagline}
+              </motion.p>
+            )}
             <motion.h1
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,7 +97,7 @@ export default function ModernPageHero({
                 href={primaryCta.href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
               >
                 {primaryCta.label}
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">

@@ -26,7 +26,7 @@ const MEMBER_BOOKING =
 const plans = [
   {
     eyebrow: "New Patients",
-    title: "Two-Appointment New Patient Package",
+    title: <>New Hormone Patient<br />Two Appointment Package</>,
     description:
       "Every new patient starts here. Two one-on-one visits that give us time to understand your history, run the right labs, and build a plan around your body, not a template.",
     includes: [
@@ -39,15 +39,15 @@ const plans = [
     priceLabel: "New Patient Package",
     price: "$400",
     subPrice:
-      "New Patient Intake $150 + Follow-up with NP $250 · Comprehensive lab panel billed separately",
+      "Comprehensive lab panel billed separately",
     ctaLabel: "Book New Patient visit",
     ctaHref: MEMBER_BOOKING,
   },
   {
-    eyebrow: "Membership",
+    eyebrow: "Hormone Optimization",
     title: "Ongoing concierge care",
     description:
-      "After your intake, members get ongoing medical management, prescription oversight, and a deep discount on the services you actually use. Annual commitment, billed monthly or annually.",
+      "After intake, patients receive ongoing medical management, prescription oversight, and personalized care. Annual commitment, billed monthly or annually.",
     includes: [
       "Ongoing hormone and thyroid optimization",
       "Member pricing on IV, injections, peptides, aesthetics, weight loss",
@@ -77,54 +77,16 @@ const wellnessSections: PricingSection[] = [
   },
   {
     title: "Medication & Vitamin Injections",
-    rows: [
-      { name: "NAD+ injection", price: "$50 / 50mg · $100 / 100mg" },
-      { name: "Vitamin B12 injection", price: "$25/inj · $135 (pkg 6)" },
-      { name: "Biotin injection", price: "$25/inj · $135 (pkg 6)" },
-      { name: "Glutathione injection", price: "$25/inj · $135 (pkg 6)" },
-      { name: "Vitamin C injection", price: "$25/inj · $135 (pkg 6)" },
-      { name: "Lipo-B", price: "$25/inj · $135 (pkg 6)" },
-      { name: "Toradol", price: "$40" },
-      { name: "Zofran (IV or ODT)", price: "$25" },
-      { name: "Steroid / Allergy shot", price: "$40" },
-    ],
-    note: "Members receive one FREE injection per month.",
-  },
-  {
-    title: "Hormone & Thyroid Care",
-    intro:
-      "Medications are prescribed and billed separately and are not included in membership pricing.",
-    rows: [
-      {
-        name: "Follow-up visits",
-        price: "Included",
-        note: "4 visits/year for members, one per quarter",
-      },
-      {
-        name: "Extra hormone visit",
-        price: "$105 / 30 min · $199 / 50 min",
-        note: "Member pricing",
-      },
-      {
-        name: "Women: Hormone Pellets",
-        price: "$400 / procedure",
-        note: "Member pricing",
-      },
-      {
-        name: "Men: Hormone Pellets",
-        price: "$700 / procedure",
-        note: "Member pricing",
-      },
-      {
-        name: "hCG monthly maintenance (men)",
-        price: "Included in pellet cost",
-        note: "Prescription included",
-      },
-      {
-        name: "Follow-up visits (non-member)",
-        price: "$189 / 30 min · $249 / 60 min",
-        note: "After initial 12 months on membership",
-      },
+    list: [
+      "NAD+ injection",
+      "Vitamin B12 injection",
+      "Biotin injection",
+      "Glutathione injection",
+      "Vitamin C injection",
+      "Lipo-B",
+      "Toradol",
+      "Zofran (IV or ODT)",
+      "Steroid / Allergy shot",
     ],
   },
   {
@@ -141,20 +103,18 @@ const wellnessSections: PricingSection[] = [
     title: "Medical Weight Loss",
     rows: [
       { name: "Consult", price: "$95" },
-      { name: "Semaglutide", price: "$325 / month" },
-      { name: "Tirzepatide", price: "$475 / month" },
     ],
   },
   {
     title: "Peptide Therapy",
-    rows: [
-      { name: "Peptide Consult", price: "$95" },
-      { name: "NAD+", price: "$350 / month" },
-      { name: "Sermorelin", price: "$270 / month" },
-      { name: "TB-500", price: "$320 / month" },
-      { name: "BPC-157", price: "$260 / month" },
-      { name: "PT-141 + B12", price: "$210 (20 doses)" },
-      { name: "GHK-Cu", price: "$320 / month" },
+    list: [
+      "Peptide Consult",
+      "NAD+",
+      "Sermorelin",
+      "TB-500",
+      "BPC-157",
+      "PT-141 + B12",
+      "GHK-Cu",
     ],
   },
 ];
@@ -162,9 +122,8 @@ const wellnessSections: PricingSection[] = [
 const aestheticSections: PricingSection[] = [
   {
     title: "Peels",
-    tagline: "Free consult for members",
     rows: [
-      { name: "Aesthetic consult", price: "$50", note: "Free for members" },
+      { name: "Aesthetic consult", price: "$50" },
       { name: "VI Peel", price: "$279" },
       { name: "VI Peel (pkg of 3)", price: "$810" },
     ],
@@ -185,18 +144,20 @@ const aestheticSections: PricingSection[] = [
   },
   {
     title: "Women's Vaginal Rejuvenation",
-    tagline: "Free consultation. Members receive 10% off packages.",
+    tagline: "Free consultation.",
     body: "EmpowerRF is a women's wellness platform using RF and electrical muscle stimulation to improve pelvic health, sexual wellness, and vaginal rejuvenation without surgery or downtime. Treatments include Morpheus8 V, FormaV, and V-Tone. Pricing varies by treatment plan and session count.",
+    chips: ["Morpheus8V", "FormaV", "VTone"],
+    cta: { label: "Learn more", href: "/womens-pelvic-health", color: "green" },
   },
   {
     title: "Bladder & Pelvic Support",
-    tagline: "Free consultation and exam. Members receive 10% off packages.",
+    tagline: "Free consultation and exam.",
     body: "InMode Empower offers a non-surgical option for urinary incontinence by strengthening and rejuvenating the pelvic floor. RF and muscle-activation technology boosts tissue tone and bladder control. Most patients see improvements quickly with zero downtime.",
   },
   {
     title: "Men's Sexual Health (APEX)",
-    tagline: "Members get 10% off 6- and 8-session packages.",
     body: "APEX is a non-invasive treatment for men focused on performance, confidence, and intimate wellness. Uses advanced energy technology to enhance circulation and strengthen pelvic muscles with no pain, downtime, or medication. Sessions are 15 minutes. Most patients need ~6 treatments for full effect.",
+    cta: { label: "Learn more", href: "/mens-sexual-health" },
   },
 ];
 
@@ -315,16 +276,10 @@ export default function ServicesAndPricingPage() {
 
         <div id="wellness" className="scroll-mt-20">
           <ModernPricingAccordion
-            eyebrow="Wellness services"
-            headline={
-              <>
-                Medical services
-                <br />
-                <span className="text-[#6B9680]">a la carte or member.</span>
-              </>
-            }
-            description="All pricing below reflects member rates unless otherwise noted. Non-member pricing is available for most services after you establish care."
-            notice={`After establishing care, non-members may access select services at standard rates: IV therapy, vitamin injections, peptide therapy, aesthetic treatments, virtual sick visits, and weight loss programs.\n\nA la carte pricing does NOT include ongoing medical management, follow-up care, or prescription oversight for the initial 12 months of hormone or thyroid optimization. Membership is required for those first 12 months.`}
+            eyebrow="Additional Services"
+            headline={<>Medical and Wellness Care</>}
+            description=""
+            notice=""
             sections={wellnessSections}
             variant="light"
           />

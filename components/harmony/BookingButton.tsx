@@ -42,7 +42,7 @@ export default function BookingButton({
 }: Props) {
   const sizeClass =
     size === "sm"
-      ? "text-[11px] px-6 py-[10px]"
+      ? "text-[22px] px-6 py-[10px]"
       : size === "lg"
       ? "text-[13px] px-12 py-[18px]"
       : "text-[12px] px-10 py-[13px]";

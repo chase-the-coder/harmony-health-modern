@@ -16,13 +16,13 @@ const ModernCTA = () => {
           initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[2.5rem] bg-[#1F2A25] px-8 md:px-16 py-16 md:py-20 overflow-hidden"
+          className="relative rounded-[2.5rem] bg-[#6B9680] px-8 md:px-16 py-16 md:py-20 overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6B9680]/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#80BE9F]/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/5 text-[#80BE9F] mb-8">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/5 text-[#80BE9F] mb-8">
               Ready when you are
             </span>
 
@@ -46,7 +46,7 @@ const ModernCTA = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#1F2A25] text-base font-medium hover:bg-[#F7F9F8] active:scale-[0.98] transition-colors duration-300"
               >
                 Book your consultation
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#1F2A25]/5">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#6B9680]/5">
                   <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
                     <path
                       d="M1 9L9 1M9 1H2M9 1V8"

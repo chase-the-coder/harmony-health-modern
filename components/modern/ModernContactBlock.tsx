@@ -39,7 +39,7 @@ export default function ModernContactBlock() {
 function ContactInfo() {
   return (
     <div>
-      <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+      <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
         Reach out
       </span>
       <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-6">
@@ -231,7 +231,7 @@ function ContactForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.99] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.99] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {submitting ? "Sending..." : "Send message"}
           <svg width="12" height="12" viewBox="0 0 10 10" fill="none">

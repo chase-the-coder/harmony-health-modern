@@ -9,17 +9,23 @@ import ModernOutcomes from "@/components/modern/ModernOutcomes";
 import ModernProcess from "@/components/modern/ModernProcess";
 import ModernTestimonials from "@/components/modern/ModernTestimonials";
 import ModernCTA from "@/components/modern/ModernCTA";
+import Divider from "@/components/modern/Divider";
 
 export default function HomePage() {
   return (
     <>
       <Header />
       <main>
-        <ModernHero />
         <ModernMeetMegan />
+        <Divider />
+        <ModernHero />
+        <Divider />
         <ModernTrustBar />
+        <Divider />
         <ModernProblem />
+        <Divider />
         <ModernServices />
+        <Divider />
         <ModernOutcomes />
         <ModernProcess />
         <ModernTestimonials />

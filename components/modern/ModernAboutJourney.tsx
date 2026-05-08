@@ -19,7 +19,7 @@ const ModernAboutJourney = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
           <div className="lg:order-1">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
               Her health journey
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-8">
@@ -60,7 +60,7 @@ const ModernAboutJourney = () => {
                 />
               </div>
             </div>
-            <div className="absolute -top-6 -right-6 hidden md:flex bg-[#1F2A25] rounded-2xl px-5 py-4 items-center gap-3 shadow-[0_20px_40px_-15px_rgba(31,42,37,0.3)]">
+            <div className="absolute -top-6 -right-6 hidden md:flex bg-[#6B9680] rounded-2xl px-5 py-4 items-center gap-3 shadow-[0_20px_40px_-15px_rgba(31,42,37,0.3)]">
               <div className="w-8 h-8 rounded-full bg-[#80BE9F]/20 flex items-center justify-center">
                 <svg
                   width="16"

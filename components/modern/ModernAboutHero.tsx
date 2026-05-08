@@ -25,7 +25,7 @@ const ModernAboutHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
                 Meet your practitioner
               </span>
@@ -35,12 +35,12 @@ const ModernAboutHero = () => {
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-[84px] font-bold tracking-tighter leading-[0.95] text-[#1F2A25] mb-8"
+              className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tighter leading-[1.05] text-[#1F2A25] mb-8"
             >
-              The provider
+              A provider
               <br />
               <span className="italic font-light text-[#517563]">
-                your labs deserve.
+                who cares about your story.
               </span>
             </motion.h1>
 
@@ -66,7 +66,7 @@ const ModernAboutHero = () => {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
               >
                 Book with Megan
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
@@ -99,7 +99,7 @@ const ModernAboutHero = () => {
             <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
               <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
                 <Image
-                  src="/legacy-images/about/megan.jpg"
+                  src="/legacy-images/about/megan-about.jpg"
                   alt="Megan Cryder, NP-C"
                   fill
                   priority

@@ -17,6 +17,7 @@ type Props = {
   bookHref: string;
   bookLabel: string;
   image: { src: string; alt: string };
+  video?: { src: string; poster?: string };
   imageSide?: "left" | "right";
 };
 
@@ -32,18 +33,31 @@ export default function ModernTreatmentDetail({
   bookHref,
   bookLabel,
   image,
+  video,
   imageSide = "right",
 }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [expanded, setExpanded] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isExternal = bookHref.startsWith("http");
+
+  function togglePlay() {
+    if (!videoRef.current) return;
+    if (playing) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setPlaying(!playing);
+  }
 
   const imgOrder = imageSide === "left" ? "lg:order-1" : "lg:order-2";
   const textOrder = imageSide === "left" ? "lg:order-2" : "lg:order-1";
 
   return (
-    <section id={id} className="bg-white py-16 md:py-20 scroll-mt-20">
+    <section id={id} className="bg-white py-8 md:py-12 scroll-mt-20">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <motion.div
           ref={ref}
@@ -54,20 +68,59 @@ export default function ModernTreatmentDetail({
         >
           <div className={`${imgOrder} order-1`}>
             <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
-              <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
+              <div className={`relative rounded-[calc(2rem-0.375rem)] overflow-hidden bg-[#F7F9F8] ${video ? "aspect-video" : "aspect-[4/5]"}`}>
+                {video ? (
+                  <div className="group absolute inset-0 w-full h-full">
+                    <video
+                      ref={videoRef}
+                      src={video.src}
+                      poster={video.poster ?? "/legacy-images/megan-inmode.jpg"}
+                      preload="none"
+                      loop
+                      playsInline
+                      onEnded={() => setPlaying(false)}
+                      className="w-full h-full object-cover rounded-[calc(2rem-0.375rem)]"
+                    />
+                    {!playing && (
+                      <button
+                        onClick={togglePlay}
+                        className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors"
+                      >
+                        <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="#1F2A25">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </button>
+                    )}
+                    {playing && (
+                      <button
+                        onClick={togglePlay}
+                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10"
+                      >
+                        <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-lg">
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="#1F2A25">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                          </svg>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                ) : (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                )}
               </div>
             </div>
           </div>
 
           <div className={`${textOrder} order-2`}>
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
               {eyebrow}
             </span>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-6">
@@ -146,7 +199,7 @@ export default function ModernTreatmentDetail({
                 href={bookHref}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
               >
                 {bookLabel}
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">

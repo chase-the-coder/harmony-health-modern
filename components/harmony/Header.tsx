@@ -179,7 +179,7 @@ export default function Header() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-[#1F2A25] hover:bg-[#2A3832] text-white text-sm font-medium px-6 py-3 rounded-full active:scale-[0.98] transition-colors duration-300"
+                className="inline-flex items-center gap-2 bg-[#6B9680] hover:bg-[#517563] text-white text-sm font-medium px-6 py-3 rounded-full active:scale-[0.98] transition-colors duration-300"
               >
                 Book appointment
                 <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white/10">
@@ -276,7 +276,7 @@ export default function Header() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={closeMobile}
-                  className="flex items-center justify-center gap-2 bg-[#1F2A25] hover:bg-[#2A3832] text-white text-sm font-medium px-6 py-3.5 rounded-full transition-colors"
+                  className="flex items-center justify-center gap-2 bg-[#6B9680] hover:bg-[#517563] text-white text-sm font-medium px-6 py-3.5 rounded-full transition-colors"
                 >
                   Book appointment
                 </Link>

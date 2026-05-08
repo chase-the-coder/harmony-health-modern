@@ -40,7 +40,7 @@ const ModernAboutBio = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 md:mb-14 max-w-3xl"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
             Megan&rsquo;s story
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
@@ -98,31 +98,29 @@ const ModernAboutBio = () => {
             className="space-y-6 text-lg text-[#30373E] leading-relaxed"
           >
             <p>
-              Megan founded Harmony Health with a specific focus on hormone
-              optimization and medical weight loss. Her work is driven by a
-              simple premise: the answers are in the details. Before anyone
-              writes a prescription, she wants to know what your labs, your
-              history, and your lifestyle are actually saying.
+              Megan founded Harmony Health with a focus on hormone optimization,
+              overall wellness, and aesthetics. Her approach is rooted in a
+              simple belief: the answers are often found in the details. Before
+              creating a treatment plan, she takes the time to understand your
+              labs, health history, symptoms, and lifestyle to uncover what may
+              be contributing to how you feel.
             </p>
             <p>
               After attending the Medical College of Georgia School of Nursing,
-              she earned her Master&rsquo;s as a Nurse Practitioner from Texas
-              A&amp;M University in 2013. She has practiced western medicine
-              since 2005, and combines that background with functional and
-              integrative training. The result is a practice that treats the
-              person, not the protocol.
+              she earned her Master&rsquo;s degree as a Nurse Practitioner from
+              Texas A&amp;M University in 2013. With nearly 20 years of
+              experience in healthcare, Megan combines a strong foundation in
+              traditional medicine with functional and integrative approaches.
+              She believes in looking beyond symptoms to identify root causes and
+              create personalized care plans that help patients feel their best
+              from the inside out.
             </p>
-            <blockquote className="border-l-4 border-[#6B9680] pl-6 py-2 text-xl md:text-2xl font-medium text-[#1F2A25] italic leading-snug">
-              &ldquo;I don&rsquo;t want to standardize you. I want to
-              understand you, then build the plan from there.&rdquo;
-              <cite className="block mt-3 text-sm not-italic font-normal text-[#535353]">
-                &mdash; Megan Cryder, NP-C
-              </cite>
-            </blockquote>
             <p>
-              Outside the clinic, her highest calling is to her husband and
-              three children, who teach her daily about longevity and living
-              life well.
+              Her passion for wellness is also personal. After facing her own
+              autoimmune diagnosis, Megan focused on restoring her health through
+              a cellular health and root-cause approach. That experience deepened
+              her commitment to helping patients understand their bodies, optimize
+              their health, and reclaim their quality of life.
             </p>
           </motion.div>
         </div>

@@ -9,7 +9,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/your.harmony.health/";
 
 export default function UtilityBar() {
   return (
-    <div className="hidden lg:block bg-[#1F2A25] text-white/85 text-[13px]">
+    <div className="hidden lg:block bg-[#6B9680] text-white/85 text-[13px]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-11 gap-6">
         <div className="flex items-center gap-6">
           <a

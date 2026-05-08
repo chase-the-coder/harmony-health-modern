@@ -33,7 +33,7 @@ const ModernOutcomes = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-12 md:mb-14 max-w-3xl"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
             Is Harmony a fit?
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
@@ -79,7 +79,7 @@ function FitCard({
       className={`rounded-[2.5rem] p-10 md:p-12 ${
         variant === "good"
           ? "bg-[#F7F9F8] ring-1 ring-[#E5ECE8]"
-          : "bg-[#1F2A25] text-white"
+          : "bg-[#6B9680] text-white"
       }`}
     >
       <div className="flex items-center gap-3 mb-8">

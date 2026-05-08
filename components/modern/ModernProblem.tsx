@@ -38,7 +38,7 @@ const stats: Stat[] = [
   {
     value: 14.9,
     suffix: "%",
-    label: "average body weight loss at 68 weeks on semaglutide 2.4mg (STEP-1 trial)",
+    label: "average body weight loss at 68 weeks on GLP-1 2.4mg (STEP-1 trial)",
     source: "Wilding et al., STEP-1, NEJM 2021",
     sourceUrl: "https://www.nejm.org/doi/full/10.1056/NEJMoa2032183",
     icon: Scales,
@@ -82,7 +82,7 @@ const ModernProblem = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-12 md:mb-14"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
             Why you feel off
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-6">
@@ -141,7 +141,7 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`rounded-[2rem] p-8 md:p-10 flex flex-col ${
         stat.accent
-          ? "bg-[#1F2A25] text-white"
+          ? "bg-[#6B9680] text-white"
           : "bg-white ring-1 ring-[#E5ECE8]"
       }`}
     >
@@ -170,7 +170,7 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
         href={stat.sourceUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-6 text-[11px] uppercase tracking-[0.15em] font-medium transition-colors ${
+        className={`mt-6 text-[22px] uppercase tracking-[0.15em] font-medium transition-colors ${
           stat.accent
             ? "text-white/50 hover:text-[#80BE9F]"
             : "text-[#535353]/70 hover:text-[#517563]"

@@ -25,7 +25,7 @@ export default function ModernContactMapHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
                 Contact
               </span>
@@ -65,7 +65,7 @@ export default function ModernContactMapHero() {
                 href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#1F2A25] text-white text-base font-medium hover:bg-[#2A3832] active:scale-[0.98] transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"
               >
                 Book an appointment
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/10">
@@ -95,13 +95,13 @@ export default function ModernContactMapHero() {
               className="flex flex-wrap gap-6 text-sm text-[#30373E]"
             >
               <div>
-                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
                   Office hours
                 </span>
                 Tue &middot; Wed &middot; Thu, 9am&ndash;3pm
               </div>
               <div>
-                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
                   Email
                 </span>
                 <Link
@@ -145,7 +145,7 @@ export default function ModernContactMapHero() {
                   <MapPin size={20} weight="regular" />
                 </div>
                 <div>
-                  <p className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                  <p className="text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
                     Visit us
                   </p>
                   <p className="text-sm font-semibold text-[#1F2A25] leading-tight">

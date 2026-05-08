@@ -16,7 +16,10 @@ export type PricingSection = {
   intro?: string;
   body?: string;
   rows?: PricingRow[];
+  list?: string[];
   note?: string;
+  chips?: string[];
+  cta?: { label: string; href: string; color?: "dark" | "green" };
 };
 
 type Props = {
@@ -53,7 +56,7 @@ export default function ModernPricingAccordion({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-10 md:mb-12"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
             {eyebrow}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
@@ -140,6 +143,15 @@ function SectionItem({
                   {section.body}
                 </p>
               )}
+              {section.list && section.list.length > 0 && (
+                <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
+                  {section.list.map((item) => (
+                    <li key={item} className="text-[15px] text-[#1F2A25] py-1 border-b border-[#E5ECE8]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {section.rows && section.rows.length > 0 && (
                 <ul className="divide-y divide-[#E5ECE8]">
                   {section.rows.map((row) => (
@@ -168,6 +180,26 @@ function SectionItem({
                 <p className="text-[13px] text-[#535353] italic mt-4 leading-relaxed">
                   {section.note}
                 </p>
+              )}
+              {section.chips && section.chips.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {section.chips.map((chip) => (
+                    <span key={chip} className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563]">
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {section.cta && (
+                <a
+                  href={section.cta.href}
+                  className={`inline-flex items-center gap-2 mt-5 px-6 py-3 rounded-full text-sm font-medium transition-colors ${section.cta.color === "green" ? "bg-[#6B9680] text-white hover:bg-[#517563]" : "bg-[#6B9680] text-white hover:bg-[#517563]"}`}
+                >
+                  {section.cta.label}
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
               )}
             </div>
           </motion.div>
