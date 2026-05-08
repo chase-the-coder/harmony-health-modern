@@ -16,7 +16,7 @@ type Props = {
   tagline?: string;
   headline: React.ReactNode;
   description: string;
-  image: { src: string; alt: string };
+  image: { src: string; alt: string; objectPosition?: string };
   primaryCta?: CTA;
   secondaryCta?: CTA;
   badge?: { label: string; value: string };
@@ -138,6 +138,7 @@ export default function ModernPageHero({
                   priority
                   sizes="(min-width: 1024px) 520px, 100vw"
                   className="object-cover"
+                  style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
                 />
               </div>
             </div>

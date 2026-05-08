@@ -94,6 +94,7 @@ export default function MensSexualHealthPage() {
           image={{
             src: "/assets/hrt/men.webp",
             alt: "Confident, healthy man",
+            objectPosition: "center 20%",
           }}
           primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
           badge={{ label: "Confidential", value: "Private, personalized care" }}
