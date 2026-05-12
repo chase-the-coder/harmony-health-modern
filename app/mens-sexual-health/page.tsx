@@ -120,6 +120,7 @@ export default function MensSexualHealthPage() {
             src: "/assets/hrt/men.webp",
             alt: "Active, confident man",
           }}
+          video={{ src: "/legacy-images/apex-treatment.mp4" }}
           imageSide="right"
         />
 
