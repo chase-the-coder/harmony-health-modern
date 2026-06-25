@@ -105,10 +105,10 @@ export default function ModernContactMapHero() {
                   Email
                 </span>
                 <Link
-                  href="mailto:info@yourharmonyhealth.com"
+                  href="mailto:team@yourharmonyhealth.com"
                   className="hover:text-[#517563] transition-colors"
                 >
-                  info@yourharmonyhealth.com
+                  team@yourharmonyhealth.com
                 </Link>
               </div>
             </motion.div>

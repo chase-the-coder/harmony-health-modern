@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
 
           <h2>6. Contact Information</h2>
           <p>If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:</p>
-          <p>Email: <a href="mailto:info@yourharmonyhealth.com" className="text-[#6B9680]">info@yourharmonyhealth.com</a><br />
+          <p>Email: <a href="mailto:team@yourharmonyhealth.com" className="text-[#6B9680]">team@yourharmonyhealth.com</a><br />
           Phone: <a href="tel:7066146818" className="text-[#6B9680]">(706) 614-6818</a><br />
           Address: 2425 W. Broad Street, Suite 2, Athens, GA 30606</p>
 

@@ -18,7 +18,7 @@ const ModernAboutHero = () => {
       />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_500px] gap-12 lg:gap-20 items-end">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -99,11 +99,11 @@ const ModernAboutHero = () => {
             <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
               <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
                 <Image
-                  src="/legacy-images/about/megan-about.jpg"
+                  src="/images/megan-doorway.webp"
                   alt="Megan Cryder, NP-C"
                   fill
                   priority
-                  sizes="(min-width: 1024px) 400px, 100vw"
+                  sizes="(min-width: 1024px) 500px, 100vw"
                   className="object-cover"
                 />
               </div>

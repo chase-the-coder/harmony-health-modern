@@ -135,10 +135,10 @@ export default function Footer() {
               </ContactRow>
               <ContactRow icon={<EnvelopeSimple size={16} weight="regular" />}>
                 <a
-                  href="mailto:info@yourharmonyhealth.com"
+                  href="mailto:team@yourharmonyhealth.com"
                   className="font-medium text-white hover:text-[#9BD3B6] transition-colors break-all"
                 >
-                  info@yourharmonyhealth.com
+                  team@yourharmonyhealth.com
                 </a>
               </ContactRow>
               <ContactRow icon={<Clock size={16} weight="regular" />}>

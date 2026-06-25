@@ -80,8 +80,8 @@ function ContactInfo() {
         <InfoRow
           icon={<EnvelopeSimple size={20} weight="regular" />}
           label="Email"
-          value="info@yourharmonyhealth.com"
-          href="mailto:info@yourharmonyhealth.com"
+          value="team@yourharmonyhealth.com"
+          href="mailto:team@yourharmonyhealth.com"
         />
       </ul>
     </div>

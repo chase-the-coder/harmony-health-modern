@@ -13,11 +13,11 @@ export default function UtilityBar() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between h-11 gap-6">
         <div className="flex items-center gap-6">
           <a
-            href="mailto:info@yourharmonyhealth.com"
+            href="mailto:team@yourharmonyhealth.com"
             className="inline-flex items-center gap-2 hover:text-[#9BD3B6] transition-colors"
           >
             <EnvelopeSimple size={14} weight="regular" />
-            <span>info@yourharmonyhealth.com</span>
+            <span>team@yourharmonyhealth.com</span>
           </a>
           <span className="w-px h-4 bg-white/15" aria-hidden />
           <a
