@@ -66,14 +66,14 @@ function ContactInfo() {
         />
         <InfoRow
           icon={<Clock size={20} weight="regular" />}
-          label="Office Hours"
+          label="Hours of Operation"
           value={
             <>
-              Tuesday &middot; 9am–3pm
+              Medical Provider Appts: Tues–Thurs, 9 AM–3 PM
               <br />
-              Wednesday &middot; 9am–3pm
+              Aesthetic Appts: Mon–Fri, 9 AM–5 PM
               <br />
-              Thursday &middot; 9am–3pm
+              Phone Support: Mon–Fri, 9 AM–5 PM
             </>
           }
         />

@@ -142,10 +142,9 @@ export default function Footer() {
                 </a>
               </ContactRow>
               <ContactRow icon={<Clock size={16} weight="regular" />}>
-                <span className="block font-medium text-white">
-                  Tue &middot; Wed &middot; Thu
-                </span>
-                <span className="text-white/65">9am &ndash; 3pm</span>
+                <span className="block font-medium text-white">Hours of Operation</span>
+                <span className="text-white/65 block">Medical Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="text-white/65 block">Aesthetic &amp; Phone: Mon–Fri, 9 AM–5 PM</span>
               </ContactRow>
             </ul>
 

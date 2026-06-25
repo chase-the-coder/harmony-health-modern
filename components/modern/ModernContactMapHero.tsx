@@ -50,8 +50,7 @@ export default function ModernContactMapHero() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-xl text-[#30373E] leading-relaxed max-w-[56ch] mb-8"
             >
-              We&rsquo;re on W. Broad Street in Athens, open Tuesday through
-              Thursday. Call, email, or use the form below and we&rsquo;ll be
+              We&rsquo;re on W. Broad Street in Athens. Call, email, or use the form below and we&rsquo;ll be
               back to you within a business day.
             </motion.p>
 
@@ -96,9 +95,10 @@ export default function ModernContactMapHero() {
             >
               <div>
                 <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
-                  Office hours
+                  Hours of Operation
                 </span>
-                Tue &middot; Wed &middot; Thu, 9am&ndash;3pm
+                <span className="block">Medical Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="block">Aesthetic &amp; Phone: Mon–Fri, 9 AM–5 PM</span>
               </div>
               <div>
                 <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
