@@ -56,7 +56,7 @@ const plans = [
       "Morpheus8 Face & Body member rates",
     ],
     priceLabel: "Monthly",
-    price: "$149",
+    price: "$129",
     subPrice:
       "Or pay in full and save 10%. $1,600 for the full year. 12-month commitment.",
     ctaLabel: "Explore member services",
