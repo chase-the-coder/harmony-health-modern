@@ -10,7 +10,7 @@ import { getSEOTags, renderBreadcrumbSchema } from "@/libs/seo";
 export const metadata = getSEOTags({
   title: "About | Megan Cryder, NP-C — Harmony Health",
   description:
-    "Megan Cryder, NP-C founded Harmony Health to bring lab-guided, functional medicine to Athens, GA. Hormone optimization, medical weight loss, peptides, IV, and aesthetics under one roof.",
+    "Megan Cryder, NP-C founded Harmony Health to bring lab-guided, functional medicine to Athens, GA. Hormone optimization, medical weight loss, IV, and aesthetics under one roof.",
   canonicalUrlRelative: "/about",
 });
 

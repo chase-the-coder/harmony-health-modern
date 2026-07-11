@@ -16,7 +16,7 @@ import {
 export const metadata = getSEOTags({
   title: "Services & Pricing | Harmony Health Athens GA",
   description:
-    "Transparent pricing for hormone replacement, medical weight loss, peptides, IV therapy, aesthetics, and more at Harmony Health in Athens, GA.",
+    "Transparent pricing for hormone replacement, medical weight loss, IV therapy, aesthetics, and more at Harmony Health in Athens, GA.",
   canonicalUrlRelative: "/services-and-pricing",
 });
 
@@ -50,7 +50,7 @@ const plans = [
       "After intake, patients receive ongoing medical management, prescription oversight, and personalized care. Annual commitment, billed monthly or annually.",
     includes: [
       "Ongoing hormone and thyroid optimization",
-      "Member pricing on IV, injections, peptides, aesthetics, weight loss",
+      "Member pricing on IV, injections, aesthetics, weight loss",
       "Quarterly provider follow-ups included",
       "Direct messaging with your provider through the portal",
       "Morpheus8 Face & Body member rates",
@@ -103,18 +103,6 @@ const wellnessSections: PricingSection[] = [
     title: "Medical Weight Loss",
     rows: [
       { name: "Consult", price: "$95" },
-    ],
-  },
-  {
-    title: "Peptide Therapy",
-    list: [
-      "Peptide Consult",
-      "NAD+",
-      "Sermorelin",
-      "TB-500",
-      "BPC-157",
-      "PT-141 + B12",
-      "GHK-Cu",
     ],
   },
 ];
@@ -185,7 +173,7 @@ const faqs = [
   {
     question: "Can I access services without joining the membership?",
     answer:
-      "Yes. After establishing care, patients may access select services at non-member pricing:\n\n• IV therapy\n• Vitamin injections\n• Peptide therapy\n• Aesthetic treatments\n• Virtual sick visits\n• Weight loss management\n\nOngoing hormone or thyroid prescription management is only available through membership for the first 12 months. After that you may move to non-member quarterly visits.",
+      "Yes. After establishing care, patients may access select services at non-member pricing:\n\n• IV therapy\n• Vitamin injections\n• Aesthetic treatments\n• Virtual sick visits\n• Weight loss management\n\nOngoing hormone or thyroid prescription management is only available through membership for the first 12 months. After that you may move to non-member quarterly visits.",
   },
   {
     question: "Why is hormone and thyroid management only available with membership at first?",

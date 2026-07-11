@@ -91,17 +91,18 @@ export default function ModernContactMapHero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap gap-6 text-sm text-[#30373E]"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-sm text-[#30373E]"
             >
               <div>
-                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-2">
                   Hours of Operation
                 </span>
-                <span className="block">Medical Appts: Tues–Thurs, 9 AM–3 PM</span>
-                <span className="block">Aesthetic &amp; Phone: Mon–Fri, 9 AM–5 PM</span>
+                <span className="block">Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="block">Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+                <span className="block">Phone Support: Mon–Fri, 9 AM–5 PM</span>
               </div>
               <div>
-                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-2">
                   Email
                 </span>
                 <Link

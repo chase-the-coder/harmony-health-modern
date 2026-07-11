@@ -8,7 +8,6 @@ import toast from "react-hot-toast";
 const TREATMENTS = [
   "Medical Weight Loss",
   "Hormone Replacement Therapy",
-  "Peptide Therapy",
   "Aesthetics",
   "IV Hydration Therapy",
   "Other",
@@ -68,13 +67,11 @@ function ContactInfo() {
           icon={<Clock size={20} weight="regular" />}
           label="Hours of Operation"
           value={
-            <>
-              Medical Provider Appts: Tues–Thurs, 9 AM–3 PM
-              <br />
-              Aesthetic Appts: Mon–Fri, 9 AM–5 PM
-              <br />
-              Phone Support: Mon–Fri, 9 AM–5 PM
-            </>
+            <span className="flex flex-col gap-0.5">
+              <span>Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+              <span>Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+              <span>Phone Support: Mon–Fri, 9 AM–5 PM</span>
+            </span>
           }
         />
         <InfoRow

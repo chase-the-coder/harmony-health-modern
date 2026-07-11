@@ -13,7 +13,7 @@ const credentials = [
     label: "Nursing, MCG",
     value: "MSN-FNP, Texas A&M 2013",
   },
-  { icon: SealCheck, label: "Practicing", value: "Hormones · Weight · Peptides" },
+  { icon: SealCheck, label: "Practicing", value: "Hormones · Weight · Aesthetics" },
 ];
 
 export default function ModernMeetMegan() {

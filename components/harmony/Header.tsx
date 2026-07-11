@@ -27,7 +27,6 @@ const NAV: NavItem[] = [
     matchPaths: [
       "/hormone-replacement-therapy-athens-ga",
       "/medical-weight-loss-athens-ga",
-      "/peptide-therapy-athens-ga",
       "/aesthetic-treatments-athens-ga",
       "/iv-hydration-therapy-athens-ga",
       "/womens-pelvic-health",
@@ -36,7 +35,6 @@ const NAV: NavItem[] = [
     dropdown: [
       { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
       { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
-      { label: "Peptide Therapy", href: "/peptide-therapy-athens-ga" },
       { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },
       { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
       { label: "Women's Pelvic Health", href: "/womens-pelvic-health" },

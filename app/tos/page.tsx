@@ -32,7 +32,7 @@ export default function TOS() {
           <p>These Terms of Service govern your use of the Harmony Health website at https://yourharmonyhealth.com and the services provided by Harmony Health. By using our Website and services, you agree to these Terms.</p>
 
           <h2>1. Description of Services</h2>
-          <p>Harmony Health is a wellness clinic located in Athens, GA that provides Hormone Replacement Therapy (HRT), Medical Weight Loss, Peptide Therapy, Aesthetic Treatments, and IV Hydration Therapy. Our website provides information about our services, allows you to schedule appointments, and submit inquiries.</p>
+          <p>Harmony Health is a wellness clinic located in Athens, GA that provides Hormone Replacement Therapy (HRT), Medical Weight Loss, Aesthetic Treatments, and IV Hydration Therapy. Our website provides information about our services, allows you to schedule appointments, and submit inquiries.</p>
 
           <h2>2. Appointment Scheduling</h2>
           <p>Appointments are scheduled through our online booking system (Optimantra) or by contacting our office directly. Cancellation and rescheduling policies may apply. Please contact our office for details.</p>

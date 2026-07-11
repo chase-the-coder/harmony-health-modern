@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
           <p>We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us enhance your browsing experience, analyze trends, and improve our services.</p>
 
           <h2>2. Purpose of Data Collection</h2>
-          <p>We collect and use your personal data for the purpose of appointment scheduling, treatment consultation, patient communication, and providing you with information about our services including Hormone Replacement Therapy, Medical Weight Loss, Peptide Therapy, Aesthetic Treatments, and IV Hydration Therapy.</p>
+          <p>We collect and use your personal data for the purpose of appointment scheduling, treatment consultation, patient communication, and providing you with information about our services including Hormone Replacement Therapy, Medical Weight Loss, Aesthetic Treatments, and IV Hydration Therapy.</p>
 
           <h2>3. Data Sharing</h2>
           <p>We do not share your personal data with any third parties except as required for appointment processing (e.g., sharing your information with our electronic health records system). We do not sell, trade, or rent your personal information to others.</p>

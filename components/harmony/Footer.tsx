@@ -19,7 +19,6 @@ const FACEBOOK_URL =
 const serviceLinks = [
   { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
   { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
-  { label: "Peptide Therapy", href: "/peptide-therapy-athens-ga" },
   { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
   { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },
 ];
@@ -143,8 +142,9 @@ export default function Footer() {
               </ContactRow>
               <ContactRow icon={<Clock size={16} weight="regular" />}>
                 <span className="block font-medium text-white">Hours of Operation</span>
-                <span className="text-white/65 block">Medical Appts: Tues–Thurs, 9 AM–3 PM</span>
-                <span className="text-white/65 block">Aesthetic &amp; Phone: Mon–Fri, 9 AM–5 PM</span>
+                <span className="text-white/65 block">Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="text-white/65 block">Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+                <span className="text-white/65 block">Phone Support: Mon–Fri, 9 AM–5 PM</span>
               </ContactRow>
             </ul>
 

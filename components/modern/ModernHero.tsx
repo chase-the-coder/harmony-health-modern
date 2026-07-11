@@ -71,7 +71,7 @@ const ModernHero = () => {
           >
             More energy, better sleep, a body that responds again — with a
             provider who reads your labs and listens. Hormone therapy, medical
-            weight loss, peptides, and aesthetics, guided by your biochemistry,
+            weight loss, IV therapy, and aesthetics, guided by your biochemistry,
             your story, and your goals.
           </motion.p>
 
