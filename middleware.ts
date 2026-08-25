@@ -6,11 +6,17 @@ const REDIRECTS: Record<string, string> = {
   "/medical-weight-loss-pricing": "/medical-weight-loss-pricing-kyre",
   "/hormone-replacement-therapy": "/hormone-replacement-therapy-athens-ga",
   "/medical-weight-loss": "/medical-weight-loss-athens-ga",
-  "/peptide-therapy": "/peptide-therapy-athens-ga",
 };
 
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname.replace(/\/+$/, "") || "/";
+  const host = request.headers.get("host") ?? "";
+  const isProduction = host.includes("yourharmonyhealth.com");
+
+  // On the live site, send all visitors to the under-construction page
+  if (isProduction && path !== "/under-construction") {
+    return NextResponse.redirect(new URL("/under-construction", request.url), 302);
+  }
 
   const target = REDIRECTS[path];
   if (target) {
