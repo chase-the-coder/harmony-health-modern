@@ -5,11 +5,13 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Check, Star } from "@phosphor-icons/react";
 
+type IncludeItem = string | { label: string; subItems: string[] };
+
 type Plan = {
   eyebrow: string;
   title: React.ReactNode;
   description: string;
-  includes: string[];
+  includes: IncludeItem[];
   priceLabel?: string;
   price: string;
   subPrice?: string;
@@ -23,6 +25,7 @@ type Props = {
   headline: React.ReactNode;
   description?: string;
   plans: Plan[];
+  footnote?: string;
 };
 
 export default function ModernPatientPlans({
@@ -30,6 +33,7 @@ export default function ModernPatientPlans({
   headline,
   description,
   plans,
+  footnote,
 }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -57,11 +61,16 @@ export default function ModernPatientPlans({
           )}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div className={`grid gap-6 md:gap-8 ${plans.length >= 3 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 lg:grid-cols-2"}`}>
           {plans.map((plan, i) => (
             <PlanCard key={i} plan={plan} index={i} />
           ))}
         </div>
+        {footnote && (
+          <p className="mt-8 text-sm text-[#535353] text-center max-w-[65ch] mx-auto leading-relaxed">
+            {footnote}
+          </p>
+        )}
       </div>
     </section>
   );
@@ -85,7 +94,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       }`}
     >
       {plan.featured && (
-        <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#6B9680] text-white text-[22px] uppercase tracking-[0.2em] font-semibold">
+        <div className="absolute -top-3 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9BD3B6] text-[#1F2A25] text-[22px] uppercase tracking-[0.2em] font-semibold">
           <Star size={10} weight="fill" /> Most value
         </div>
       )}
@@ -93,7 +102,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       <span
         className={`inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium w-fit mb-6 ${
           plan.featured
-            ? "bg-white/10 text-[#9BD3B6]"
+            ? "bg-white text-[#517563]"
             : "bg-[#6B9680]/10 text-[#517563]"
         }`}
       >
@@ -124,29 +133,44 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
         What&rsquo;s included
       </h4>
       <ul className="space-y-2.5 mb-8">
-        {plan.includes.map((item) => (
-          <li key={item} className="flex items-start gap-3">
-            <div
-              className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                plan.featured
-                  ? "bg-[#9BD3B6]/15 text-[#9BD3B6]"
-                  : "bg-[#6B9680]/15 text-[#517563]"
-              }`}
-            >
-              <Check size={12} weight="bold" />
-            </div>
-            <span
-              className={`text-[15px] leading-relaxed ${
-                plan.featured ? "text-white/85" : "text-[#30373E]"
-              }`}
-            >
-              {item}
-            </span>
-          </li>
-        ))}
+        {plan.includes.map((item, idx) => {
+          const isNested = typeof item === "object";
+          return (
+            <li key={idx} className="flex items-start gap-3">
+              <div
+                className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                  plan.featured
+                    ? "bg-[#9BD3B6]/15 text-[#9BD3B6]"
+                    : "bg-[#6B9680]/15 text-[#517563]"
+                }`}
+              >
+                <Check size={12} weight="bold" />
+              </div>
+              <div className="flex-1">
+                <span
+                  className={`text-[15px] leading-relaxed ${
+                    plan.featured ? "text-white/85" : "text-[#30373E]"
+                  }`}
+                >
+                  {isNested ? item.label : item}
+                </span>
+                {isNested && (
+                  <ul className="mt-1.5 space-y-1">
+                    {item.subItems.map((sub) => (
+                      <li key={sub} className={`flex items-start gap-2 text-[13px] leading-relaxed ${plan.featured ? "text-white/70" : "text-[#535353]"}`}>
+                        <span className="mt-[5px] w-1 h-1 rounded-full bg-current shrink-0" />
+                        {sub}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
 
-      <div className="mt-auto pt-6 border-t border-[#E5ECE8]/30">
+      <div className={`mt-auto pt-6 border-t ${plan.featured ? "border-[#E5ECE8]/30" : "border-[#C5D4CA]"}`}>
         {plan.priceLabel && (
           <p
             className={`text-xs uppercase tracking-[0.2em] font-semibold mb-2 ${
@@ -180,7 +204,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
             rel="noopener noreferrer"
             className={`mt-4 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full text-base font-medium active:scale-[0.98] transition-colors duration-300 ${
               plan.featured
-                ? "bg-[#6B9680] hover:bg-[#80BE9F] text-white"
+                ? "bg-white hover:bg-white/90 text-[#517563]"
                 : "bg-[#6B9680] hover:bg-[#517563] text-white"
             }`}
           >
@@ -200,7 +224,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
             href={plan.ctaHref}
             className={`mt-4 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-full text-base font-medium active:scale-[0.98] transition-colors duration-300 ${
               plan.featured
-                ? "bg-[#6B9680] hover:bg-[#80BE9F] text-white"
+                ? "bg-white hover:bg-white/90 text-[#517563]"
                 : "bg-[#6B9680] hover:bg-[#517563] text-white"
             }`}
           >

@@ -26,42 +26,77 @@ const MEMBER_BOOKING =
 const plans = [
   {
     eyebrow: "New Patients",
-    title: <>New Hormone Patient<br />Two Appointment Package</>,
+    title: <>New Hormone Patient<br />Two-Appointment Package</>,
     description:
-      "Every new patient starts here. Two one-on-one visits that give us time to understand your history, run the right labs, and build a plan around your body, not a template.",
+      "Every new patient starts here — men and women. Two comprehensive 50-minute visits to understand your history, review your labs, and build a plan around your body, not a template.",
     includes: [
-      "Detailed health and lifestyle assessment",
-      "Comprehensive lab panel (labs billed separately)",
-      "One-on-one lab interpretation visit",
-      "Customized treatment plan aligned with your goals",
-      "Recommendations for medications, supplements, and lifestyle",
+      "Comprehensive 50-minute initial consultation",
+      "Comprehensive 50-minute lab review visit",
+      "Review of current medications and medical history",
+      "Individualized hormone optimization plan",
+      "Lifestyle & nutrition recommendations",
+      "Supplement recommendations when appropriate",
+      "Labs and medications billed separately",
     ],
-    priceLabel: "New Patient Package",
+    priceLabel: "One-Time Investment",
     price: "$400",
-    subPrice:
-      "Comprehensive lab panel billed separately",
     ctaLabel: "Book New Patient visit",
     ctaHref: MEMBER_BOOKING,
   },
   {
-    eyebrow: "Hormone Optimization",
-    title: "Ongoing concierge care",
+    eyebrow: "Women's Hormone Program",
+    title: "Women's Hormone Optimization",
     description:
-      "After intake, patients receive ongoing medical management, prescription oversight, and personalized care. Annual commitment, billed monthly or annually.",
+      "Ongoing concierge hormone care for women. Comprehensive management, aesthetic perks, and a provider who knows your history.",
     includes: [
-      "Ongoing hormone and thyroid optimization",
-      "Member pricing on IV, injections, aesthetics, weight loss",
-      "Quarterly provider follow-ups included",
-      "Direct messaging with your provider through the portal",
-      "Morpheus8 Face & Body member rates",
+      "4 comprehensive follow-up visits per year",
+      "Medication management",
+      "20% off supplements",
+      "1 monthly simple care visit (office or telehealth)",
+      "Annual women's wellness exam",
+      "Priority scheduling & secure messaging",
+      {
+        label: "Discount on aesthetic pricing:",
+        subItems: [
+          "Dysport",
+          "10% off monthly signature facial",
+          "10% off microneedling facial",
+          "10% off one laser hair removal package each quarter",
+          "10% off two Lumecca IPL packages each year",
+          "10% off Empower treatments (vaginal rejuvenation & pelvic floor health)",
+        ],
+      },
+      "Labs and medications billed separately",
     ],
     priceLabel: "Monthly",
-    price: "$129",
-    subPrice:
-      "Or pay in full and save 10%. $1,600 for the full year. 12-month commitment.",
-    ctaLabel: "Explore member services",
-    ctaHref: "#wellness",
+    price: "$149",
+    ctaLabel: "Book Women's Consult",
+    ctaHref: MEMBER_BOOKING,
     featured: true,
+  },
+  {
+    eyebrow: "Men's Hormone Program",
+    title: <>Men's Testosterone &<br />Health Optimization</>,
+    description:
+      "Ongoing concierge testosterone and men's health management. Quarterly visits, monthly B12, and a provider who tracks every number.",
+    includes: [
+      "4 quarterly hormone optimization visits",
+      "Testosterone, estrogen & medication management",
+      "1 monthly simple care visit (office or telehealth)",
+      "Men's performance & hormone lab panel interpretation",
+      "Medication management and refills",
+      "Priority scheduling & secure messaging",
+      "20% off supplements",
+      "10% off Apex sexual wellness treatments",
+      "Discount pricing on additional services",
+      "1 monthly B12 injection included",
+      "Testosterone medication purchased through pharmacy separately",
+      "Labs billed separately",
+    ],
+    priceLabel: "Monthly",
+    price: "$99",
+    ctaLabel: "Book Men's Consult",
+    ctaHref: MEMBER_BOOKING,
   },
 ];
 
@@ -111,7 +146,7 @@ const aestheticSections: PricingSection[] = [
   {
     title: "Peels",
     rows: [
-      { name: "Aesthetic consult", price: "$50" },
+      { name: "Aesthetic consult", price: "Free" },
       { name: "VI Peel", price: "$279" },
       { name: "VI Peel (pkg of 3)", price: "$810" },
     ],
@@ -250,16 +285,17 @@ export default function ServicesAndPricingPage() {
         />
 
         <ModernPatientPlans
-          eyebrow="How care works here"
+          eyebrow="Hormone Programs"
           headline={
             <>
-              Start with a plan.
+              One starting point.
               <br />
-              <span className="text-[#6B9680]">Stay for the results.</span>
+              <span className="text-[#6B9680]">Two tailored programs.</span>
             </>
           }
-          description="Every patient starts with the two-visit intake. After that, you choose whether membership makes sense for your goals."
+          description="Every patient begins with the same two-visit intake package. From there, choose the program — women's or men's — that fits your goals."
           plans={plans}
+          footnote="Labs and medications are billed separately. Patients may choose to use insurance for lab testing when applicable or take advantage of our discounted self-pay lab pricing."
         />
 
         <div id="wellness" className="scroll-mt-20">

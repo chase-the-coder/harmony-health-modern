@@ -34,7 +34,7 @@ export default function ModernMeetMegan() {
             <div className="relative rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
               <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
                 <Image
-                  src="/legacy-images/about/megan.jpg"
+                  src="/images/megan-headshot.webp"
                   alt="Megan Cryder, NP-C, founder of Harmony Health"
                   fill
                   sizes="(min-width: 1024px) 440px, 100vw"

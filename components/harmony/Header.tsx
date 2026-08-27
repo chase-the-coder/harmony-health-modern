@@ -11,11 +11,17 @@ import { BOOKING_URL } from "./BookingButton";
 const OPTIMANTRA_PORTAL =
   "https://www.optimantra.com/optimus/om/patient/login";
 
+type MegaCategory = {
+  label: string;
+  href: string;
+  items: { label: string; href: string }[];
+};
+
 type NavItem = {
   label: string;
   href: string;
   matchPaths?: string[];
-  dropdown?: { label: string; href: string }[];
+  megaMenu?: MegaCategory[];
 };
 
 const NAV: NavItem[] = [
@@ -26,19 +32,51 @@ const NAV: NavItem[] = [
     href: "/services-and-pricing",
     matchPaths: [
       "/hormone-replacement-therapy-athens-ga",
+      "/womens-hormone-therapy",
+      "/mens-hormone-therapy",
       "/medical-weight-loss-athens-ga",
       "/aesthetic-treatments-athens-ga",
       "/iv-hydration-therapy-athens-ga",
       "/womens-pelvic-health",
       "/mens-sexual-health",
+      "/mens-pelvic-health",
     ],
-    dropdown: [
-      { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
-      { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
-      { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },
-      { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
-      { label: "Women's Pelvic Health", href: "/womens-pelvic-health" },
-      { label: "Men's Sexual Health", href: "/mens-sexual-health" },
+    megaMenu: [
+      {
+        label: "Hormone Therapy",
+        href: "/hormone-replacement-therapy-athens-ga",
+        items: [
+          { label: "Women's HRT", href: "/womens-hormone-therapy" },
+          { label: "Men's HRT", href: "/mens-hormone-therapy" },
+          { label: "Women's Pelvic Health", href: "/womens-pelvic-health" },
+          { label: "Men's Sexual Health", href: "/mens-sexual-health" },
+        ],
+      },
+      {
+        label: "Medical Weight Loss",
+        href: "/medical-weight-loss-athens-ga",
+        items: [
+          { label: "Weight Loss Programs", href: "/medical-weight-loss-athens-ga" },
+        ],
+      },
+      {
+        label: "Aesthetic Treatments",
+        href: "/aesthetic-treatments-athens-ga",
+        items: [
+          { label: "Facials", href: "/aesthetic-treatments-athens-ga#facials" },
+          { label: "Microneedling", href: "/aesthetic-treatments-athens-ga#microneedling" },
+          { label: "Lash Lift & Tint", href: "/aesthetic-treatments-athens-ga#lash-lift" },
+          { label: "Lumecca IPL", href: "/aesthetic-treatments-athens-ga#lumecca-ipl" },
+          { label: "Laser Hair Removal", href: "/aesthetic-treatments-athens-ga#laser-hair-removal" },
+        ],
+      },
+      {
+        label: "IV Hydration",
+        href: "/iv-hydration-therapy-athens-ga",
+        items: [
+          { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
+        ],
+      },
     ],
   },
   {
@@ -113,7 +151,6 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
-                    tabIndex={item.dropdown ? 0 : undefined}
                     className={`inline-flex items-center gap-1 text-sm font-medium tracking-tight transition-colors ${
                       active
                         ? "text-[#1F2A25]"
@@ -121,7 +158,7 @@ export default function Header() {
                     }`}
                   >
                     {item.label}
-                    {item.dropdown && (
+                    {item.megaMenu && (
                       <CaretDown
                         size={10}
                         weight="bold"
@@ -135,28 +172,47 @@ export default function Header() {
                       active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
-                  {item.dropdown && (
-                    <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50">
-                      <ul className="min-w-[280px] rounded-2xl bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] p-2">
-                        {item.dropdown.map((sub) => {
-                          const subActive =
-                            pathname === sub.href || pathname.startsWith(sub.href + "/");
-                          return (
-                            <li key={sub.href}>
-                              <Link
-                                href={sub.href}
-                                className={`block px-4 py-2.5 rounded-xl text-[14px] transition-colors ${
-                                  subActive
-                                    ? "bg-[#6B9680]/10 text-[#517563] font-semibold"
-                                    : "text-[#30373E] hover:bg-[#F7F9F8]"
-                                }`}
-                              >
-                                {sub.label}
-                              </Link>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                  {item.megaMenu && (
+                    <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full -left-24 pt-3 z-50">
+                      <div className="bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] rounded-2xl p-6 grid grid-cols-4 gap-8 min-w-[680px]">
+                        {item.megaMenu.map((cat) => (
+                          <div key={cat.label}>
+                            <Link
+                              href={cat.href}
+                              className="block text-[10px] uppercase tracking-[0.2em] font-semibold text-[#6B9680] hover:text-[#517563] mb-3 transition-colors"
+                            >
+                              {cat.label}
+                            </Link>
+                            <ul className="space-y-1.5">
+                              {cat.items.map((sub) => {
+                                const subActive = pathname === sub.href || pathname.startsWith(sub.href + "/");
+                                return (
+                                  <li key={sub.href}>
+                                    <Link
+                                      href={sub.href}
+                                      className={`block text-[13px] leading-snug transition-colors ${
+                                        subActive
+                                          ? "text-[#517563] font-semibold"
+                                          : "text-[#30373E] hover:text-[#517563]"
+                                      }`}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        ))}
+                        <div className="col-span-4 pt-4 mt-2 border-t border-[#E5ECE8]">
+                          <Link
+                            href="/services-and-pricing"
+                            className="text-[12px] uppercase tracking-[0.15em] font-semibold text-[#517563] hover:text-[#1F2A25] transition-colors"
+                          >
+                            View all services &amp; pricing →
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -211,7 +267,7 @@ export default function Header() {
                 const active = isActive(item);
                 return (
                   <div key={item.label}>
-                    {item.dropdown ? (
+                    {item.megaMenu ? (
                       <>
                         <button
                           onClick={() => setServicesOpen(!servicesOpen)}
@@ -229,28 +285,39 @@ export default function Header() {
                           />
                         </button>
                         {servicesOpen && (
-                          <div className="pl-4 pb-2 space-y-1">
+                          <div className="pl-4 pb-2 space-y-3">
+                            {item.megaMenu.map((cat) => (
+                              <div key={cat.label}>
+                                <Link
+                                  href={cat.href}
+                                  onClick={closeMobile}
+                                  className="block py-1 px-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-[#6B9680]"
+                                >
+                                  {cat.label}
+                                </Link>
+                                {cat.items.map((sub) => (
+                                  <Link
+                                    key={sub.href}
+                                    href={sub.href}
+                                    onClick={closeMobile}
+                                    className={`block py-1.5 px-4 text-[14px] ${
+                                      pathname === sub.href
+                                        ? "text-[#517563] font-semibold"
+                                        : "text-[#535353]"
+                                    }`}
+                                  >
+                                    {sub.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
                             <Link
                               href={item.href}
                               onClick={closeMobile}
-                              className="block py-2 px-2 text-[14px] text-[#535353]"
+                              className="block py-2 px-2 text-[13px] font-semibold text-[#517563]"
                             >
-                              All services
+                              View all services →
                             </Link>
-                            {item.dropdown.map((sub) => (
-                              <Link
-                                key={sub.href}
-                                href={sub.href}
-                                onClick={closeMobile}
-                                className={`block py-2 px-2 text-[14px] ${
-                                  pathname === sub.href
-                                    ? "text-[#517563] font-semibold"
-                                    : "text-[#535353]"
-                                }`}
-                              >
-                                {sub.label}
-                              </Link>
-                            ))}
                           </div>
                         )}
                       </>
