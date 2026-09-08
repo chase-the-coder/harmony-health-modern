@@ -22,6 +22,7 @@ type NavItem = {
   href: string;
   matchPaths?: string[];
   megaMenu?: MegaCategory[];
+  menuAlign?: "left" | "right";
 };
 
 const NAV: NavItem[] = [
@@ -40,41 +41,66 @@ const NAV: NavItem[] = [
       "/womens-pelvic-health",
       "/mens-sexual-health",
       "/mens-pelvic-health",
+      "/morpheus8-athens-ga",
+      "/laser-hair-removal-athens-ga",
+      "/lumecca-ipl-athens-ga",
+      "/dysport-athens-ga",
+      "/customized-facial-athens-ga",
+      "/signature-luxe-facial-athens-ga",
+      "/express-facial-athens-ga",
+      "/teen-facial-athens-ga",
+      "/gentlemens-facial-athens-ga",
+      "/back-facial-athens-ga",
+      "/lash-lift-tint-athens-ga",
+      "/facial-packages-athens-ga",
     ],
     megaMenu: [
       {
-        label: "Hormone Therapy",
-        href: "/hormone-replacement-therapy-athens-ga",
+        label: "InMode",
+        href: "/aesthetic-treatments-athens-ga",
+        items: [
+          { label: "Morpheus Face & Body", href: "/morpheus8-athens-ga" },
+          { label: "Fusion Laser Hair Removal", href: "/laser-hair-removal-athens-ga" },
+          { label: "Lumecca IPL", href: "/lumecca-ipl-athens-ga" },
+          { label: "EmpowerRF", href: "/womens-pelvic-health" },
+          { label: "APEX for ED", href: "/mens-sexual-health" },
+        ],
+      },
+      {
+        label: "Medicine + Wellness",
+        href: "/services-and-pricing",
         items: [
           { label: "Women's HRT", href: "/womens-hormone-therapy" },
           { label: "Men's HRT", href: "/mens-hormone-therapy" },
-          { label: "Women's Pelvic Health", href: "/womens-pelvic-health" },
-          { label: "Men's Sexual Health", href: "/mens-sexual-health" },
+          { label: "IV Hydration", href: "/iv-hydration-therapy-athens-ga" },
+          { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
         ],
       },
       {
-        label: "Medical Weight Loss",
-        href: "/medical-weight-loss-athens-ga",
+        label: "Facials + Lashes",
+        href: "/aesthetic-treatments-athens-ga#facials",
         items: [
-          { label: "Weight Loss Programs", href: "/medical-weight-loss-athens-ga" },
+          { label: "Customized Facial", href: "/customized-facial-athens-ga" },
+          { label: "Signature Luxe Facial", href: "/signature-luxe-facial-athens-ga" },
+          { label: "Express Facial", href: "/express-facial-athens-ga" },
+          { label: "Teen Facial", href: "/teen-facial-athens-ga" },
+          { label: "Gentleman's Facial", href: "/gentlemens-facial-athens-ga" },
+          { label: "Back Facial", href: "/back-facial-athens-ga" },
+          { label: "Lash Lift & Tint", href: "/lash-lift-tint-athens-ga" },
         ],
       },
       {
-        label: "Aesthetic Treatments",
-        href: "/aesthetic-treatments-athens-ga",
+        label: "Neurotoxin",
+        href: "/dysport-athens-ga",
         items: [
-          { label: "Facials", href: "/aesthetic-treatments-athens-ga#facials" },
-          { label: "Microneedling", href: "/aesthetic-treatments-athens-ga#microneedling" },
-          { label: "Lash Lift & Tint", href: "/aesthetic-treatments-athens-ga#lash-lift" },
-          { label: "Lumecca IPL", href: "/aesthetic-treatments-athens-ga#lumecca-ipl" },
-          { label: "Laser Hair Removal", href: "/aesthetic-treatments-athens-ga#laser-hair-removal" },
+          { label: "Dysport", href: "/dysport-athens-ga" },
         ],
       },
       {
-        label: "IV Hydration",
-        href: "/iv-hydration-therapy-athens-ga",
+        label: "Packages",
+        href: "/facial-packages-athens-ga",
         items: [
-          { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
+          { label: "Facial Reset Package", href: "/facial-packages-athens-ga" },
         ],
       },
     ],
@@ -82,11 +108,62 @@ const NAV: NavItem[] = [
   {
     label: "Pricing",
     href: "/services-and-pricing",
+    menuAlign: "right",
     matchPaths: [
       "/services-and-pricing",
       "/pricing",
       "/pricing-mens-hrt",
       "/pricing-womens-hrt",
+    ],
+    megaMenu: [
+      {
+        label: "Medicine + Wellness",
+        href: "/services-and-pricing#medicine-wellness",
+        items: [
+          { label: "Women's HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "Men's HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "IV Hydration", href: "/services-and-pricing#iv-hydration" },
+          { label: "Medical Weight Loss", href: "/services-and-pricing#weight-loss" },
+        ],
+      },
+      {
+        label: "InMode",
+        href: "/services-and-pricing#inmode",
+        items: [
+          { label: "Morpheus Face & Body", href: "/services-and-pricing#inmode" },
+          { label: "Fusion Laser Hair Removal", href: "/services-and-pricing#inmode" },
+          { label: "Lumecca IPL", href: "/services-and-pricing#inmode" },
+          { label: "EmpowerRF", href: "/services-and-pricing#inmode" },
+          { label: "APEX for ED", href: "/services-and-pricing#inmode" },
+        ],
+      },
+      {
+        label: "Facials + Lashes",
+        href: "/services-and-pricing#facials-lashes",
+        items: [
+          { label: "Customized Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Signature Luxe Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Express Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Teen Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Gentleman's Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Back Facial", href: "/services-and-pricing#facials-lashes" },
+          { label: "Lash Lift & Tint", href: "/services-and-pricing#facials-lashes" },
+        ],
+      },
+      {
+        label: "Neurotoxin",
+        href: "/services-and-pricing#neurotoxin",
+        items: [
+          { label: "Dysport", href: "/services-and-pricing#neurotoxin" },
+        ],
+      },
+      {
+        label: "Packages",
+        href: "/services-and-pricing#packages",
+        items: [
+          { label: "Facial Reset Package", href: "/services-and-pricing#packages" },
+        ],
+      },
     ],
   },
   { label: "Contact", href: "/contact", matchPaths: ["/contact"] },
@@ -173,8 +250,8 @@ export default function Header() {
                     }`}
                   />
                   {item.megaMenu && (
-                    <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full -left-24 pt-3 z-50">
-                      <div className="bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] rounded-2xl p-6 grid grid-cols-4 gap-8 min-w-[680px]">
+                    <div className={`invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full pt-3 z-50 ${item.menuAlign === "right" ? "right-0" : "-left-24"}`}>
+                      <div className="bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] rounded-2xl p-6 grid grid-cols-5 gap-6 min-w-[860px]">
                         {item.megaMenu.map((cat) => (
                           <div key={cat.label}>
                             <Link
@@ -204,7 +281,7 @@ export default function Header() {
                             </ul>
                           </div>
                         ))}
-                        <div className="col-span-4 pt-4 mt-2 border-t border-[#E5ECE8]">
+                        <div className="col-span-5 pt-4 mt-2 border-t border-[#E5ECE8]">
                           <Link
                             href="/services-and-pricing"
                             className="text-[12px] uppercase tracking-[0.15em] font-semibold text-[#517563] hover:text-[#1F2A25] transition-colors"

@@ -44,7 +44,7 @@ const plans = [
     ctaHref: MEMBER_BOOKING,
   },
   {
-    eyebrow: "Women's Hormone Program",
+    eyebrow: "Women",
     title: "Women's Hormone Optimization",
     description:
       "Ongoing concierge hormone care for women. Comprehensive management, aesthetic perks, and a provider who knows your history.",
@@ -75,8 +75,8 @@ const plans = [
     featured: true,
   },
   {
-    eyebrow: "Men's Hormone Program",
-    title: <>Men's Testosterone &<br />Health Optimization</>,
+    eyebrow: "Men",
+    title: <>Men&rsquo;s Testosterone &<br />Health Optimization</>,
     description:
       "Ongoing concierge testosterone and men's health management. Quarterly visits, monthly B12, and a provider who tracks every number.",
     includes: [
@@ -124,6 +124,9 @@ const wellnessSections: PricingSection[] = [
       "Steroid / Allergy shot",
     ],
   },
+];
+
+const ivSections: PricingSection[] = [
   {
     title: "IV Infusions",
     rows: [
@@ -134,53 +137,110 @@ const wellnessSections: PricingSection[] = [
       { name: "Allergy Relief", price: "$149" },
     ],
   },
+];
+
+const weightLossSections: PricingSection[] = [
   {
     title: "Medical Weight Loss",
     rows: [
       { name: "Consult", price: "$95" },
     ],
+    note: "Medication costs are separate and vary by treatment plan.",
   },
 ];
 
-const aestheticSections: PricingSection[] = [
-  {
-    title: "Peels",
-    rows: [
-      { name: "Aesthetic consult", price: "Free" },
-      { name: "VI Peel", price: "$279" },
-      { name: "VI Peel (pkg of 3)", price: "$810" },
-    ],
-  },
-  {
-    title: "Injectables",
-    rows: [{ name: "Dysport", price: "$12 / unit" }],
-  },
+const inmodeSections: PricingSection[] = [
   {
     title: "Morpheus8 Face & Body",
     tagline: "Free consultation and skin assessment",
     body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance. Pricing varies based on the treatment plan and number of sessions recommended.",
   },
   {
-    title: "PRP Hair Restoration",
-    tagline: "Call to schedule your free consultation",
-    body: "Ideal for early to moderate hair thinning, diffuse shedding, stress-related hair loss, or hormone-related hair changes. Designed to slow progression and improve thickness.",
+    title: "Fusion Laser Hair Removal",
+    tagline: "All packages include 6 sessions",
+    body: "Fusion's advanced technology provides effective hair reduction with comfortable, customizable treatments for a variety of skin tones and treatment areas.",
+    rows: [
+      { name: "Chin", price: "$350" },
+      { name: "Upper Lip", price: "$350" },
+      { name: "Sideburns", price: "$350" },
+      { name: "Neck", price: "$450" },
+      { name: "Underarms", price: "$500" },
+      { name: "Full Face", price: "$600" },
+      { name: "Bikini", price: "$400" },
+      { name: "Brazilian", price: "$650" },
+      { name: "Stomach", price: "$650" },
+      { name: "Chest", price: "$650" },
+      { name: "Arms", price: "$800" },
+      { name: "Legs", price: "$1,200" },
+      { name: "Back", price: "$1,200" },
+      { name: "Full Body Unlimited", price: "$3,250" },
+    ],
   },
   {
-    title: "Women's Vaginal Rejuvenation",
+    title: "Lumecca IPL",
+    tagline: "Free consultation",
+    body: "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone. Pricing varies based on treatment area and plan.",
+  },
+  {
+    title: "EmpowerRF — Women's Pelvic Health",
     tagline: "Free consultation.",
-    body: "EmpowerRF is a women's wellness platform using RF and electrical muscle stimulation to improve pelvic health, sexual wellness, and vaginal rejuvenation without surgery or downtime. Treatments include Morpheus8 V, FormaV, and V-Tone. Pricing varies by treatment plan and session count.",
+    body: "EmpowerRF is a women's wellness platform using RF and electrical muscle stimulation to improve pelvic health, sexual wellness, and vaginal rejuvenation without surgery or downtime. Treatments include Morpheus8V, FormaV, and VTone. Pricing varies by treatment plan and session count.",
     chips: ["Morpheus8V", "FormaV", "VTone"],
     cta: { label: "Learn more", href: "/womens-pelvic-health", color: "green" },
   },
   {
-    title: "Bladder & Pelvic Support",
-    tagline: "Free consultation and exam.",
-    body: "InMode Empower offers a non-surgical option for urinary incontinence by strengthening and rejuvenating the pelvic floor. RF and muscle-activation technology boosts tissue tone and bladder control. Most patients see improvements quickly with zero downtime.",
+    title: "APEX — Men's Sexual Health",
+    tagline: "Free consultation.",
+    body: "Boost your confidence and performance with APEX™ by InMode. This treatment uses radiofrequency energy, a non-invasive approach to improve blood flow, sensitivity, and tissue tone in the penile area. Each session warms the tissue to encourage collagen growth, improve circulation, and help achieve stronger, longer-lasting sexual performance.\n\nMost patients find the treatment comfortable and relaxing, with no downtime and no medication needed. For optimal and lasting results, a series of sessions is typically recommended.",
+    list: [
+      "Enhanced blood flow and firmness",
+      "Improved sensitivity and endurance",
+      "Restored confidence and sexual wellness",
+      "Safe, painless, and non-surgical",
+    ],
+    cta: { label: "Learn more", href: "/mens-sexual-health" },
+  },
+];
+
+const facialsSections: PricingSection[] = [
+  {
+    title: "Facials",
+    rows: [
+      { name: "Customized Facial", price: "$160" },
+      { name: "Signature Luxe Facial", price: "$200" },
+      { name: "Express Facial", price: "$135" },
+      { name: "Teen Facial", price: "$125" },
+      { name: "Gentleman's Facial", price: "$180" },
+      { name: "Back Facial", price: "$200" },
+    ],
   },
   {
-    title: "Men's Sexual Health (APEX)",
-    body: "APEX is a non-invasive treatment for men focused on performance, confidence, and intimate wellness. Uses advanced energy technology to enhance circulation and strengthen pelvic muscles with no pain, downtime, or medication. Sessions are 15 minutes. Most patients need ~6 treatments for full effect.",
-    cta: { label: "Learn more", href: "/mens-sexual-health" },
+    title: "Lash Lift & Tint",
+    tagline: "Contact us for current pricing",
+    body: "A semi-permanent treatment that lifts, curls, and tints your natural lashes — no extensions required. Results last 6–8 weeks.",
+  },
+];
+
+const neurotoxinSections: PricingSection[] = [
+  {
+    title: "Dysport",
+    rows: [{ name: "Dysport", price: "$12 / unit" }],
+    note: "Aesthetic consult is free. Unit count is determined at your consultation.",
+  },
+  {
+    title: "VI Peel",
+    rows: [
+      { name: "VI Peel", price: "$279" },
+      { name: "VI Peel (pkg of 3)", price: "$810" },
+    ],
+  },
+];
+
+const packagesSections: PricingSection[] = [
+  {
+    title: "Facial Reset Package",
+    tagline: "Contact us for package details and pricing",
+    body: "Our curated facial packages are designed to give your skin a complete reset. More details and pricing coming soon — reach out to learn what's included.",
   },
 ];
 
@@ -284,24 +344,27 @@ export default function ServicesAndPricingPage() {
           badge={{ label: "Self-pay", value: "Superbills available" }}
         />
 
-        <ModernPatientPlans
-          eyebrow="Hormone Programs"
-          headline={
-            <>
-              One starting point.
-              <br />
-              <span className="text-[#6B9680]">Two tailored programs.</span>
-            </>
-          }
-          description="Every patient begins with the same two-visit intake package. From there, choose the program — women's or men's — that fits your goals."
-          plans={plans}
-          footnote="Labs and medications are billed separately. Patients may choose to use insurance for lab testing when applicable or take advantage of our discounted self-pay lab pricing."
-        />
+        {/* ── Medicine + Wellness ─────────────────────────── */}
+        <div id="medicine-wellness" className="scroll-mt-24">
+          <ModernPatientPlans
+            eyebrow="Medicine + Wellness"
+            headline={
+              <>
+                One starting point.
+                <br />
+                <span className="text-[#6B9680]">Two tailored programs.</span>
+              </>
+            }
+            description="Every patient begins with the same two-visit intake package. From there, choose the program — women's or men's — that fits your goals."
+            plans={plans}
+            footnote="Labs and medications are billed separately. Patients may choose to use insurance for lab testing when applicable or take advantage of our discounted self-pay lab pricing."
+          />
+        </div>
 
-        <div id="wellness" className="scroll-mt-20">
+        <div id="wellness" className="scroll-mt-24">
           <ModernPricingAccordion
-            eyebrow="Additional Services"
-            headline={<>Medical and Wellness Care</>}
+            eyebrow="Medicine + Wellness"
+            headline={<>General Health &amp; Labs</>}
             description=""
             notice=""
             sections={wellnessSections}
@@ -309,19 +372,83 @@ export default function ServicesAndPricingPage() {
           />
         </div>
 
-        <ModernPricingAccordion
-          eyebrow="Aesthetic & vitality"
-          headline={
-            <>
-              Aesthetic and
-              <br />
-              <span className="text-[#6B9680]">vitality services.</span>
-            </>
-          }
-          description="Treatments focused on how you look, how you move, and how you feel in your own body. Free consultations for most packages."
-          sections={aestheticSections}
-          variant="tint"
-        />
+        <div id="iv-hydration" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Medicine + Wellness"
+            headline={<>IV Hydration Therapy</>}
+            description=""
+            notice=""
+            sections={ivSections}
+            variant="tint"
+          />
+        </div>
+
+        <div id="weight-loss" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Medicine + Wellness"
+            headline={<>Medical Weight Loss</>}
+            description=""
+            notice=""
+            sections={weightLossSections}
+            variant="light"
+          />
+        </div>
+
+        {/* ── InMode ──────────────────────────────────────── */}
+        <div id="inmode" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="InMode"
+            headline={
+              <>
+                InMode
+                <br />
+                <span className="text-[#6B9680]">treatments.</span>
+              </>
+            }
+            description="Advanced body and skin treatments using InMode technology. Free consultations for all InMode services."
+            sections={inmodeSections}
+            variant="tint"
+          />
+        </div>
+
+        {/* ── Facials + Lashes ────────────────────────────── */}
+        <div id="facials-lashes" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Facials + Lashes"
+            headline={
+              <>
+                Facials &amp; Lashes
+                <br />
+                <span className="text-[#6B9680]">pricing.</span>
+              </>
+            }
+            description="Each facial begins with a skin analysis so your treatment is never one-size-fits-all."
+            sections={facialsSections}
+            variant="light"
+          />
+        </div>
+
+        {/* ── Neurotoxin ──────────────────────────────────── */}
+        <div id="neurotoxin" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Neurotoxin"
+            headline={<>Neurotoxin &amp; Peels</>}
+            description="Aesthetic consult is always free."
+            sections={neurotoxinSections}
+            variant="tint"
+          />
+        </div>
+
+        {/* ── Packages ────────────────────────────────────── */}
+        <div id="packages" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Packages"
+            headline={<>Packages</>}
+            description="Curated treatment bundles for maximum results and value."
+            sections={packagesSections}
+            variant="light"
+          />
+        </div>
 
         <ModernFAQ
           eyebrow="Pricing questions"

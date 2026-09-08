@@ -1,6 +1,7 @@
 import Header from "@/components/harmony/Header";
 import Footer from "@/components/harmony/Footer";
 import ModernCTA from "@/components/modern/ModernCTA";
+import FacialAccordion from "@/components/modern/FacialAccordion";
 import { getSEOTags, renderBreadcrumbSchema } from "@/libs/seo";
 import { BOOKING_URLS } from "@/components/harmony/BookingButton";
 import Link from "next/link";
@@ -133,27 +134,7 @@ export default function AestheticTreatmentsPage() {
                 Each facial begins with a thorough skin analysis so your treatment is never one-size-fits-all.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {facials.map((f) => (
-                <div
-                  key={f.name}
-                  className="bg-white rounded-2xl ring-1 ring-[#E5ECE8] p-8 shadow-sm"
-                >
-                  <h3 className="text-xl font-bold tracking-tight text-[#1F2A25] mb-3">{f.name}</h3>
-                  <p className="text-[#30373E] leading-relaxed">{f.description}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8">
-              <Link
-                href={BOOK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
-              >
-                Book a facial
-              </Link>
-            </div>
+            <FacialAccordion />
           </div>
         </section>
 
@@ -305,7 +286,7 @@ export default function AestheticTreatmentsPage() {
                   <span className="italic font-light text-[#517563]">Longer-lasting results.</span>
                 </h2>
                 <p className="text-lg text-[#30373E] leading-relaxed mb-8">
-                  Enjoy smoother, longer-lasting results with Fusion laser hair removal. Fusion's advanced technology provides effective hair reduction with comfortable, customizable treatments for a variety of skin tones and treatment areas.
+                  Enjoy smoother, longer-lasting results with Fusion laser hair removal. Fusion&rsquo;s advanced technology provides effective hair reduction with comfortable, customizable treatments for a variety of skin tones and treatment areas.
                 </p>
                 <Link
                   href={BOOK}
