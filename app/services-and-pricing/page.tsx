@@ -1,6 +1,7 @@
 import Header from "@/components/harmony/Header";
 import Footer from "@/components/harmony/Footer";
 import ModernPageHero from "@/components/modern/ModernPageHero";
+import ModernPricingCategoryNav from "@/components/modern/ModernPricingCategoryNav";
 import ModernPatientPlans from "@/components/modern/ModernPatientPlans";
 import ModernPricingAccordion, {
   PricingSection,
@@ -45,7 +46,7 @@ const plans = [
   },
   {
     eyebrow: "Women",
-    title: "Women's Hormone Optimization",
+    title: <>Women&rsquo;s Restorative<br />Wellness + HRT</>,
     description:
       "Ongoing concierge hormone care for women. Comprehensive management, aesthetic perks, and a provider who knows your history.",
     includes: [
@@ -58,7 +59,7 @@ const plans = [
       {
         label: "Discount on aesthetic pricing:",
         subItems: [
-          "Dysport",
+          "Dysport $11/unit",
           "10% off monthly signature facial",
           "10% off microneedling facial",
           "10% off one laser hair removal package each quarter",
@@ -76,7 +77,7 @@ const plans = [
   },
   {
     eyebrow: "Men",
-    title: <>Men&rsquo;s Testosterone &<br />Health Optimization</>,
+    title: <>Men&rsquo;s Restorative<br />Wellness + HRT</>,
     description:
       "Ongoing concierge testosterone and men's health management. Quarterly visits, monthly B12, and a provider who tracks every number.",
     includes: [
@@ -129,6 +130,7 @@ const wellnessSections: PricingSection[] = [
 const ivSections: PricingSection[] = [
   {
     title: "IV Infusions",
+    body: "Feel the difference in under an hour. Vitamins, electrolytes, and fluids delivered straight to your bloodstream by a licensed medical team. Three formulas, each built for a specific outcome.",
     rows: [
       { name: "Basic Hydration (1 Liter)", price: "$95" },
       { name: "Myer's Cocktail", price: "$149" },
@@ -142,6 +144,7 @@ const ivSections: PricingSection[] = [
 const weightLossSections: PricingSection[] = [
   {
     title: "Medical Weight Loss",
+    body: "Drop the weight your body has been holding onto and keep it off for good. GLP-1 protocols with custom titration, monthly check-ins, and the nutrition coaching that makes results last after you stop the medication.",
     rows: [
       { name: "Consult", price: "$95" },
     ],
@@ -153,12 +156,19 @@ const inmodeSections: PricingSection[] = [
   {
     title: "Morpheus8 Face & Body",
     tagline: "Free consultation and skin assessment",
-    body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance. Pricing varies based on the treatment plan and number of sessions recommended.",
+    body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance.",
+    tieredLabels: { single: "1 Session", package: "Pkg of 3 (10% off)" },
+    tieredRows: [
+      { name: "Full Face", single: "$699", package: "$1,897" },
+      { name: "Face + Neck", single: "$799", package: "$3,150" },
+      { name: "Small Area", single: "$799", package: "$2,197" },
+      { name: "Large Area", single: "$1,155", package: "$3,150" },
+    ],
   },
   {
     title: "Fusion Laser Hair Removal",
     tagline: "All packages include 6 sessions",
-    body: "Fusion's advanced technology provides effective hair reduction with comfortable, customizable treatments for a variety of skin tones and treatment areas.",
+    body: "Smooth, lasting results using Fusion by InMode — one of the most advanced laser hair removal platforms available. Safe for a wide range of skin tones, with comfortable treatments and no downtime.",
     rows: [
       { name: "Chin", price: "$350" },
       { name: "Upper Lip", price: "$350" },
@@ -179,7 +189,16 @@ const inmodeSections: PricingSection[] = [
   {
     title: "Lumecca IPL",
     tagline: "Free consultation",
-    body: "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone. Pricing varies based on treatment area and plan.",
+    body: "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
+    tieredLabels: { single: "1 Session", package: "Pkg of 3" },
+    tieredRows: [
+      { name: "Face", single: "$275", package: "$743" },
+      { name: "Face + Neck", single: "$329", package: "$889" },
+      { name: "Face + Neck + Chest", single: "$450", package: "$1,215" },
+      { name: "Small Area", single: "$275", package: "$743" },
+      { name: "Large Area", single: "$450", package: "$1,215" },
+      { name: "Spot Treatment", single: "$145", package: "$390" },
+    ],
   },
   {
     title: "EmpowerRF — Women's Pelvic Health",
@@ -189,15 +208,9 @@ const inmodeSections: PricingSection[] = [
     cta: { label: "Learn more", href: "/womens-pelvic-health", color: "green" },
   },
   {
-    title: "APEX — Men's Sexual Health",
+    title: "Men's Restorative Wellness",
     tagline: "Free consultation.",
-    body: "Boost your confidence and performance with APEX™ by InMode. This treatment uses radiofrequency energy, a non-invasive approach to improve blood flow, sensitivity, and tissue tone in the penile area. Each session warms the tissue to encourage collagen growth, improve circulation, and help achieve stronger, longer-lasting sexual performance.\n\nMost patients find the treatment comfortable and relaxing, with no downtime and no medication needed. For optimal and lasting results, a series of sessions is typically recommended.",
-    list: [
-      "Enhanced blood flow and firmness",
-      "Improved sensitivity and endurance",
-      "Restored confidence and sexual wellness",
-      "Safe, painless, and non-surgical",
-    ],
+    body: "Health. Performance. Longevity.\n\nThis private, comprehensive consultation is designed for men seeking to optimize their health, vitality, and overall performance.\n\nWe take a personalized, evidence-based approach to:\n\n• Hormone Optimization (HRT/TRT)\n• Peptide Therapy\n• Metabolic & Body Composition Support\n• Energy, Recovery & Longevity Planning\n• Functional device treatments, including Apex™ for erectile performance and vascular optimization\n\nThis is not a quick visit — it's a strategic conversation about how you want to feel in your body.\n\nAll consultations are discreet, judgment-free, and tailored to your goals.\n\nIf you're ready to enhance your overall well-being and performance, reach out to schedule your session. Your path to optimal health begins here!",
     cta: { label: "Learn more", href: "/mens-sexual-health" },
   },
 ];
@@ -216,14 +229,15 @@ const facialsSections: PricingSection[] = [
   },
   {
     title: "Lash Lift & Tint",
-    tagline: "Contact us for current pricing",
-    body: "A semi-permanent treatment that lifts, curls, and tints your natural lashes — no extensions required. Results last 6–8 weeks.",
+    body: "Wake up with beautifully lifted, curled, and darkened lashes — no mascara, no lash curler, no extensions. A lash lift and tint gives your natural lashes a semi-permanent boost that lasts 6–8 weeks.",
+    rows: [{ name: "Lash Lift & Tint", price: "$105" }],
   },
 ];
 
 const neurotoxinSections: PricingSection[] = [
   {
     title: "Dysport",
+    body: "Dysport is a trusted neurotoxin that relaxes the muscles responsible for expression lines — smoothing forehead wrinkles, frown lines, and crow's feet with natural-looking results that set in quickly and last 3–4 months.",
     rows: [{ name: "Dysport", price: "$12 / unit" }],
     note: "Aesthetic consult is free. Unit count is determined at your consultation.",
   },
@@ -343,6 +357,8 @@ export default function ServicesAndPricingPage() {
           }}
           badge={{ label: "Self-pay", value: "Superbills available" }}
         />
+
+        <ModernPricingCategoryNav />
 
         {/* ── Medicine + Wellness ─────────────────────────── */}
         <div id="medicine-wellness" className="scroll-mt-24">

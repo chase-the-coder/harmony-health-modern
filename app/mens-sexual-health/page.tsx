@@ -13,25 +13,26 @@ import {
 } from "@/libs/seo";
 
 export const metadata = getSEOTags({
-  title: "Men's Sexual Health Athens GA | Harmony Health",
+  title: "Men's Restorative Wellness Athens GA | Harmony Health",
   description:
-    "Harmony Health offers men's sexual health treatments in Athens, GA — including the APEX platform for sexual performance and erectile dysfunction.",
+    "Harmony Health offers private, comprehensive men's restorative wellness consultations in Athens, GA — hormone optimization, peptide therapy, and the APEX platform for performance and vascular optimization.",
   canonicalUrlRelative: "/mens-sexual-health",
 });
 
 const apexBenefits = [
-  "Addresses sexual performance concerns",
-  "Non-surgical approach to erectile dysfunction",
-  "Combines multiple technologies for comprehensive results",
-  "Fully customized to your individual goals",
+  "Hormone Optimization (HRT/TRT)",
+  "Peptide Therapy",
+  "Metabolic & Body Composition Support",
+  "Energy, Recovery & Longevity Planning",
+  "Functional device treatments, including Apex™ for erectile performance and vascular optimization",
 ];
 
 const apexCandidate = [
-  "Experience erectile dysfunction or reduced sexual performance",
-  "Want a non-surgical, personalized treatment approach",
-  "Are looking for a comprehensive solution using advanced technology",
-  "Want to address concerns from multiple angles for optimal results",
-  "Prefer a treatment plan tailored to your unique needs",
+  "Want a personalized, evidence-based plan for your health, performance, and longevity",
+  "Are interested in hormone optimization (HRT/TRT) or peptide therapy",
+  "Want guidance on metabolic and body composition goals",
+  "Are looking for a strategic, in-depth conversation — not a quick visit",
+  "Want a discreet, judgment-free space tailored to your goals",
 ];
 
 const faqs = [
@@ -66,31 +67,32 @@ export default function MensSexualHealthPage() {
   return (
     <>
       {renderServiceSchema({
-        name: "Men's Sexual Health",
+        name: "Men's Restorative Wellness",
         description:
-          "Men's sexual health treatments including the APEX platform for sexual performance and erectile dysfunction in Athens, GA.",
+          "Private, comprehensive men's restorative wellness consultations including hormone optimization, peptide therapy, and the APEX platform for performance and vascular optimization in Athens, GA.",
         path: "/mens-sexual-health",
       })}
       {renderBreadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Services", path: "/services-and-pricing" },
-        { name: "Men's Sexual Health", path: "/mens-sexual-health" },
+        { name: "Men's Restorative Wellness", path: "/mens-sexual-health" },
       ])}
       {renderFAQSchema(faqs)}
       <Header />
       <main>
         <ModernPageHero
-          eyebrow="Men's Sexual Health"
+          eyebrow="Men's Restorative Wellness"
           headline={
             <>
-              Personalized care.
+              Health. Performance.
               <br />
               <span className="italic font-light text-[#517563]">
-                Advanced technology.
+                Longevity.
               </span>
             </>
           }
-          description="We offer advanced, non-surgical treatments for men's sexual health — addressing performance concerns and erectile dysfunction with a fully customized approach. No two patients are the same, and neither are our treatment plans."
+          headlineClassName="text-5xl md:text-7xl lg:text-[96px] font-bold tracking-tighter leading-[0.95] text-[#1F2A25] mb-8"
+          description="This private, comprehensive consultation is designed for men seeking to optimize their health, vitality, and overall performance."
           image={{
             src: "/assets/hrt/men.webp",
             alt: "Confident, healthy man",
@@ -101,21 +103,20 @@ export default function MensSexualHealthPage() {
         />
 
         <ModernTreatmentDetail
-          eyebrow="APEX Platform"
+          eyebrow="Our Approach"
           headline={
             <>
-              A customized approach
+              A personalized,
               <br />
-              to your care.
+              evidence-based approach.
             </>
           }
-          description="The APEX platform allows us to fully customize your care by combining multiple technologies — radiofrequency, microneedling, and muscle stimulation — to address your concerns from every angle for optimal results. No two patients are the same. That's why we tailor every treatment plan to your unique goals, whether you're focused on symptom relief, prevention, or overall rejuvenation."
+          description="This is not a quick visit — it's a strategic conversation about how you want to feel in your body. All consultations are discreet, judgment-free, and tailored to your goals. We take a personalized, evidence-based approach to:"
           benefits={apexBenefits}
-          candidateTitle="Who is a good candidate for APEX?"
-          candidateIntro="APEX may be right for you if you:"
+          candidateTitle="This consultation may be right for you if you:"
           candidate={apexCandidate}
           bookHref={BOOKING_URL}
-          bookLabel="Book a men's sexual health consultation"
+          bookLabel="Book a Men's Restorative Wellness Consultation"
           image={{
             src: "/assets/hrt/men.webp",
             alt: "Active, confident man",
@@ -125,13 +126,13 @@ export default function MensSexualHealthPage() {
         />
 
         <ModernFAQ
-          eyebrow="Men's sexual health questions"
+          eyebrow="Men's restorative wellness questions"
           headline={
             <>
               Common questions about
               <br />
               <span className="text-[#6B9680]">
-                men&rsquo;s sexual health.
+                men&rsquo;s restorative wellness.
               </span>
             </>
           }

@@ -4,6 +4,7 @@ import ModernHero from "@/components/modern/ModernHero";
 import ModernTrustBar from "@/components/modern/ModernTrustBar";
 import ModernProblem from "@/components/modern/ModernProblem";
 import ModernMeetMegan from "@/components/modern/ModernMeetMegan";
+import ModernOfferings from "@/components/modern/ModernOfferings";
 import ModernIntimateWellness from "@/components/modern/ModernIntimateWellness";
 import ModernServicesTicker from "@/components/modern/ModernServicesTicker";
 import ModernServices from "@/components/modern/ModernServices";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <main>
         <ModernMeetMegan />
         <ModernServicesTicker />
+        <ModernOfferings />
         <ModernIntimateWellness />
         <Divider />
         <ModernHero />

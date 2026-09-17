@@ -100,6 +100,7 @@ export default function AestheticTreatmentsPage() {
             <nav className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
               {[
                 { label: "Facials", href: "#facials" },
+                { label: "Neurotoxin", href: "#neurotoxin" },
                 { label: "Microneedling", href: "#microneedling" },
                 { label: "Lash Lift & Tint", href: "#lash-lift" },
                 { label: "Lumecca IPL", href: "#lumecca-ipl" },
@@ -135,6 +136,54 @@ export default function AestheticTreatmentsPage() {
               </p>
             </div>
             <FacialAccordion />
+          </div>
+        </section>
+
+        {/* Neurotoxin */}
+        <section id="neurotoxin" className="bg-[#F7F9F8] py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Neurotoxin
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Smooth lines.
+                  <br />
+                  <span className="italic font-light text-[#517563]">Natural results.</span>
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  Dysport is a trusted neurotoxin that relaxes the muscles responsible for expression lines, smoothing forehead wrinkles, frown lines, and crow&rsquo;s feet with natural-looking results that set in quickly and last 3–4 months.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book Dysport
+                </Link>
+              </div>
+              <div className="bg-white rounded-2xl ring-1 ring-[#E5ECE8] p-8 shadow-sm">
+                <h3 className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-4">
+                  Dysport treats
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Forehead lines",
+                    "Frown lines (elevens)",
+                    "Crow's feet",
+                    "Fast onset, natural-looking spread",
+                    "Results last 3–4 months",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -1,9 +1,8 @@
 "use client";
 
 const services = [
-  "Hormone Replacement Therapy",
-  "Women's HRT",
-  "Men's HRT",
+  "Women's Restorative Wellness + HRT",
+  "Men's Restorative Wellness + HRT",
   "Medical Weight Loss",
   "EmpowerRF",
   "Morpheus8V",
@@ -15,12 +14,14 @@ const services = [
   "Lash Lift & Tint",
   "IV Hydration Therapy",
   "Women's Pelvic Health",
-  "Men's Sexual Health",
   "Functional Medicine",
 ];
 
 const Dot = () => (
-  <span className="mx-8 w-2 h-2 rounded-full bg-[#6B9680] inline-block shrink-0 align-middle" />
+  <span
+    className="mx-8 w-2 h-2 rounded-full bg-[#6B9680] inline-block shrink-0 align-middle"
+    style={{ boxShadow: "0 0 8px 2px rgba(128,190,159,0.65)" }}
+  />
 );
 
 const tickerStyle: React.CSSProperties = {
@@ -29,9 +30,9 @@ const tickerStyle: React.CSSProperties = {
 
 export default function ModernServicesTicker() {
   return (
-    <div className="bg-[#1F2A25] py-6 overflow-hidden relative">
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#1F2A25] to-transparent z-10" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#1F2A25] to-transparent z-10" />
+    <div className="bg-[#FAF8F4] py-8 md:py-10 overflow-hidden relative">
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FAF8F4] to-transparent z-10" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#FAF8F4] to-transparent z-10" />
 
       <style>{`
         @keyframes ticker {
@@ -42,7 +43,14 @@ export default function ModernServicesTicker() {
 
       <div className="flex whitespace-nowrap" style={tickerStyle}>
         {[...services, ...services].map((s, i) => (
-          <span key={i} className="inline-flex items-center text-[17px] font-medium tracking-wide text-white/80">
+          <span
+            key={i}
+            className="inline-flex items-center text-2xl md:text-3xl font-medium tracking-wide text-[#1F2A25]"
+            style={{
+              textShadow:
+                "0 0 12px rgba(128,190,159,0.6), 0 0 24px rgba(128,190,159,0.3)",
+            }}
+          >
             {s}
             <Dot />
           </span>

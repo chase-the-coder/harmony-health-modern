@@ -21,7 +21,7 @@ const services = [
       "Custom-dosed HRT for men and women. Comprehensive lab work, ongoing titration, pellets or injections, and a real provider who knows your labs by name.",
     features: ["Men's & Women's protocols", "Pellets or injections", "Quarterly titration"],
     image: "/assets/services/hrt.webp",
-    href: "/hormone-replacement-therapy-athens-ga",
+    href: "/services-and-pricing#medicine-wellness",
   },
   {
     icon: Scales,

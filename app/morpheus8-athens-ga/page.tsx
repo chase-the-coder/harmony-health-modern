@@ -69,7 +69,7 @@ export default function Morpheus8Page() {
               </div>
             </div>
             <div className="relative h-[420px] lg:h-[520px] rounded-3xl overflow-hidden">
-              <Image src="/assets/aesthetic/morpheus8.webp" alt="Morpheus8 skin tightening treatment Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
+              <Image src="/images/morpheus8-treatment-hero.webp" alt="Calm spa treatment room at Harmony Health in Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
             </div>
           </div>
         </section>

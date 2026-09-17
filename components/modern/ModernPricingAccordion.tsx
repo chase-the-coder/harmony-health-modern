@@ -10,12 +10,20 @@ export type PricingRow = {
   note?: string;
 };
 
+export type TieredPricingRow = {
+  name: string;
+  single: string;
+  package: string;
+};
+
 export type PricingSection = {
   title: string;
   tagline?: string;
   intro?: string;
   body?: string;
   rows?: PricingRow[];
+  tieredRows?: TieredPricingRow[];
+  tieredLabels?: { single: string; package: string };
   list?: string[];
   note?: string;
   chips?: string[];
@@ -107,7 +115,7 @@ function SectionItem({
         onClick={() => setOpen((v) => !v)}
         className="w-full flex items-center justify-between gap-4 px-6 md:px-8 py-5 md:py-6 text-left hover:bg-[#F7F9F8] transition-colors"
       >
-        <span className="text-base md:text-lg font-semibold text-[#1F2A25]">
+        <span className="text-xl md:text-2xl font-bold tracking-tight text-[#1F2A25]">
           {section.title}
         </span>
         <motion.span
@@ -151,6 +159,39 @@ function SectionItem({
                     </li>
                   ))}
                 </ul>
+              )}
+              {section.tieredRows && section.tieredRows.length > 0 && (
+                <div>
+                  <div className="flex items-baseline gap-4 pb-2 border-b border-[#E5ECE8]">
+                    <span className="flex-1 text-[11px] uppercase tracking-[0.15em] font-semibold text-[#535353]">
+                      &nbsp;
+                    </span>
+                    <span className="w-20 md:w-24 text-right text-[11px] uppercase tracking-[0.15em] font-semibold text-[#535353]">
+                      {section.tieredLabels?.single ?? "1 Session"}
+                    </span>
+                    <span className="w-20 md:w-24 text-right text-[11px] uppercase tracking-[0.15em] font-semibold text-[#535353]">
+                      {section.tieredLabels?.package ?? "Pkg of 3"}
+                    </span>
+                  </div>
+                  <ul className="divide-y divide-[#E5ECE8]">
+                    {section.tieredRows.map((row) => (
+                      <li
+                        key={row.name}
+                        className="py-3 flex items-baseline gap-4"
+                      >
+                        <span className="flex-1 text-[15px] text-[#1F2A25]">
+                          {row.name}
+                        </span>
+                        <span className="w-20 md:w-24 text-right text-[15px] text-[#30373E] whitespace-nowrap">
+                          {row.single}
+                        </span>
+                        <span className="w-20 md:w-24 text-right text-[15px] font-semibold text-[#517563] whitespace-nowrap">
+                          {row.package}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
               {section.rows && section.rows.length > 0 && (
                 <ul className="divide-y divide-[#E5ECE8]">

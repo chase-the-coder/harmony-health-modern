@@ -20,6 +20,7 @@ type Props = {
   primaryCta?: CTA;
   secondaryCta?: CTA;
   badge?: { label: string; value: string };
+  headlineClassName?: string;
 };
 
 export default function ModernPageHero({
@@ -31,6 +32,7 @@ export default function ModernPageHero({
   primaryCta = { label: "Book an appointment", href: BOOKING_URL },
   secondaryCta,
   badge,
+  headlineClassName,
 }: Props) {
   const isExternal = primaryCta.href.startsWith("http");
 
@@ -73,7 +75,10 @@ export default function ModernPageHero({
               initial={{ opacity: 0, y: 32 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-6xl lg:text-[72px] font-bold tracking-tighter leading-[1] text-[#1F2A25] mb-8"
+              className={
+                headlineClassName ??
+                "text-4xl md:text-6xl lg:text-[72px] font-bold tracking-tighter leading-[1] text-[#1F2A25] mb-8"
+              }
             >
               {headline}
             </motion.h1>

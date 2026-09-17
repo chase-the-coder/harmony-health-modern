@@ -17,7 +17,7 @@ const FACEBOOK_URL =
   "https://www.facebook.com/people/Harmony-Health-Integrative-Wellness/61571449373842/";
 
 const serviceLinks = [
-  { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
+  { label: "Hormone Replacement Therapy", href: "/services-and-pricing#medicine-wellness" },
   { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
   { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
   { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },

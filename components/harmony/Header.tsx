@@ -32,11 +32,10 @@ const NAV: NavItem[] = [
     label: "Services",
     href: "/services-and-pricing",
     matchPaths: [
-      "/hormone-replacement-therapy-athens-ga",
       "/womens-hormone-therapy",
-      "/mens-hormone-therapy",
       "/medical-weight-loss-athens-ga",
       "/aesthetic-treatments-athens-ga",
+      "/inmode-athens-ga",
       "/iv-hydration-therapy-athens-ga",
       "/womens-pelvic-health",
       "/mens-sexual-health",
@@ -57,7 +56,7 @@ const NAV: NavItem[] = [
     megaMenu: [
       {
         label: "InMode",
-        href: "/aesthetic-treatments-athens-ga",
+        href: "/inmode-athens-ga",
         items: [
           { label: "Morpheus Face & Body", href: "/morpheus8-athens-ga" },
           { label: "Fusion Laser Hair Removal", href: "/laser-hair-removal-athens-ga" },
@@ -70,8 +69,8 @@ const NAV: NavItem[] = [
         label: "Medicine + Wellness",
         href: "/services-and-pricing",
         items: [
-          { label: "Women's HRT", href: "/womens-hormone-therapy" },
-          { label: "Men's HRT", href: "/mens-hormone-therapy" },
+          { label: "Women's Restorative Wellness + HRT", href: "/womens-hormone-therapy" },
+          { label: "Men's Restorative Wellness + HRT", href: "/mens-sexual-health" },
           { label: "IV Hydration", href: "/iv-hydration-therapy-athens-ga" },
           { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
         ],
@@ -120,8 +119,8 @@ const NAV: NavItem[] = [
         label: "Medicine + Wellness",
         href: "/services-and-pricing#medicine-wellness",
         items: [
-          { label: "Women's HRT", href: "/services-and-pricing#medicine-wellness" },
-          { label: "Men's HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "Women's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "Men's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
           { label: "IV Hydration", href: "/services-and-pricing#iv-hydration" },
           { label: "Medical Weight Loss", href: "/services-and-pricing#weight-loss" },
         ],
@@ -250,8 +249,14 @@ export default function Header() {
                     }`}
                   />
                   {item.megaMenu && (
-                    <div className={`invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full pt-3 z-50 ${item.menuAlign === "right" ? "right-0" : "-left-24"}`}>
-                      <div className="bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] rounded-2xl p-6 grid grid-cols-5 gap-6 min-w-[860px]">
+                    <div
+                      className={`invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 z-50 ${
+                        item.menuAlign === "right"
+                          ? `fixed right-6 md:right-12 ${scrolled ? "top-[100px]" : "top-[144px]"}`
+                          : "absolute top-full pt-3 -left-24"
+                      }`}
+                    >
+                      <div className="bg-white ring-1 ring-[#E5ECE8] shadow-[0_20px_40px_-15px_rgba(31,42,37,0.15)] rounded-2xl p-6 grid grid-cols-5 gap-6 min-w-[860px] max-w-[calc(100vw-3rem)] overflow-x-auto">
                         {item.megaMenu.map((cat) => (
                           <div key={cat.label}>
                             <Link
