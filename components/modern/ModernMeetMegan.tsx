@@ -4,17 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { SealCheck, GraduationCap, Stethoscope } from "@phosphor-icons/react";
-
-const credentials = [
-  { icon: Stethoscope, label: "Nurse Practitioner", value: "Board certified" },
-  {
-    icon: GraduationCap,
-    label: "Nursing, MCG",
-    value: "MSN-FNP, Texas A&M 2013",
-  },
-  { icon: SealCheck, label: "Practicing", value: "Hormones · Weight · Peptides" },
-];
+import { SealCheck } from "@phosphor-icons/react";
 
 export default function ModernMeetMegan() {
   const ref = useRef(null);
@@ -34,7 +24,7 @@ export default function ModernMeetMegan() {
             <div className="relative rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
               <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
                 <Image
-                  src="/legacy-images/about/megan.jpg"
+                  src="/images/megan-headshot.webp"
                   alt="Megan Cryder, NP-C, founder of Harmony Health"
                   fill
                   sizes="(min-width: 1024px) 440px, 100vw"
@@ -69,7 +59,7 @@ export default function ModernMeetMegan() {
                 Delivered personally.
               </span>
             </h2>
-            <p className="text-lg text-[#30373E] leading-relaxed max-w-[56ch] mb-6">
+            <p className="text-lg text-[#30373E] leading-relaxed max-w-[56ch] mb-10">
               Harmony Health Integrative Wellness was founded by Megan Cryder,
               APRN, NP-C. It was created for patients who are ready to feel
               like themselves again and want a provider who listens deeply,
@@ -77,30 +67,6 @@ export default function ModernMeetMegan() {
               Harmony, we create a clear path forward and walk with you through
               every step of your wellness journey.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
-              {credentials.map((c) => {
-                const Icon = c.icon;
-                return (
-                  <div
-                    key={c.label}
-                    className="flex items-start gap-3 rounded-2xl bg-white ring-1 ring-[#E5ECE8] px-4 py-3"
-                  >
-                    <span className="w-9 h-9 rounded-xl bg-[#6B9680]/10 text-[#517563] flex items-center justify-center shrink-0">
-                      <Icon size={18} weight="regular" />
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-0.5">
-                        {c.label}
-                      </p>
-                      <p className="text-[13px] text-[#1F2A25] font-medium leading-tight">
-                        {c.value}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
             <Link
               href="/about"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.98] transition-colors duration-300"

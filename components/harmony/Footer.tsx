@@ -17,9 +17,8 @@ const FACEBOOK_URL =
   "https://www.facebook.com/people/Harmony-Health-Integrative-Wellness/61571449373842/";
 
 const serviceLinks = [
-  { label: "Hormone Replacement Therapy", href: "/hormone-replacement-therapy-athens-ga" },
+  { label: "Hormone Replacement Therapy", href: "/services-and-pricing#medicine-wellness" },
   { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
-  { label: "Peptide Therapy", href: "/peptide-therapy-athens-ga" },
   { label: "IV Hydration Therapy", href: "/iv-hydration-therapy-athens-ga" },
   { label: "Aesthetic Treatments", href: "/aesthetic-treatments-athens-ga" },
 ];
@@ -135,17 +134,17 @@ export default function Footer() {
               </ContactRow>
               <ContactRow icon={<EnvelopeSimple size={16} weight="regular" />}>
                 <a
-                  href="mailto:info@yourharmonyhealth.com"
+                  href="mailto:team@yourharmonyhealth.com"
                   className="font-medium text-white hover:text-[#9BD3B6] transition-colors break-all"
                 >
-                  info@yourharmonyhealth.com
+                  team@yourharmonyhealth.com
                 </a>
               </ContactRow>
               <ContactRow icon={<Clock size={16} weight="regular" />}>
-                <span className="block font-medium text-white">
-                  Tue &middot; Wed &middot; Thu
-                </span>
-                <span className="text-white/65">9am &ndash; 3pm</span>
+                <span className="block font-medium text-white">Hours of Operation</span>
+                <span className="text-white/65 block">Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="text-white/65 block">Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+                <span className="text-white/65 block">Phone Support: Mon–Fri, 9 AM–5 PM</span>
               </ContactRow>
             </ul>
 

@@ -22,7 +22,7 @@ const steps = [
     number: "03",
     title: "Personalized plan",
     description:
-      "We sit down together and walk through every result. Then we build your plan: HRT, weight loss, peptides, IV, or aesthetic work dosed to your biology.",
+      "We sit down together and walk through every result. Then we build your plan: HRT, weight loss, IV, or aesthetic work dosed to your biology.",
     duration: "Visit 2",
   },
   {

@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/peptide-therapy-athens-ga",
+        destination: "/services-and-pricing",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

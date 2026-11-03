@@ -1,294 +1,413 @@
 import Header from "@/components/harmony/Header";
 import Footer from "@/components/harmony/Footer";
-import ModernPageHero from "@/components/modern/ModernPageHero";
-import ModernTreatmentDetail from "@/components/modern/ModernTreatmentDetail";
-import ModernCardGrid from "@/components/modern/ModernCardGrid";
-import ModernFAQ from "@/components/modern/ModernFAQ";
 import ModernCTA from "@/components/modern/ModernCTA";
+import FacialAccordion from "@/components/modern/FacialAccordion";
+import { getSEOTags, renderBreadcrumbSchema } from "@/libs/seo";
 import { BOOKING_URLS } from "@/components/harmony/BookingButton";
-import {
-  getSEOTags,
-  renderFAQSchema,
-  renderBreadcrumbSchema,
-  renderServiceSchema,
-} from "@/libs/seo";
+import Link from "next/link";
 
 export const metadata = getSEOTags({
   title: "Aesthetic Treatments Athens GA | Harmony Health",
   description:
-    "Medical-grade aesthetics in Athens, GA. Morpheus8, InMode, Dysport, and dermal fillers delivered by a medical team. Minimally invasive treatments for skin, body, and facial rejuvenation.",
+    "Facials, microneedling, Lumecca IPL, laser hair removal, lash lift, Morpheus8, and injectables in Athens, GA. Medical-grade and spa aesthetics at Harmony Health.",
   canonicalUrlRelative: "/aesthetic-treatments-athens-ga",
 });
 
-const morpheus8Benefits = [
-  "Remodels collagen deep in the dermis",
-  "Tightens loose skin on face, neck, and body",
-  "Reduces fine lines, acne scars, and uneven texture",
-  "Safe for all skin types and tones",
-  "Minimal downtime, compounding results over 6-12 weeks",
-];
+const BOOK = BOOKING_URLS.aesthetic;
 
-const morpheus8Candidate = [
-  "Notice early skin laxity or loss of firmness on face, neck, jawline, or body",
-  "Want meaningful improvement without surgery or ablative lasers",
-  "Are comfortable with a 3-5 day pinkness or light flaking period",
-  "Want a treatment cleared by the FDA for skin resurfacing and subdermal remodeling",
-  "Can commit to a series of 2-3 sessions spaced ~4 weeks apart for best results",
-];
-
-const injectableBenefits = [
-  "Smooths dynamic lines on forehead, frown area (11s), and crow's feet",
-  "Subtle lip flip and gummy-smile refinement with small doses",
-  "Dermal fillers restore volume in cheeks, temples, and lips",
-  "Softens nasolabial folds and marionette lines",
-  "Results typically appear in 2-3 days (Dysport), immediate for fillers",
-];
-
-const injectableCandidate = [
-  "Want to soften expression lines without looking frozen",
-  "Are starting to notice volume loss in cheeks, temples, or lips",
-  "Prefer precise, conservative dosing over dramatic change",
-  "Can tolerate tiny-needle injection and minor swelling for a few hours",
-  "Understand that Dysport lasts 3-4 months and fillers 6-18 months depending on product",
-];
-
-const inmodeSuite = [
+const facials = [
   {
-    iconKey: "waveform" as const,
-    name: "Morpheus8 V",
-    tagline: "Intimate wellness for women",
+    name: "Customized Facial",
     description:
-      "Microneedling plus RF for the vaginal and vulvar tissue. Addresses laxity, dryness, and sensitivity by remodeling collagen in the treatment area.",
-    benefits: [
-      "Improves elasticity, hydration, and sensitivity",
-      "Remodels internal and external tissue",
-      "Supports urinary and pelvic wellness",
-      "Minimal discomfort with topical numbing",
-    ],
-    idealFor:
-      "Women experiencing postpartum or post-menopausal changes, laxity, dryness, or mild stress incontinence.",
+      "A personalized treatment designed specifically for your unique needs. After a thorough skin analysis, professional-grade products and technique are selected to target concerns such as acne, dryness, sensitivity, congestion, fine lines, or uneven skin tone.",
   },
   {
-    iconKey: "lightning" as const,
-    name: "V Tone",
-    tagline: "Pelvic floor retraining",
+    name: "Signature Luxe Facial",
     description:
-      "Non-invasive electrical muscle stimulation (EMS) that restores pelvic floor strength and coordination. Paired well with Morpheus8 V for a more complete protocol.",
-    benefits: [
-      "Strengthens pelvic floor without surgery or kegels",
-      "Restores neuromuscular coordination",
-      "Improves circulation and tissue health",
-      "Fully clothed, comfortable sessions",
-    ],
-    idealFor:
-      "Patients with stress incontinence, postpartum weakness, or diminished pelvic tone.",
+      "A soothing treatment created for sensitive, stressed, or redness-prone skin. This facial helps calm inflammation, strengthen the skin barrier, and restore hydration, leaving your complexion balanced and refreshed.",
   },
   {
-    iconKey: "heart" as const,
-    name: "Forma V",
-    tagline: "Gentle deep heating",
+    name: "Express Facial",
     description:
-      "Non-invasive radiofrequency that delivers uniform deep-tissue heating to stimulate collagen and circulation. A softer step before or alongside Morpheus8 V.",
-    benefits: [
-      "Non-invasive, comfortable treatment",
-      "Stimulates collagen for natural firming",
-      "Enhances blood flow to treated tissue",
-      "No downtime",
-    ],
-    idealFor:
-      "Patients new to pelvic aesthetic treatments or those wanting a gentler option than Morpheus8 V.",
+      "Short on time but need a skin refresh? This efficient treatment delivers visible results in just 30 minutes.",
   },
   {
-    iconKey: "circle" as const,
-    name: "Aviva",
-    tagline: "Precision tissue contraction",
+    name: "Teen Facial",
     description:
-      "Minimally invasive RF treatment that delivers controlled contraction and renewal to sensitive areas. Single session with targeted results.",
-    benefits: [
-      "Gently contracts and refines sensitive areas",
-      "Promotes tissue renewal and resilience",
-      "One-and-done protocol for many patients",
-    ],
-    idealFor:
-      "Patients looking for targeted, precise tissue contraction beyond what non-invasive options provide.",
-  },
-  {
-    iconKey: "sparkle" as const,
-    name: "Tone (Body)",
-    tagline: "Muscle sculpting",
-    description:
-      "Electrical muscle stimulation for deep muscle toning and contouring. Works alongside lifestyle and weight loss programs for a more sculpted result.",
-    benefits: [
-      "Targets deep muscle layers for visible toning",
-      "Boosts local circulation and metabolism",
-      "Non-invasive with no downtime",
-    ],
-    idealFor:
-      "Patients close to their goal physique wanting targeted sculpting in specific muscle groups.",
+      "Designed specifically for teenage skin, this 45-minute customized facial targets common concerns such as excess oil, congestion, blackheads, and breakouts.",
   },
 ];
 
-const faqs = [
+const addOns = [
   {
-    question: "What is Morpheus8, and how does it work?",
-    answer:
-      "Morpheus8 is an FDA-cleared device that combines microneedling with radiofrequency energy. Tiny pins deliver controlled heat into the deeper dermis, triggering collagen and elastin production.\n\nThe result is skin that looks firmer and more even over 6-12 weeks as new collagen forms. It's used on face, neck, jawline, and body.",
+    name: "Dermaplaning",
+    description:
+      "A gentle exfoliation technique that removes dead skin cells and peach fuzz, leaving skin instantly smoother and more radiant. Enhances product absorption and creates a flawless base.",
   },
   {
-    question: "Does Morpheus8 hurt?",
-    answer:
-      "Topical numbing makes most sessions a mild pressure and warmth sensation. The device itself is fast, and the deeper the setting, the more intense the heat. Patients commonly describe it as tolerable, especially compared to ablative lasers.",
-  },
-  {
-    question: "What's the downtime after Morpheus8?",
-    answer:
-      "Pinkness and small dot marks for 24-48 hours. A bit of dry flaking for 3-5 days. Makeup is fine after 24 hours. Most patients return to work the next day.",
-  },
-  {
-    question: "How many Morpheus8 sessions will I need?",
-    answer:
-      "Most patients do 2-3 sessions spaced 4 weeks apart, followed by annual touch-ups. Results continue to improve for 3-6 months after your final session as collagen remodels.",
-  },
-  {
-    question: "What is Dysport?",
-    answer:
-      "Dysport is an FDA-approved neuromodulator (like Botox) that temporarily relaxes the muscles responsible for dynamic wrinkles: forehead lines, frown lines between the brows, and crow's feet. Results begin within 2-3 days and last 3-4 months.",
-  },
-  {
-    question: "Will Dysport look natural?",
-    answer:
-      "Yes, when dosed conservatively. We start with the lowest effective dose and build from there. The goal is softening, not freezing. You'll still make natural expressions.",
-  },
-  {
-    question: "What about dermal fillers?",
-    answer:
-      "We use FDA-approved hyaluronic acid fillers (Juvederm, Restylane families) to restore volume where it's lost, smooth deeper creases, and subtly enhance contours. Results are immediate and last anywhere from 6 to 18 months depending on the product and area treated.",
-  },
-  {
-    question: "Is there downtime with injectables?",
-    answer:
-      "Dysport: essentially none, maybe mild bruising at injection sites. Fillers: possible minor swelling or bruising for a few days, especially around the lips. Most patients go back to normal activities the same day.",
-  },
-  {
-    question: "How do I know what's right for me?",
-    answer:
-      "The honest answer: a consultation. We map out your goals (tightening vs smoothing vs volumizing), your tolerance for downtime, and your budget, then match the right treatment or combination. No upsells, no pressure.",
+    name: "LED Light Therapy",
+    description:
+      "Non-invasive light wavelengths target specific skin concerns — red light boosts collagen, blue light targets acne-causing bacteria. A calming, zero-downtime add-on to any treatment.",
   },
 ];
 
-export default function AestheticPage() {
+export default function AestheticTreatmentsPage() {
   return (
     <>
-      {renderServiceSchema({
-        name: "Aesthetic Treatments",
-        description:
-          "Medical-grade aesthetics in Athens, GA. Morpheus8, InMode, Dysport, and dermal fillers.",
-        path: "/aesthetic-treatments-athens-ga",
-      })}
       {renderBreadcrumbSchema([
         { name: "Home", path: "/" },
-        { name: "Services", path: "/services-and-pricing" },
         { name: "Aesthetic Treatments", path: "/aesthetic-treatments-athens-ga" },
       ])}
-      {renderFAQSchema(faqs)}
       <Header />
       <main>
-        <ModernPageHero
-          eyebrow="Aesthetic Treatments"
-          headline={
-            <>
-              Look like yourself.
+        {/* Hero */}
+        <section className="relative bg-[#FAF8F4] pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 40% at 80% 20%, rgba(107,150,128,0.12) 0%, transparent 70%)",
+            }}
+          />
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/60 backdrop-blur-sm ring-1 ring-[#6B9680]/20 text-[#517563] mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
+              Aesthetic Services
+            </span>
+            <h1 className="text-4xl md:text-6xl lg:text-[72px] font-bold tracking-tighter leading-[1.05] text-[#1F2A25] mb-6 max-w-3xl">
+              Aesthetic care,
               <br />
-              <span className="italic font-light text-[#517563]">Just more rested.</span>
-            </>
-          }
-          description="Walk out looking like yourself on your best day. Morpheus8 and the InMode suite for skin and body tightening. Dysport and dermal fillers for faces that still move the way they should. All delivered by providers who know anatomy deeply."
-          image={{
-            src: "/assets/aesthetic/hero.webp",
-            alt: "Woman with radiant healthy skin",
-          }}
-          primaryCta={{
-            label: "Book aesthetic consultation",
-            href: BOOKING_URLS.aesthetic,
-          }}
-          secondaryCta={{
-            label: "See pricing",
-            href: "/services-and-pricing",
-          }}
-          badge={{ label: "Medical-grade", value: "Provider-delivered" }}
-        />
+              <span className="italic font-light text-[#517563]">tailored to you.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-[#30373E] leading-relaxed max-w-[52ch] mb-8">
+              From relaxing facials to advanced skin treatments, our aesthetic menu is designed to meet you where you are — whether you want a monthly refresh or a targeted corrective plan.
+            </p>
+            <Link
+              href={BOOK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] transition-colors duration-300"
+            >
+              Book an aesthetic appointment
+            </Link>
+          </div>
+        </section>
 
-        <ModernTreatmentDetail
-          eyebrow="Morpheus8"
-          headline={
-            <>
-              Resurfacing and collagen,
-              <br />
-              without the laser downtime.
-            </>
-          }
-          description="Morpheus8 combines microneedling with radiofrequency to remodel collagen deep in the dermis. It's our go-to for skin laxity, fine lines, acne scars, and body tightening. Minimally invasive, safe for all skin tones, and with a fraction of the downtime of ablative lasers."
-          benefits={morpheus8Benefits}
-          candidateTitle="Who is a good candidate for Morpheus8?"
-          candidateIntro="Morpheus8 works well for a wide range of patients. You may be a good candidate if you:"
-          candidate={morpheus8Candidate}
-          bookHref={BOOKING_URLS.aesthetic}
-          bookLabel="Book Morpheus8 consultation"
-          image={{
-            src: "/assets/aesthetic/morpheus8.webp",
-            alt: "Woman during a Morpheus8 treatment",
-          }}
-          imageSide="right"
-        />
+        {/* Quick nav */}
+        <section className="bg-white border-b border-[#E5ECE8] sticky top-[88px] z-30">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <nav className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+              {[
+                { label: "Facials", href: "#facials" },
+                { label: "Neurotoxin", href: "#neurotoxin" },
+                { label: "Microneedling", href: "#microneedling" },
+                { label: "Lash Lift & Tint", href: "#lash-lift" },
+                { label: "Lumecca IPL", href: "#lumecca-ipl" },
+                { label: "Laser Hair Removal", href: "#laser-hair-removal" },
+                { label: "Add-On Enhancements", href: "#add-ons" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="shrink-0 px-4 py-1.5 rounded-full text-[13px] font-medium text-[#30373E] hover:bg-[#F7F9F8] hover:text-[#517563] transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </section>
 
-        <ModernCardGrid
-          eyebrow="The InMode suite"
-          headline={
-            <>
-              Five more InMode options
-              <br />
-              <span className="text-[#6B9680]">we offer here.</span>
-            </>
-          }
-          description="Beyond Morpheus8, the InMode platform gives us several targeted options for pelvic wellness, tissue tightening, and body sculpting. Each is chosen based on what your body actually needs."
-          items={inmodeSuite}
-          label="InMode"
-        />
+        {/* Facials */}
+        <section id="facials" className="bg-[#FAF8F4] py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="mb-12">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                Facials
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                Facials for every skin type
+                <br />
+                <span className="italic font-light text-[#517563]">and every schedule.</span>
+              </h2>
+              <p className="text-lg text-[#535353] leading-relaxed max-w-[55ch]">
+                Each facial begins with a thorough skin analysis so your treatment is never one-size-fits-all.
+              </p>
+            </div>
+            <FacialAccordion />
+          </div>
+        </section>
 
-        <ModernTreatmentDetail
-          eyebrow="Dysport & Dermal Fillers"
-          headline={
-            <>
-              Injectables,
-              <br />
-              done conservatively.
-            </>
-          }
-          description="Our philosophy on injectables is simple: smaller doses, more often, refined over time. Dysport softens dynamic lines while preserving expression. Dermal fillers restore volume where it's genuinely lost, not everywhere at once."
-          benefits={injectableBenefits}
-          candidateTitle="Who is a good candidate for Dysport or fillers?"
-          candidateIntro="Injectables work best when the goal is softening and subtle enhancement, not transformation. You may be a good candidate if you:"
-          candidate={injectableCandidate}
-          bookHref={BOOKING_URLS.aesthetic}
-          bookLabel="Book injectables consultation"
-          image={{
-            src: "/assets/aesthetic/injectables.webp",
-            alt: "Close-up portrait of a woman with smooth skin",
-          }}
-          imageSide="left"
-        />
+        {/* Neurotoxin */}
+        <section id="neurotoxin" className="bg-[#F7F9F8] py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Neurotoxin
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Smooth lines.
+                  <br />
+                  <span className="italic font-light text-[#517563]">Natural results.</span>
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  Dysport is a trusted neurotoxin that relaxes the muscles responsible for expression lines, smoothing forehead wrinkles, frown lines, and crow&rsquo;s feet with natural-looking results that set in quickly and last 3–4 months.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book Dysport
+                </Link>
+              </div>
+              <div className="bg-white rounded-2xl ring-1 ring-[#E5ECE8] p-8 shadow-sm">
+                <h3 className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-4">
+                  Dysport treats
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Forehead lines",
+                    "Frown lines (elevens)",
+                    "Crow's feet",
+                    "Fast onset, natural-looking spread",
+                    "Results last 3–4 months",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <ModernFAQ
-          eyebrow="Aesthetic questions"
-          headline={
-            <>
-              Everything patients ask
-              <br />
-              <span className="text-[#6B9680]">before their first treatment.</span>
-            </>
-          }
-          faqs={faqs}
-        />
+        {/* Microneedling */}
+        <section id="microneedling" className="bg-white py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Microneedling
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Stimulate collagen.
+                  <br />
+                  <span className="italic font-light text-[#517563]">Transform your skin.</span>
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  A collagen-stimulating treatment that uses tiny precision needles to improve fine lines, acne scars, enlarged pores, and overall skin texture.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book microneedling
+                </Link>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-[#F7F9F8] rounded-2xl ring-1 ring-[#E5ECE8] p-8">
+                  <h3 className="text-xl font-bold tracking-tight text-[#1F2A25] mb-2">Microneedling</h3>
+                  <p className="text-[#30373E] leading-relaxed">
+                    Precision microneedling to resurface skin, reduce scarring, minimize pores, and smooth fine lines. Results improve over 4–6 weeks as collagen rebuilds.
+                  </p>
+                </div>
+                <div className="bg-[#F7F9F8] rounded-2xl ring-1 ring-[#E5ECE8] p-8">
+                  <h3 className="text-xl font-bold tracking-tight text-[#1F2A25] mb-2">Microneedling + PRP Combo</h3>
+                  <p className="text-[#30373E] leading-relaxed">
+                    Combines standard microneedling with platelet-rich plasma drawn from your own blood. PRP amplifies the regenerative signal, accelerating healing and enhancing overall results.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Lash Lift & Tint */}
+        <section id="lash-lift" className="bg-[#F7F9F8] py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Lash Services
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Lash Lift & Tint
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  Enhance your natural lashes with a semi-permanent lift and rich tint that creates the appearance of longer, darker, more defined lashes — no extensions, no daily curling required.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book lash lift
+                </Link>
+              </div>
+              <div className="bg-white rounded-2xl ring-1 ring-[#E5ECE8] p-8 shadow-sm">
+                <ul className="space-y-3">
+                  {[
+                    "Semi-permanent lift lasts 6–8 weeks",
+                    "Rich tint for darker, more defined lashes",
+                    "No extensions or maintenance upkeep",
+                    "Results visible immediately after treatment",
+                    "Safe for most lash types",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Lumecca IPL */}
+        <section id="lumecca-ipl" className="bg-white py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Lumecca IPL
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Advanced IPL.
+                  <br />
+                  <span className="italic font-light text-[#517563]">Clearer, brighter skin.</span>
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  Advanced Intense Pulsed Light (IPL) treatment uses targeted light energy to improve the appearance of sun damage, unwanted pigment, redness, and visible facial vessels.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book Lumecca IPL
+                </Link>
+              </div>
+              <div className="bg-[#F7F9F8] rounded-2xl ring-1 ring-[#E5ECE8] p-8">
+                <h3 className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-4">
+                  Lumecca IPL targets
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Sun spots and age spots",
+                    "Redness and rosacea",
+                    "Visible facial vessels and broken capillaries",
+                    "Uneven skin tone and pigmentation",
+                    "Freckles and hyperpigmentation",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Laser Hair Removal */}
+        <section id="laser-hair-removal" className="bg-[#FAF8F4] py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                  Laser Hair Removal
+                </span>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                  Smoother skin.
+                  <br />
+                  <span className="italic font-light text-[#517563]">Longer-lasting results.</span>
+                </h2>
+                <p className="text-lg text-[#30373E] leading-relaxed mb-8">
+                  Enjoy smoother, longer-lasting results with Fusion laser hair removal. Fusion&rsquo;s advanced technology provides effective hair reduction with comfortable, customizable treatments for a variety of skin tones and treatment areas.
+                </p>
+                <Link
+                  href={BOOK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+                >
+                  Book laser hair removal
+                </Link>
+              </div>
+              <div className="bg-white rounded-2xl ring-1 ring-[#E5ECE8] p-8 shadow-sm">
+                <h3 className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-4">
+                  Why Fusion laser
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Effective on a variety of skin tones",
+                    "Customizable settings for comfort",
+                    "Treats face, body, and sensitive areas",
+                    "Long-lasting hair reduction",
+                    "Minimal downtime after each session",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Add-On Enhancements */}
+        <section id="add-ons" className="bg-white py-16 md:py-20 scroll-mt-32">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+            <div className="mb-12">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
+                Add-On Enhancements
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
+                Elevate any treatment
+                <br />
+                <span className="italic font-light text-[#517563]">with an add-on.</span>
+              </h2>
+              <p className="text-lg text-[#535353] leading-relaxed max-w-[55ch]">
+                Enhancements can be added to most facial services for a more complete experience.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+              {addOns.map((a) => (
+                <div
+                  key={a.name}
+                  className="bg-[#F7F9F8] rounded-2xl ring-1 ring-[#E5ECE8] p-8"
+                >
+                  <h3 className="text-xl font-bold tracking-tight text-[#1F2A25] mb-3">{a.name}</h3>
+                  <p className="text-[#30373E] leading-relaxed">{a.description}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Link
+                href={BOOK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
+              >
+                Book with an add-on
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <ModernCTA />
       </main>

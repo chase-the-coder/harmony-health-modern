@@ -50,9 +50,8 @@ export default function ModernContactMapHero() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg md:text-xl text-[#30373E] leading-relaxed max-w-[56ch] mb-8"
             >
-              We&rsquo;re on W. Broad Street in Athens, open Tuesday through
-              Thursday. Call, email, or book online and we&rsquo;ll be back
-              to you within a business day.
+              We&rsquo;re on W. Broad Street in Athens. Call, email, or book online and we&rsquo;ll be
+              back to you within a business day.
             </motion.p>
 
             <motion.div
@@ -92,23 +91,25 @@ export default function ModernContactMapHero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap gap-6 text-sm text-[#30373E]"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4 text-sm text-[#30373E]"
             >
               <div>
-                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
-                  Office hours
+                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-2">
+                  Hours of Operation
                 </span>
-                Tue &middot; Wed &middot; Thu, 9am&ndash;3pm
+                <span className="block">Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+                <span className="block">Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+                <span className="block">Phone Support: Mon–Fri, 9 AM–5 PM</span>
               </div>
               <div>
-                <span className="block text-[22px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-1">
+                <span className="block text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-2">
                   Email
                 </span>
                 <Link
-                  href="mailto:info@yourharmonyhealth.com"
+                  href="mailto:team@yourharmonyhealth.com"
                   className="hover:text-[#517563] transition-colors"
                 >
-                  info@yourharmonyhealth.com
+                  team@yourharmonyhealth.com
                 </Link>
               </div>
             </motion.div>

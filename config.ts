@@ -5,7 +5,7 @@ const config = {
   appName: "Harmony Health",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "Personalized Hormone Replacement Therapy, Medical Weight Loss, Peptide Therapy, and Aesthetic Treatments in Athens, GA. Feel your absolute best.",
+    "Personalized Hormone Replacement Therapy, Medical Weight Loss, and Aesthetic Treatments in Athens, GA. Feel your absolute best.",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "yourharmonyhealth.com",
   crisp: {

@@ -56,22 +56,20 @@ function ContactInfo() {
         />
         <InfoRow
           icon={<Clock size={20} weight="regular" />}
-          label="Office Hours"
+          label="Hours of Operation"
           value={
-            <>
-              Tuesday &middot; 9am–3pm
-              <br />
-              Wednesday &middot; 9am–3pm
-              <br />
-              Thursday &middot; 9am–3pm
-            </>
+            <span className="flex flex-col gap-0.5">
+              <span>Medical Provider Appts: Tues–Thurs, 9 AM–3 PM</span>
+              <span>Aesthetic Appts: Mon–Fri, 9 AM–5 PM</span>
+              <span>Phone Support: Mon–Fri, 9 AM–5 PM</span>
+            </span>
           }
         />
         <InfoRow
           icon={<EnvelopeSimple size={20} weight="regular" />}
           label="Email"
-          value="info@yourharmonyhealth.com"
-          href="mailto:info@yourharmonyhealth.com"
+          value="team@yourharmonyhealth.com"
+          href="mailto:team@yourharmonyhealth.com"
         />
       </ul>
     </div>

@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 
 export const metadata = getSEOTags({
   title:
-    "Harmony Health | HRT, Medical Weight Loss & Peptide Therapy in Athens, GA",
+    "Harmony Health | HRT, Medical Weight Loss & Aesthetic Treatments in Athens, GA",
   canonicalUrlRelative: "/",
 });
 

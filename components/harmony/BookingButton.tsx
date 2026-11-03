@@ -11,8 +11,6 @@ export const BOOKING_URLS = {
     "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?mid=5607&pid=K3BWWGxXYkE0NUhQVWdrRkNIYjdVUT09&lid=RklWQUxyUktoZEgxdlhnTTdXSzFFdz09",
   weightLoss:
     "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?mid=5447&pid=K3BWWGxXYkE0NUhQVWdrRkNIYjdVUT09&lid=RklWQUxyUktoZEgxdlhnTTdXSzFFdz09",
-  peptide:
-    "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?mid=7938&pid=K3BWWGxXYkE0NUhQVWdrRkNIYjdVUT09&lid=RklWQUxyUktoZEgxdlhnTTdXSzFFdz09",
   iv:
     "https://www.optimantra.com/optimus/patient/patientaccess/servicesall?mid=9408&pid=K3BWWGxXYkE0NUhQVWdrRkNIYjdVUT09&lid=RklWQUxyUktoZEgxdlhnTTdXSzFFdz09",
   kate:

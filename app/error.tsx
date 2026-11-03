@@ -24,10 +24,10 @@ export default function Error({
         </a>{" "}
         or email{" "}
         <a
-          href="mailto:info@yourharmonyhealth.com"
+          href="mailto:team@yourharmonyhealth.com"
           className="text-[#517563] font-semibold"
         >
-          info@yourharmonyhealth.com
+          team@yourharmonyhealth.com
         </a>
         .
       </p>

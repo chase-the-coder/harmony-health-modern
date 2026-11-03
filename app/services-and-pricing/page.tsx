@@ -1,6 +1,7 @@
 import Header from "@/components/harmony/Header";
 import Footer from "@/components/harmony/Footer";
 import ModernPageHero from "@/components/modern/ModernPageHero";
+import ModernPricingCategoryNav from "@/components/modern/ModernPricingCategoryNav";
 import ModernPatientPlans from "@/components/modern/ModernPatientPlans";
 import ModernPricingAccordion, {
   PricingSection,
@@ -16,7 +17,7 @@ import {
 export const metadata = getSEOTags({
   title: "Services & Pricing | Harmony Health Athens GA",
   description:
-    "Transparent pricing for hormone replacement, medical weight loss, peptides, IV therapy, aesthetics, and more at Harmony Health in Athens, GA.",
+    "Transparent pricing for hormone replacement, medical weight loss, IV therapy, aesthetics, and more at Harmony Health in Athens, GA.",
   canonicalUrlRelative: "/services-and-pricing",
 });
 
@@ -26,42 +27,77 @@ const MEMBER_BOOKING =
 const plans = [
   {
     eyebrow: "New Patients",
-    title: <>New Hormone Patient<br />Two Appointment Package</>,
+    title: <>New Hormone Patient<br />Two-Appointment Package</>,
     description:
-      "Every new patient starts here. Two one-on-one visits that give us time to understand your history, run the right labs, and build a plan around your body, not a template.",
+      "Every new patient starts here — men and women. Two comprehensive 50-minute visits to understand your history, review your labs, and build a plan around your body, not a template.",
     includes: [
-      "Detailed health and lifestyle assessment",
-      "Comprehensive lab panel (labs billed separately)",
-      "One-on-one lab interpretation visit",
-      "Customized treatment plan aligned with your goals",
-      "Recommendations for medications, supplements, and lifestyle",
+      "Comprehensive 50-minute initial consultation",
+      "Comprehensive 50-minute lab review visit",
+      "Review of current medications and medical history",
+      "Individualized hormone optimization plan",
+      "Lifestyle & nutrition recommendations",
+      "Supplement recommendations when appropriate",
+      "Labs and medications billed separately",
     ],
-    priceLabel: "New Patient Package",
+    priceLabel: "One-Time Investment",
     price: "$400",
-    subPrice:
-      "Comprehensive lab panel billed separately",
     ctaLabel: "Book New Patient visit",
     ctaHref: MEMBER_BOOKING,
   },
   {
-    eyebrow: "Hormone Optimization",
-    title: "Ongoing concierge care",
+    eyebrow: "Women",
+    title: <>Women&rsquo;s Restorative<br />Wellness + HRT</>,
     description:
-      "After intake, patients receive ongoing medical management, prescription oversight, and personalized care. Annual commitment, billed monthly or annually.",
+      "Ongoing concierge hormone care for women. Comprehensive management, aesthetic perks, and a provider who knows your history.",
     includes: [
-      "Ongoing hormone and thyroid optimization",
-      "Member pricing on IV, injections, peptides, aesthetics, weight loss",
-      "Quarterly provider follow-ups included",
-      "Direct messaging with your provider through the portal",
-      "Morpheus8 Face & Body member rates",
+      "4 comprehensive follow-up visits per year",
+      "Medication management",
+      "20% off supplements",
+      "1 monthly simple care visit (office or telehealth)",
+      "Annual women's wellness exam",
+      "Priority scheduling & secure messaging",
+      {
+        label: "Discount on aesthetic pricing:",
+        subItems: [
+          "Dysport $11/unit",
+          "10% off monthly signature facial",
+          "10% off microneedling facial",
+          "10% off one laser hair removal package each quarter",
+          "10% off two Lumecca IPL packages each year",
+          "10% off Empower treatments (vaginal rejuvenation & pelvic floor health)",
+        ],
+      },
+      "Labs and medications billed separately",
     ],
     priceLabel: "Monthly",
     price: "$149",
-    subPrice:
-      "Or pay in full and save 10%. $1,600 for the full year. 12-month commitment.",
-    ctaLabel: "Explore member services",
-    ctaHref: "#wellness",
+    ctaLabel: "Book Women's Consult",
+    ctaHref: MEMBER_BOOKING,
     featured: true,
+  },
+  {
+    eyebrow: "Men",
+    title: <>Men&rsquo;s Restorative<br />Wellness + HRT</>,
+    description:
+      "Ongoing concierge testosterone and men's health management. Quarterly visits, monthly B12, and a provider who tracks every number.",
+    includes: [
+      "4 quarterly hormone optimization visits",
+      "Testosterone, estrogen & medication management",
+      "1 monthly simple care visit (office or telehealth)",
+      "Men's performance & hormone lab panel interpretation",
+      "Medication management and refills",
+      "Priority scheduling & secure messaging",
+      "20% off supplements",
+      "10% off Apex sexual wellness treatments",
+      "Discount pricing on additional services",
+      "1 monthly B12 injection included",
+      "Testosterone medication purchased through pharmacy separately",
+      "Labs billed separately",
+    ],
+    priceLabel: "Monthly",
+    price: "$99",
+    ctaLabel: "Book Men's Consult",
+    ctaHref: MEMBER_BOOKING,
   },
 ];
 
@@ -89,8 +125,12 @@ const wellnessSections: PricingSection[] = [
       "Steroid / Allergy shot",
     ],
   },
+];
+
+const ivSections: PricingSection[] = [
   {
     title: "IV Infusions",
+    body: "Feel the difference in under an hour. Vitamins, electrolytes, and fluids delivered straight to your bloodstream by a licensed medical team. Three formulas, each built for a specific outcome.",
     rows: [
       { name: "Basic Hydration (1 Liter)", price: "$95" },
       { name: "Myer's Cocktail", price: "$149" },
@@ -99,65 +139,122 @@ const wellnessSections: PricingSection[] = [
       { name: "Allergy Relief", price: "$149" },
     ],
   },
+];
+
+const weightLossSections: PricingSection[] = [
   {
     title: "Medical Weight Loss",
+    body: "Drop the weight your body has been holding onto and keep it off for good. GLP-1 protocols with custom titration, monthly check-ins, and the nutrition coaching that makes results last after you stop the medication.",
     rows: [
       { name: "Consult", price: "$95" },
     ],
-  },
-  {
-    title: "Peptide Therapy",
-    list: [
-      "Peptide Consult",
-      "NAD+",
-      "Sermorelin",
-      "TB-500",
-      "BPC-157",
-      "PT-141 + B12",
-      "GHK-Cu",
-    ],
+    note: "Medication costs are separate and vary by treatment plan.",
   },
 ];
 
-const aestheticSections: PricingSection[] = [
-  {
-    title: "Peels",
-    rows: [
-      { name: "Aesthetic consult", price: "$50" },
-      { name: "VI Peel", price: "$279" },
-      { name: "VI Peel (pkg of 3)", price: "$810" },
-    ],
-  },
-  {
-    title: "Injectables",
-    rows: [{ name: "Dysport", price: "$12 / unit" }],
-  },
+const inmodeSections: PricingSection[] = [
   {
     title: "Morpheus8 Face & Body",
     tagline: "Free consultation and skin assessment",
-    body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance. Pricing varies based on the treatment plan and number of sessions recommended.",
+    body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance.",
+    tieredLabels: { single: "1 Session", package: "Pkg of 3 (10% off)" },
+    tieredRows: [
+      { name: "Full Face", single: "$699", package: "$1,897" },
+      { name: "Face + Neck", single: "$799", package: "$3,150" },
+      { name: "Small Area", single: "$799", package: "$2,197" },
+      { name: "Large Area", single: "$1,155", package: "$3,150" },
+    ],
   },
   {
-    title: "PRP Hair Restoration",
-    tagline: "Call to schedule your free consultation",
-    body: "Ideal for early to moderate hair thinning, diffuse shedding, stress-related hair loss, or hormone-related hair changes. Designed to slow progression and improve thickness.",
+    title: "Fusion Laser Hair Removal",
+    tagline: "All packages include 6 sessions",
+    body: "Smooth, lasting results using Fusion by InMode — one of the most advanced laser hair removal platforms available. Safe for a wide range of skin tones, with comfortable treatments and no downtime.",
+    rows: [
+      { name: "Chin", price: "$350" },
+      { name: "Upper Lip", price: "$350" },
+      { name: "Sideburns", price: "$350" },
+      { name: "Neck", price: "$450" },
+      { name: "Underarms", price: "$500" },
+      { name: "Full Face", price: "$600" },
+      { name: "Bikini", price: "$400" },
+      { name: "Brazilian", price: "$650" },
+      { name: "Stomach", price: "$650" },
+      { name: "Chest", price: "$650" },
+      { name: "Arms", price: "$800" },
+      { name: "Legs", price: "$1,200" },
+      { name: "Back", price: "$1,200" },
+      { name: "Full Body Unlimited", price: "$3,250" },
+    ],
   },
   {
-    title: "Women's Vaginal Rejuvenation",
+    title: "Lumecca IPL",
+    tagline: "Free consultation",
+    body: "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
+    tieredLabels: { single: "1 Session", package: "Pkg of 3" },
+    tieredRows: [
+      { name: "Face", single: "$275", package: "$743" },
+      { name: "Face + Neck", single: "$329", package: "$889" },
+      { name: "Face + Neck + Chest", single: "$450", package: "$1,215" },
+      { name: "Small Area", single: "$275", package: "$743" },
+      { name: "Large Area", single: "$450", package: "$1,215" },
+      { name: "Spot Treatment", single: "$145", package: "$390" },
+    ],
+  },
+  {
+    title: "EmpowerRF — Women's Pelvic Health",
     tagline: "Free consultation.",
-    body: "EmpowerRF is a women's wellness platform using RF and electrical muscle stimulation to improve pelvic health, sexual wellness, and vaginal rejuvenation without surgery or downtime. Treatments include Morpheus8 V, FormaV, and V-Tone. Pricing varies by treatment plan and session count.",
+    body: "EmpowerRF is a women's wellness platform using RF and electrical muscle stimulation to improve pelvic health, sexual wellness, and vaginal rejuvenation without surgery or downtime. Treatments include Morpheus8V, FormaV, and VTone. Pricing varies by treatment plan and session count.",
     chips: ["Morpheus8V", "FormaV", "VTone"],
     cta: { label: "Learn more", href: "/womens-pelvic-health", color: "green" },
   },
   {
-    title: "Bladder & Pelvic Support",
-    tagline: "Free consultation and exam.",
-    body: "InMode Empower offers a non-surgical option for urinary incontinence by strengthening and rejuvenating the pelvic floor. RF and muscle-activation technology boosts tissue tone and bladder control. Most patients see improvements quickly with zero downtime.",
+    title: "Men's Restorative Wellness",
+    tagline: "Free consultation.",
+    body: "Health. Performance. Longevity.\n\nThis private, comprehensive consultation is designed for men seeking to optimize their health, vitality, and overall performance.\n\nWe take a personalized, evidence-based approach to:\n\n• Hormone Optimization (HRT/TRT)\n• Peptide Therapy\n• Metabolic & Body Composition Support\n• Energy, Recovery & Longevity Planning\n• Functional device treatments, including Apex™ for erectile performance and vascular optimization\n\nThis is not a quick visit — it's a strategic conversation about how you want to feel in your body.\n\nAll consultations are discreet, judgment-free, and tailored to your goals.\n\nIf you're ready to enhance your overall well-being and performance, reach out to schedule your session. Your path to optimal health begins here!",
+    cta: { label: "Learn more", href: "/mens-sexual-health" },
+  },
+];
+
+const facialsSections: PricingSection[] = [
+  {
+    title: "Facials",
+    rows: [
+      { name: "Customized Facial", price: "$160" },
+      { name: "Signature Luxe Facial", price: "$200" },
+      { name: "Express Facial", price: "$135" },
+      { name: "Teen Facial", price: "$125" },
+      { name: "Gentleman's Facial", price: "$180" },
+      { name: "Back Facial", price: "$200" },
+    ],
   },
   {
-    title: "Men's Sexual Health (APEX)",
-    body: "APEX is a non-invasive treatment for men focused on performance, confidence, and intimate wellness. Uses advanced energy technology to enhance circulation and strengthen pelvic muscles with no pain, downtime, or medication. Sessions are 15 minutes. Most patients need ~6 treatments for full effect.",
-    cta: { label: "Learn more", href: "/mens-sexual-health" },
+    title: "Lash Lift & Tint",
+    body: "Wake up with beautifully lifted, curled, and darkened lashes — no mascara, no lash curler, no extensions. A lash lift and tint gives your natural lashes a semi-permanent boost that lasts 6–8 weeks.",
+    rows: [{ name: "Lash Lift & Tint", price: "$105" }],
+  },
+];
+
+const neurotoxinSections: PricingSection[] = [
+  {
+    title: "Dysport",
+    body: "Dysport is a trusted neurotoxin that relaxes the muscles responsible for expression lines — smoothing forehead wrinkles, frown lines, and crow's feet with natural-looking results that set in quickly and last 3–4 months.",
+    rows: [{ name: "Dysport", price: "$12 / unit" }],
+    note: "Aesthetic consult is free. Unit count is determined at your consultation.",
+  },
+  {
+    title: "VI Peel",
+    rows: [
+      { name: "VI Peel", price: "$279" },
+      { name: "VI Peel (pkg of 3)", price: "$810" },
+    ],
+  },
+];
+
+const packagesSections: PricingSection[] = [
+  {
+    title: "Facial Reset Package",
+    tagline: "Contact us for package details and pricing",
+    body: "Our curated facial packages are designed to give your skin a complete reset. More details and pricing coming soon — reach out to learn what's included.",
   },
 ];
 
@@ -185,7 +282,7 @@ const faqs = [
   {
     question: "Can I access services without joining the membership?",
     answer:
-      "Yes. After establishing care, patients may access select services at non-member pricing:\n\n• IV therapy\n• Vitamin injections\n• Peptide therapy\n• Aesthetic treatments\n• Virtual sick visits\n• Weight loss management\n\nOngoing hormone or thyroid prescription management is only available through membership for the first 12 months. After that you may move to non-member quarterly visits.",
+      "Yes. After establishing care, patients may access select services at non-member pricing:\n\n• IV therapy\n• Vitamin injections\n• Aesthetic treatments\n• Virtual sick visits\n• Weight loss management\n\nOngoing hormone or thyroid prescription management is only available through membership for the first 12 months. After that you may move to non-member quarterly visits.",
   },
   {
     question: "Why is hormone and thyroid management only available with membership at first?",
@@ -261,23 +358,29 @@ export default function ServicesAndPricingPage() {
           badge={{ label: "Self-pay", value: "Superbills available" }}
         />
 
-        <ModernPatientPlans
-          eyebrow="How care works here"
-          headline={
-            <>
-              Start with a plan.
-              <br />
-              <span className="text-[#6B9680]">Stay for the results.</span>
-            </>
-          }
-          description="Every patient starts with the two-visit intake. After that, you choose whether membership makes sense for your goals."
-          plans={plans}
-        />
+        <ModernPricingCategoryNav />
 
-        <div id="wellness" className="scroll-mt-20">
+        {/* ── Medicine + Wellness ─────────────────────────── */}
+        <div id="medicine-wellness" className="scroll-mt-24">
+          <ModernPatientPlans
+            eyebrow="Medicine + Wellness"
+            headline={
+              <>
+                One starting point.
+                <br />
+                <span className="text-[#6B9680]">Two tailored programs.</span>
+              </>
+            }
+            description="Every patient begins with the same two-visit intake package. From there, choose the program — women's or men's — that fits your goals."
+            plans={plans}
+            footnote="Labs and medications are billed separately. Patients may choose to use insurance for lab testing when applicable or take advantage of our discounted self-pay lab pricing."
+          />
+        </div>
+
+        <div id="wellness" className="scroll-mt-24">
           <ModernPricingAccordion
-            eyebrow="Additional Services"
-            headline={<>Medical and Wellness Care</>}
+            eyebrow="Medicine + Wellness"
+            headline={<>General Health &amp; Labs</>}
             description=""
             notice=""
             sections={wellnessSections}
@@ -285,19 +388,83 @@ export default function ServicesAndPricingPage() {
           />
         </div>
 
-        <ModernPricingAccordion
-          eyebrow="Aesthetic & vitality"
-          headline={
-            <>
-              Aesthetic and
-              <br />
-              <span className="text-[#6B9680]">vitality services.</span>
-            </>
-          }
-          description="Treatments focused on how you look, how you move, and how you feel in your own body. Free consultations for most packages."
-          sections={aestheticSections}
-          variant="tint"
-        />
+        <div id="iv-hydration" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Medicine + Wellness"
+            headline={<>IV Hydration Therapy</>}
+            description=""
+            notice=""
+            sections={ivSections}
+            variant="tint"
+          />
+        </div>
+
+        <div id="weight-loss" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Medicine + Wellness"
+            headline={<>Medical Weight Loss</>}
+            description=""
+            notice=""
+            sections={weightLossSections}
+            variant="light"
+          />
+        </div>
+
+        {/* ── InMode ──────────────────────────────────────── */}
+        <div id="inmode" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="InMode"
+            headline={
+              <>
+                InMode
+                <br />
+                <span className="text-[#6B9680]">treatments.</span>
+              </>
+            }
+            description="Advanced body and skin treatments using InMode technology. Free consultations for all InMode services."
+            sections={inmodeSections}
+            variant="tint"
+          />
+        </div>
+
+        {/* ── Facials + Lashes ────────────────────────────── */}
+        <div id="facials-lashes" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Facials + Lashes"
+            headline={
+              <>
+                Facials &amp; Lashes
+                <br />
+                <span className="text-[#6B9680]">pricing.</span>
+              </>
+            }
+            description="Each facial begins with a skin analysis so your treatment is never one-size-fits-all."
+            sections={facialsSections}
+            variant="light"
+          />
+        </div>
+
+        {/* ── Neurotoxin ──────────────────────────────────── */}
+        <div id="neurotoxin" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Neurotoxin"
+            headline={<>Neurotoxin &amp; Peels</>}
+            description="Aesthetic consult is always free."
+            sections={neurotoxinSections}
+            variant="tint"
+          />
+        </div>
+
+        {/* ── Packages ────────────────────────────────────── */}
+        <div id="packages" className="scroll-mt-24">
+          <ModernPricingAccordion
+            eyebrow="Packages"
+            headline={<>Packages</>}
+            description="Curated treatment bundles for maximum results and value."
+            sections={packagesSections}
+            variant="light"
+          />
+        </div>
 
         <ModernFAQ
           eyebrow="Pricing questions"

@@ -21,7 +21,7 @@ const services = [
       "Custom-dosed HRT for men and women. Comprehensive lab work, ongoing titration, pellets or injections, and a real provider who knows your labs by name.",
     features: ["Men's & Women's protocols", "Pellets or injections", "Quarterly titration"],
     image: "/assets/services/hrt.webp",
-    href: "/hormone-replacement-therapy-athens-ga",
+    href: "/services-and-pricing#medicine-wellness",
   },
   {
     icon: Scales,
@@ -34,18 +34,8 @@ const services = [
     href: "/medical-weight-loss-athens-ga",
   },
   {
-    icon: Flask,
-    label: "03 · Peptide Therapy",
-    title: "Targeted peptides for recovery, longevity, and performance.",
-    description:
-      "Sermorelin, BPC-157, TB-500, PT-141, GHK-Cu, and more. Science-backed protocols built around what your body actually needs: fat loss, muscle growth, healing, libido, or healthy aging.",
-    features: ["6+ peptide protocols", "Personalized dosing", "Provider-guided"],
-    image: "/assets/services/peptide.webp",
-    href: "/peptide-therapy-athens-ga",
-  },
-  {
     icon: Drop,
-    label: "04 · IV Hydration Therapy",
+    label: "03 · IV Hydration Therapy",
     title: "Rehydrate. Recharge. Restore.",
     description:
       "Immunity, Reboot, and Energize drips designed to rebuild what you&rsquo;re depleted in. Ideal for recovery, travel, stress, and the days you feel like you&rsquo;re running on fumes.",
@@ -55,7 +45,7 @@ const services = [
   },
   {
     icon: Sparkle,
-    label: "05 · Aesthetic Treatments",
+    label: "04 · Aesthetic Treatments",
     title: "Morpheus8, InMode, and Dysport, delivered by a medical team.",
     description:
       "Morpheus8 skin remodeling, V Tone, Forma V, Aviva, Dysport, and dermal fillers. Aesthetic outcomes that feel like you, just more rested, done by providers who know anatomy deeply.",

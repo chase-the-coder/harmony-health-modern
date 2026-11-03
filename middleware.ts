@@ -4,9 +4,9 @@ const REDIRECTS: Record<string, string> = {
   "/mens-hormone-replacement-pricing": "/pricing-mens-hrt",
   "/womens-hormone-replacement-pricing": "/pricing-womens-hrt",
   "/medical-weight-loss-pricing": "/medical-weight-loss-pricing-kyre",
-  "/hormone-replacement-therapy": "/hormone-replacement-therapy-athens-ga",
+  "/hormone-replacement-therapy": "/services-and-pricing#medicine-wellness",
+  "/hormone-replacement-therapy-athens-ga": "/services-and-pricing#medicine-wellness",
   "/medical-weight-loss": "/medical-weight-loss-athens-ga",
-  "/peptide-therapy": "/peptide-therapy-athens-ga",
 };
 
 export function middleware(request: NextRequest) {
