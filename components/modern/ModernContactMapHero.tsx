@@ -51,8 +51,8 @@ export default function ModernContactMapHero() {
               className="text-lg md:text-xl text-[#30373E] leading-relaxed max-w-[56ch] mb-8"
             >
               We&rsquo;re on W. Broad Street in Athens, open Tuesday through
-              Thursday. Call, email, or use the form below and we&rsquo;ll be
-              back to you within a business day.
+              Thursday. Call, email, or book online and we&rsquo;ll be back
+              to you within a business day.
             </motion.p>
 
             <motion.div

@@ -1,18 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, Phone, Clock, EnvelopeSimple } from "@phosphor-icons/react";
-import toast from "react-hot-toast";
-
-const TREATMENTS = [
-  "Medical Weight Loss",
-  "Hormone Replacement Therapy",
-  "Peptide Therapy",
-  "Aesthetics",
-  "IV Hydration Therapy",
-  "Other",
-];
+import { BOOKING_URL } from "@/components/harmony/BookingButton";
 
 export default function ModernContactBlock() {
   const ref = useRef(null);
@@ -29,7 +20,7 @@ export default function ModernContactBlock() {
           className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-14"
         >
           <ContactInfo />
-          <ContactForm />
+          <BookingCard />
         </motion.div>
       </div>
     </section>
@@ -46,9 +37,8 @@ function ContactInfo() {
         How to find us.
       </h2>
       <p className="text-lg text-[#535353] leading-relaxed mb-10 max-w-[50ch]">
-        Call, email, or drop the form on the right and we&rsquo;ll get back to
-        you within a business day. For appointments, the fastest path is the
-        booking link in the navigation.
+        Call or email and we&rsquo;ll get back to you within a business day.
+        For appointments, the fastest path is online booking.
       </p>
 
       <ul className="space-y-5">
@@ -131,144 +121,32 @@ function InfoRow({
   return <li>{body}</li>;
 }
 
-function ContactForm() {
-  const [count, setCount] = useState(0);
-  const [submitting, setSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (submitting) return;
-    setSubmitting(true);
-
-    const fd = new FormData(e.currentTarget);
-    const payload = {
-      firstName: fd.get("firstName"),
-      lastName: fd.get("lastName"),
-      email: fd.get("email"),
-      phone: fd.get("phone"),
-      treatment: fd.get("treatment"),
-      comments: fd.get("comments") || "",
-    };
-
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) throw new Error("Submit failed");
-
-      toast.success("Message sent! We'll be in touch within a business day.");
-      formRef.current?.reset();
-      setCount(0);
-    } catch {
-      toast.error("Something went wrong. Please call us or try again.");
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
+function BookingCard() {
   return (
-    <div className="rounded-[2rem] bg-white ring-1 ring-[#E5ECE8] p-8 md:p-10">
+    <div className="rounded-[2rem] bg-white ring-1 ring-[#E5ECE8] p-8 md:p-10 flex flex-col justify-center">
       <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1F2A25] mb-2">
-        Send us a message.
+        Ready to start?
       </h3>
       <p className="text-base text-[#535353] leading-relaxed mb-8">
-        We reply within a business day. For same-day scheduling, use the
-        booking link in the nav.
+        Book a consultation online and pick a time that works for you.
       </p>
-
-      <form ref={formRef} className="space-y-5" onSubmit={handleSubmit}>
-        <div>
-          <Label required>Name</Label>
-          <div className="grid grid-cols-2 gap-3">
-            <TextField name="firstName" placeholder="First" required />
-            <TextField name="lastName" placeholder="Last" required />
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
-            <Label required>Email</Label>
-            <TextField type="email" name="email" placeholder="you@email.com" required />
-          </div>
-          <div>
-            <Label required>Phone</Label>
-            <TextField type="tel" name="phone" placeholder="(706) ..." required />
-          </div>
-        </div>
-        <div>
-          <Label required>Treatment you&rsquo;re interested in</Label>
-          <select
-            required
-            name="treatment"
-            defaultValue="Medical Weight Loss"
-            className="w-full rounded-xl bg-[#F7F9F8] ring-1 ring-[#E5ECE8] px-4 py-3 text-[15px] text-[#1F2A25] outline-none focus:ring-[#6B9680] transition"
-          >
-            {TREATMENTS.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <Label>Comments</Label>
-          <textarea
-            name="comments"
-            maxLength={600}
-            rows={5}
-            onChange={(e) => setCount(e.target.value.length)}
-            placeholder="Anything we should know about your goals or symptoms?"
-            className="w-full rounded-xl bg-[#F7F9F8] ring-1 ring-[#E5ECE8] px-4 py-3 text-[15px] text-[#1F2A25] outline-none focus:ring-[#6B9680] transition resize-y"
+      <a
+        href={BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.99] transition-colors duration-300"
+      >
+        Book a consultation
+        <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+          <path
+            d="M1 9L9 1M9 1H2M9 1V8"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-          <p className="text-xs text-[#535353] mt-1 text-right">
-            {count} / 600
-          </p>
-        </div>
-
-        <button
-          type="submit"
-          disabled={submitting}
-          className="w-full mt-2 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#6B9680] text-white text-base font-medium hover:bg-[#517563] active:scale-[0.99] transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          {submitting ? "Sending..." : "Send message"}
-          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-            <path
-              d="M1 9L9 1M9 1H2M9 1V8"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <p className="text-xs text-[#535353] text-center">
-          We never share your information.
-        </p>
-      </form>
+        </svg>
+      </a>
     </div>
-  );
-}
-
-function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
-  return (
-    <label className="block text-xs uppercase tracking-[0.2em] font-semibold text-[#517563] mb-2">
-      {children} {required && <span className="text-[#B0413E] normal-case">*</span>}
-    </label>
-  );
-}
-
-function TextField({
-  type = "text",
-  ...props
-}: React.InputHTMLAttributes<HTMLInputElement>) {
-  return (
-    <input
-      type={type}
-      {...props}
-      className="w-full rounded-xl bg-[#F7F9F8] ring-1 ring-[#E5ECE8] px-4 py-3 text-[15px] text-[#1F2A25] outline-none focus:ring-[#6B9680] transition placeholder:text-[#535353]/60"
-    />
   );
 }

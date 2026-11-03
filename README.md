@@ -21,7 +21,6 @@ Marketing website for **Harmony Health**, a functional-medicine practice in Athe
 | Animations | **framer-motion 12** | `useInView` scroll reveals, crossfades |
 | Icons | **@phosphor-icons/react** | Editorial line icons, tree-shakable |
 | Fonts | `Plus_Jakarta_Sans` + `Allura` (Google Fonts) | Swap-friendly, CLS-safe |
-| Forms | Native `<form>` + `/api/lead` route | No framework bloat for one contact form |
 | Hosting | **Vercel** (auto-deploy on push) | Zero-config SSG + image CDN |
 
 **Runtime deps:** 7 (down from 27 on the ShipFast template). See `package.json`.
@@ -46,7 +45,6 @@ harmony-health-modern/
 │   ├── pricing-mens-hrt/                          # Dedicated men's HRT pricing
 │   ├── pricing-womens-hrt/                        # Dedicated women's HRT pricing
 │   ├── privacy-policy/ · tos/                     # Legal
-│   ├── api/lead/                                  # Contact form submission
 │   ├── opengraph-image.jpg                        # 1200x630 branded OG image
 │   ├── twitter-image.jpg                          # Same, for X/Twitter cards
 │   ├── icon.png · apple-icon.png · favicon.ico    # Circle H favicons
@@ -66,7 +64,7 @@ harmony-health-modern/
 │   │   ├── ModernPageHero.tsx                     # Reusable inner-page hero
 │   │   ├── ModernSymptomGrid.tsx                  # Symptom-card grid
 │   │   ├── ModernContactMapHero.tsx               # Map-as-hero for /contact
-│   │   ├── ModernContactBlock.tsx                 # Info + form block
+│   │   ├── ModernContactBlock.tsx                 # Info + booking block
 │   │   ├── ModernPatientPlans.tsx                 # New Patient + Membership cards
 │   │   ├── ModernPricingAccordion.tsx             # Service pricing accordion
 │   │   ├── ModernAboutHero.tsx                    # "The provider your labs deserve."
