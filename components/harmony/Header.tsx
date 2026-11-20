@@ -60,7 +60,7 @@ const NAV: NavItem[] = [
         items: [
           { label: "Morpheus Face & Body", href: "/morpheus8-athens-ga" },
           { label: "Fusion Laser Hair Removal", href: "/laser-hair-removal-athens-ga" },
-          { label: "Lumecca IPL", href: "/lumecca-ipl-athens-ga" },
+          { label: "Lumecca Peak IPL", href: "/lumecca-ipl-athens-ga" },
           { label: "EmpowerRF", href: "/womens-pelvic-health" },
           { label: "APEX for ED", href: "/mens-sexual-health" },
         ],
@@ -70,6 +70,7 @@ const NAV: NavItem[] = [
         href: "/services-and-pricing",
         items: [
           { label: "Women's Restorative Wellness + HRT", href: "/womens-hormone-therapy" },
+          { label: "Women's Annual Gynecological Exam", href: "/womens-hormone-therapy#womens-wellness-exam" },
           { label: "Men's Restorative Wellness + HRT", href: "/mens-sexual-health" },
           { label: "IV Hydration", href: "/iv-hydration-therapy-athens-ga" },
           { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
@@ -120,6 +121,7 @@ const NAV: NavItem[] = [
         href: "/services-and-pricing#medicine-wellness",
         items: [
           { label: "Women's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "Women's Annual Gynecological Exam", href: "/services-and-pricing#wellness" },
           { label: "Men's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
           { label: "IV Hydration", href: "/services-and-pricing#iv-hydration" },
           { label: "Medical Weight Loss", href: "/services-and-pricing#weight-loss" },
@@ -131,7 +133,7 @@ const NAV: NavItem[] = [
         items: [
           { label: "Morpheus Face & Body", href: "/services-and-pricing#inmode" },
           { label: "Fusion Laser Hair Removal", href: "/services-and-pricing#inmode" },
-          { label: "Lumecca IPL", href: "/services-and-pricing#inmode" },
+          { label: "Lumecca Peak IPL", href: "/services-and-pricing#inmode" },
           { label: "EmpowerRF", href: "/services-and-pricing#inmode" },
           { label: "APEX for ED", href: "/services-and-pricing#inmode" },
         ],

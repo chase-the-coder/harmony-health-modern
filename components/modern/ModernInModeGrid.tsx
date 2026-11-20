@@ -17,10 +17,10 @@ const treatments: Treatment[] = [
     href: "/morpheus8-athens-ga",
   },
   {
-    name: "Lumecca",
+    name: "Lumecca Peak IPL",
     accent: "IPL",
     description:
-      "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
+      "Lumecca Peak IPL is the most powerful intense pulsed light treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
     href: "/lumecca-ipl-athens-ga",
   },
   {

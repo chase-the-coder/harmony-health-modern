@@ -9,7 +9,7 @@ import Link from "next/link";
 export const metadata = getSEOTags({
   title: "InMode Provider Athens GA | Harmony Health",
   description:
-    "Harmony Health is a premier InMode provider in Athens, GA, offering Morpheus8, Lumecca IPL, Fusion laser hair removal, EmpowerRF, and Apex.",
+    "Harmony Health is a premier InMode provider in Athens, GA, offering Morpheus8, Lumecca Peak IPL, Fusion laser hair removal, EmpowerRF, and Apex.",
   canonicalUrlRelative: "/inmode-athens-ga",
 });
 

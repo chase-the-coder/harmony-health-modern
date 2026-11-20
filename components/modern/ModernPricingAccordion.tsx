@@ -31,7 +31,7 @@ export type PricingSection = {
 };
 
 type Props = {
-  eyebrow: string;
+  eyebrow?: string;
   headline: React.ReactNode;
   description?: string;
   notice?: string;
@@ -64,9 +64,11 @@ export default function ModernPricingAccordion({
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-10 md:mb-12"
         >
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
-            {eyebrow}
-          </span>
+          {eyebrow && (
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-[22px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
+              {eyebrow}
+            </span>
+          )}
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
             {headline}
           </h2>

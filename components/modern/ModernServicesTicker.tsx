@@ -9,7 +9,7 @@ const services = [
   "APEX Sexual Wellness",
   "Facials",
   "Microneedling + PRP",
-  "Lumecca IPL",
+  "Lumecca Peak IPL",
   "Laser Hair Removal",
   "Lash Lift & Tint",
   "IV Hydration Therapy",

@@ -9,7 +9,7 @@ import Link from "next/link";
 export const metadata = getSEOTags({
   title: "Aesthetic Treatments Athens GA | Harmony Health",
   description:
-    "Facials, microneedling, Lumecca IPL, laser hair removal, lash lift, Morpheus8, and injectables in Athens, GA. Medical-grade and spa aesthetics at Harmony Health.",
+    "Facials, microneedling, Lumecca Peak IPL, laser hair removal, lash lift, Morpheus8, and injectables in Athens, GA. Medical-grade and spa aesthetics at Harmony Health.",
   canonicalUrlRelative: "/aesthetic-treatments-athens-ga",
 });
 
@@ -103,7 +103,7 @@ export default function AestheticTreatmentsPage() {
                 { label: "Neurotoxin", href: "#neurotoxin" },
                 { label: "Microneedling", href: "#microneedling" },
                 { label: "Lash Lift & Tint", href: "#lash-lift" },
-                { label: "Lumecca IPL", href: "#lumecca-ipl" },
+                { label: "Lumecca Peak IPL", href: "#lumecca-ipl" },
                 { label: "Laser Hair Removal", href: "#laser-hair-removal" },
                 { label: "Add-On Enhancements", href: "#add-ons" },
               ].map((item) => (
@@ -273,13 +273,13 @@ export default function AestheticTreatmentsPage() {
           </div>
         </section>
 
-        {/* Lumecca IPL */}
+        {/* Lumecca Peak IPL */}
         <section id="lumecca-ipl" className="bg-white py-16 md:py-20 scroll-mt-32">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-4">
-                  Lumecca IPL
+                  Lumecca Peak IPL
                 </span>
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05] mb-4">
                   Advanced IPL.
@@ -295,12 +295,12 @@ export default function AestheticTreatmentsPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6B9680] text-white text-sm font-medium hover:bg-[#517563] transition-colors"
                 >
-                  Book Lumecca IPL
+                  Book Lumecca Peak IPL
                 </Link>
               </div>
               <div className="bg-[#F7F9F8] rounded-2xl ring-1 ring-[#E5ECE8] p-8">
                 <h3 className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#517563] mb-4">
-                  Lumecca IPL targets
+                  Lumecca Peak IPL targets
                 </h3>
                 <ul className="space-y-3">
                   {[

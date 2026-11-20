@@ -63,7 +63,7 @@ const plans = [
           "10% off monthly signature facial",
           "10% off microneedling facial",
           "10% off one laser hair removal package each quarter",
-          "10% off two Lumecca IPL packages each year",
+          "10% off two Lumecca Peak IPL packages each year",
           "10% off Empower treatments (vaginal rejuvenation & pelvic floor health)",
         ],
       },
@@ -127,6 +127,14 @@ const wellnessSections: PricingSection[] = [
   },
 ];
 
+const gynExamSection: PricingSection = {
+  title: "Women's Annual Gynecological Exam",
+  body: "A comprehensive women's annual gynecological exam with preventive screenings and personalized care. Available as a standalone appointment — no membership or hormone therapy required.",
+  rows: [{ name: "Women's Annual Gynecological Exam (45 min)", price: "$199" }],
+  note: "Lab processing billed separately.",
+  cta: { label: "Learn more", href: "/womens-hormone-therapy#womens-wellness-exam", color: "green" },
+};
+
 const ivSections: PricingSection[] = [
   {
     title: "IV Infusions",
@@ -146,7 +154,31 @@ const weightLossSections: PricingSection[] = [
     title: "Medical Weight Loss",
     body: "Drop the weight your body has been holding onto and keep it off for good. GLP-1 protocols with custom titration, monthly check-ins, and the nutrition coaching that makes results last after you stop the medication.",
     rows: [
-      { name: "Consult", price: "$95" },
+      {
+        name: "Weight Loss Consultation + Check-In",
+        price: "$95",
+        note: "Includes medical review and personalized treatment planning. Quarterly check-in required for continuity of care.",
+      },
+      {
+        name: "Compounded Tirzepatide",
+        price: "",
+        note: "Reduces appetite, improves insulin sensitivity, and decreases cravings. Hormone patients enjoy special pricing for weight loss as an add-on.",
+      },
+      {
+        name: "Compounded Semaglutide",
+        price: "",
+        note: "A highly effective option for appetite suppression and sustained weight loss. Hormone patients enjoy special pricing for weight loss as an add-on.",
+      },
+      {
+        name: "Phentermine",
+        price: "",
+        note: "Supports appetite suppression and short-term weight loss.",
+      },
+      {
+        name: "Naltrexone",
+        price: "",
+        note: "Helps reduce cravings and emotional eating behaviors.",
+      },
     ],
     note: "Medication costs are separate and vary by treatment plan.",
   },
@@ -187,9 +219,9 @@ const inmodeSections: PricingSection[] = [
     ],
   },
   {
-    title: "Lumecca IPL",
+    title: "Lumecca Peak IPL",
     tagline: "Free consultation",
-    body: "Lumecca is the most powerful intense pulsed light (IPL) treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
+    body: "Lumecca Peak IPL is the most powerful intense pulsed light treatment available, targeting sun damage, pigmentation, vascular lesions, and uneven skin tone.",
     tieredLabels: { single: "1 Session", package: "Pkg of 3" },
     tieredRows: [
       { name: "Face", single: "$275", package: "$743" },
@@ -378,34 +410,19 @@ export default function ServicesAndPricingPage() {
         </div>
 
         <div id="wellness" className="scroll-mt-24">
+          <div id="iv-hydration" className="scroll-mt-24" />
+          <div id="weight-loss" className="scroll-mt-24" />
           <ModernPricingAccordion
-            eyebrow="Medicine + Wellness"
-            headline={<>General Health &amp; Labs</>}
+            headline={<>Medicine + Wellness</>}
             description=""
             notice=""
-            sections={wellnessSections}
-            variant="light"
-          />
-        </div>
-
-        <div id="iv-hydration" className="scroll-mt-24">
-          <ModernPricingAccordion
-            eyebrow="Medicine + Wellness"
-            headline={<>IV Hydration Therapy</>}
-            description=""
-            notice=""
-            sections={ivSections}
-            variant="tint"
-          />
-        </div>
-
-        <div id="weight-loss" className="scroll-mt-24">
-          <ModernPricingAccordion
-            eyebrow="Medicine + Wellness"
-            headline={<>Medical Weight Loss</>}
-            description=""
-            notice=""
-            sections={weightLossSections}
+            sections={[
+              wellnessSections[0],
+              gynExamSection,
+              ...weightLossSections,
+              wellnessSections[1],
+              ...ivSections,
+            ]}
             variant="light"
           />
         </div>

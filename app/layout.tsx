@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Allura } from "next/font/google";
 import { Viewport } from "next";
 import { getSEOTags, renderSchemaTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
+import HolidayPopup from "@/components/modern/HolidayPopup";
 import config from "@/config";
 import "./globals.css";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>{renderSchemaTags()}</head>
       <body>
         <ClientLayout>{children}</ClientLayout>
+        <HolidayPopup />
       </body>
     </html>
   );

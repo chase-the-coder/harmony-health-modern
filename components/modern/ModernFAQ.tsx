@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { CaretDown } from "@phosphor-icons/react";
 
@@ -10,6 +11,7 @@ type Props = {
   eyebrow?: string;
   headline?: React.ReactNode;
   faqs: FAQ[];
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
 export default function ModernFAQ({
@@ -22,6 +24,7 @@ export default function ModernFAQ({
     </>
   ),
   faqs,
+  image,
 }: Props) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -43,6 +46,18 @@ export default function ModernFAQ({
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#1F2A25] leading-[1.05]">
               {headline}
             </h2>
+            {image && (
+              <div className="mt-10 rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="w-full h-auto rounded-[calc(2rem-0.375rem)]"
+                />
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-3">

@@ -17,7 +17,7 @@ const categories = [
     icon: Syringe,
     title: "Aesthetic Treatments",
     description:
-      "Morpheus8, Lumecca, laser hair removal, EmpowerRF, APEX, and neurotoxin.",
+      "Morpheus8, Lumecca Peak IPL, laser hair removal, EmpowerRF, APEX, and neurotoxin.",
     href: "#inmode",
   },
   {

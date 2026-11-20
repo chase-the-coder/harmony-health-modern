@@ -21,6 +21,7 @@ type Props = {
   secondaryCta?: CTA;
   badge?: { label: string; value: string };
   headlineClassName?: string;
+  dnaBackground?: boolean;
 };
 
 export default function ModernPageHero({
@@ -33,6 +34,7 @@ export default function ModernPageHero({
   secondaryCta,
   badge,
   headlineClassName,
+  dnaBackground = false,
 }: Props) {
   const isExternal = primaryCta.href.startsWith("http");
 
@@ -46,6 +48,40 @@ export default function ModernPageHero({
             "radial-gradient(ellipse 60% 40% at 80% 20%, rgba(107,150,128,0.12) 0%, transparent 70%)",
         }}
       />
+
+      {dnaBackground && (
+        <>
+          <div aria-hidden className="absolute inset-0 hero-video-mask pointer-events-none">
+            <Image
+              src="/assets/hero-still.webp"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover md:hidden"
+            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="absolute inset-0 w-full h-full object-cover hidden md:block"
+              poster="/assets/hero-still.webp"
+            >
+              <source src="/assets/hero-video-loop.mp4?v=8" type="video/mp4" />
+            </video>
+          </div>
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(250,248,244,0.45) 0%, rgba(250,248,244,0.75) 55%, rgba(250,248,244,0.97) 100%)",
+            }}
+          />
+        </>
+      )}
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-12 lg:gap-20 items-center">

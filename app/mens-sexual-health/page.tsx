@@ -31,30 +31,65 @@ const apexCandidate = [
   "Want a personalized, evidence-based plan for your health, performance, and longevity",
   "Are interested in hormone optimization (HRT/TRT) or peptide therapy",
   "Want guidance on metabolic and body composition goals",
-  "Are looking for a strategic, in-depth conversation — not a quick visit",
+  "Are looking for a strategic, in-depth conversation",
   "Want a discreet, judgment-free space tailored to your goals",
 ];
 
 const faqs = [
   {
-    question: "What is the APEX platform?",
+    question: "How do I know if my testosterone is low?",
     answer:
-      "The APEX platform is an advanced treatment system that combines multiple technologies — including radiofrequency, microneedling, and muscle stimulation — to address men's sexual health concerns. It allows us to fully customize your care and target your concerns from every angle.",
+      "Common symptoms include fatigue, decreased sex drive, difficulty building or maintaining muscle, increased body fat, reduced motivation, brain fog, and changes in mood. Blood testing helps determine whether low testosterone may be contributing to your symptoms.",
   },
   {
-    question: "What conditions can APEX treat?",
+    question: "Am I too young for low testosterone?",
     answer:
-      "APEX is designed to address sexual performance concerns and erectile dysfunction. By combining multiple modalities, it provides a comprehensive, personalized approach to men's sexual wellness.",
+      "No. Although testosterone levels often decline with age, younger men can also experience low testosterone due to certain medical conditions, medications, obesity, sleep disorders, and other factors.",
+  },
+  {
+    question: "Will testosterone therapy improve my energy, sex drive, and muscle mass?",
+    answer:
+      "Men with confirmed testosterone deficiency may experience improved libido, sexual function, energy, and body composition with appropriate treatment. Results vary, and not every symptom is caused by low testosterone.",
+  },
+  {
+    question: "How long does it take to notice results from TRT?",
+    answer:
+      "Some men begin noticing improvements in sexual desire and well-being within several weeks. Changes in muscle mass, strength, and body composition typically take several months.",
+  },
+  {
+    question: "Will testosterone therapy cause my body to stop producing its own testosterone?",
+    answer:
+      "Yes, external testosterone can suppress your body's natural testosterone production. This is why individualized treatment, ongoing monitoring, and a discussion of fertility goals are important.",
+  },
+  {
+    question: "Is testosterone therapy safe for long-term use?",
+    answer:
+      "TRT can be appropriate for men with confirmed testosterone deficiency when carefully prescribed and monitored. We evaluate blood counts, testosterone levels, prostate-related risks, cardiovascular history, and other health factors to determine whether treatment is appropriate.",
+  },
+  {
+    question: "Do I have to give myself injections?",
+    answer:
+      "Not necessarily. Testosterone is available in several forms, including injections and topical preparations. We discuss treatment options and determine which approach best fits your needs.",
+  },
+  {
+    question: "What is the APEX platform?",
+    answer:
+      "APEX by InMode is an advanced, non-invasive treatment designed specifically for men's intimate wellness. Using controlled radiofrequency (RF) energy, APEX warms targeted tissue to improve local blood circulation, which is an important component of healthy erectile function.",
+  },
+  {
+    question: "How does APEX work and what does it treat?",
+    answer:
+      "APEX is designed to address sexual performance concerns and erectile dysfunction. By combining multiple modalities, it provides a comprehensive, personalized approach to men's sexual wellness. Achieving and maintaining an erection depends on healthy blood flow. APEX uses a special device designed for male anatomy to deliver controlled energy to targeted areas.",
   },
   {
     question: "Is the APEX treatment painful?",
     answer:
-      "Treatments are designed to be comfortable. Your provider will walk you through what to expect at your consultation and tailor the approach to minimize any discomfort.",
+      "APEX treatments are not painful and are designed to be quick and comfortable. Your provider will walk you through what to expect at your consultation and tailor the approach to your individual needs to get the best results. No surgery. No injections. No medications required for the procedure. It is a series of very quick office visits with no downtime and long-lasting results.",
   },
   {
     question: "How many treatments are needed?",
     answer:
-      "The number of sessions depends on your individual goals and response to treatment. Your provider will recommend a personalized plan after your initial consultation.",
+      "The general recommended treatment series is six sessions. It may be different for each patient depending on treatment goals and health history. The number of sessions depends on your individual goals and response to treatment. Your provider will recommend a personalized plan after your initial consultation.",
   },
   {
     question: "Is this treatment confidential?",
@@ -100,6 +135,7 @@ export default function MensSexualHealthPage() {
           }}
           primaryCta={{ label: "Book a consultation", href: BOOKING_URL }}
           badge={{ label: "Confidential", value: "Private, personalized care" }}
+          dnaBackground
         />
 
         <ModernTreatmentDetail
@@ -111,7 +147,7 @@ export default function MensSexualHealthPage() {
               evidence-based approach.
             </>
           }
-          description="This is not a quick visit — it's a strategic conversation about how you want to feel in your body. All consultations are discreet, judgment-free, and tailored to your goals. We take a personalized, evidence-based approach to:"
+          description="This visit is a strategic conversation about how you want to feel in your body. All consultations are discreet, judgment-free, and tailored to your goals. We take a personalized, evidence-based approach to:"
           benefits={apexBenefits}
           candidateTitle="This consultation may be right for you if you:"
           candidate={apexCandidate}
@@ -122,7 +158,16 @@ export default function MensSexualHealthPage() {
             alt: "Active, confident man",
           }}
           video={{ src: "/legacy-images/apex-treatment.mp4", poster: "/images/apex-treatment-poster.webp" }}
+          photoBelow={{
+            src: "/images/megan-inmode-apex.webp",
+            alt: "Megan holding an InMode treatment handpiece next to the InMode system",
+            width: 1098,
+            height: 1646,
+          }}
           imageSide="right"
+          background="dark"
+          largeCopy
+          candidateOpen
         />
 
         <ModernFAQ
@@ -137,6 +182,12 @@ export default function MensSexualHealthPage() {
             </>
           }
           faqs={faqs}
+          image={{
+            src: "/images/megan-apex-handpiece.webp",
+            alt: "Megan holding an InMode treatment handpiece",
+            width: 1098,
+            height: 1646,
+          }}
         />
 
         <ModernCTA />
