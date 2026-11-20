@@ -72,6 +72,7 @@ const NAV: NavItem[] = [
           { label: "Women's Restorative Wellness + HRT", href: "/womens-hormone-therapy" },
           { label: "Women's Annual Gynecological Exam", href: "/womens-hormone-therapy#womens-wellness-exam" },
           { label: "Men's Restorative Wellness + HRT", href: "/mens-sexual-health" },
+          { label: "Simple Care Sick Visits (Telehealth)", href: "/simple-care" },
           { label: "IV Hydration", href: "/iv-hydration-therapy-athens-ga" },
           { label: "Medical Weight Loss", href: "/medical-weight-loss-athens-ga" },
         ],
@@ -123,6 +124,7 @@ const NAV: NavItem[] = [
           { label: "Women's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
           { label: "Women's Annual Gynecological Exam", href: "/services-and-pricing#wellness" },
           { label: "Men's Restorative Wellness + HRT", href: "/services-and-pricing#medicine-wellness" },
+          { label: "Simple Care Sick Visits (Telehealth)", href: "/services-and-pricing#wellness" },
           { label: "IV Hydration", href: "/services-and-pricing#iv-hydration" },
           { label: "Medical Weight Loss", href: "/services-and-pricing#weight-loss" },
         ],
@@ -174,7 +176,7 @@ export default function Header() {
   const pathname = usePathname() || "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -185,7 +187,7 @@ export default function Header() {
 
   const closeMobile = useCallback(() => {
     setMobileOpen(false);
-    setServicesOpen(false);
+    setServicesOpen(null);
   }, []);
 
   useEffect(() => {
@@ -345,7 +347,7 @@ export default function Header() {
         </div>
 
         {mobileOpen && (
-          <div className="lg:hidden border-t border-[#E5ECE8] bg-[#FAF8F4]">
+          <div className="lg:hidden border-t border-[#E5ECE8] bg-[#FAF8F4] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain">
             <nav className="max-w-[1400px] mx-auto px-6 md:px-12 py-4 space-y-1">
               {NAV.map((item) => {
                 const active = isActive(item);
@@ -354,7 +356,7 @@ export default function Header() {
                     {item.megaMenu ? (
                       <>
                         <button
-                          onClick={() => setServicesOpen(!servicesOpen)}
+                          onClick={() => setServicesOpen(servicesOpen === item.label ? null : item.label)}
                           className={`w-full flex items-center justify-between py-3 px-2 text-[15px] font-medium ${
                             active ? "text-[#1F2A25]" : "text-[#30373E]"
                           }`}
@@ -364,11 +366,11 @@ export default function Header() {
                             size={12}
                             weight="bold"
                             className={`transition-transform text-[#517563] ${
-                              servicesOpen ? "rotate-180" : ""
+                              servicesOpen === item.label ? "rotate-180" : ""
                             }`}
                           />
                         </button>
-                        {servicesOpen && (
+                        {servicesOpen === item.label && (
                           <div className="pl-4 pb-2 space-y-3">
                             {item.megaMenu.map((cat) => (
                               <div key={cat.label}>

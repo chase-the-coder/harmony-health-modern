@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/aesthetic-treatments-athens-ga", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/inmode-athens-ga", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/iv-hydration-therapy-athens-ga", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/simple-care", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/pricing-mens-hrt", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/pricing-womens-hrt", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/privacy-policy", priority: 0.3, changeFrequency: "yearly" as const },

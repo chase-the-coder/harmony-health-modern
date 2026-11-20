@@ -179,6 +179,7 @@ export default function WomensPelvicHealthPage() {
             alt: "Woman relaxing during a comfortable non-invasive treatment",
           }}
           video={{ src: "/legacy-images/formav-treatment.mp4", poster: "/legacy-images/formav-poster.jpg" }}
+          background="sage"
           imageSide="left"
         />
 

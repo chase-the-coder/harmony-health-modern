@@ -105,7 +105,6 @@ const wellnessSections: PricingSection[] = [
   {
     title: "General Health & Labs",
     rows: [
-      { name: "Virtual sick visit (30 min)", price: "$85" },
       { name: "Comprehensive Lab Panel", price: "Starting at $199" },
       { name: "Basic Lab Panel", price: "Starting at $99" },
     ],
@@ -133,6 +132,14 @@ const gynExamSection: PricingSection = {
   rows: [{ name: "Women's Annual Gynecological Exam (45 min)", price: "$199" }],
   note: "Lab processing billed separately.",
   cta: { label: "Learn more", href: "/womens-hormone-therapy#womens-wellness-exam", color: "green" },
+};
+
+const simpleCareSection: PricingSection = {
+  title: "Simple Care Sick Visits (Telehealth)",
+  body: "Telehealth visits for simple medical needs and minor urgent concerns, such as sinus infections, urinary symptoms, and other common illnesses. For short-term needs only. We do not provide treatment or ongoing management for chronic illnesses.",
+  rows: [{ name: "Simple Care Telehealth Visit (30 min)", price: "$85" }],
+  note: "No membership required. One visit per month is included with the Hormone Optimization Program.",
+  cta: { label: "Learn more", href: "/simple-care", color: "green" },
 };
 
 const ivSections: PricingSection[] = [
@@ -419,6 +426,7 @@ export default function ServicesAndPricingPage() {
             sections={[
               wellnessSections[0],
               gynExamSection,
+              simpleCareSection,
               ...weightLossSections,
               wellnessSections[1],
               ...ivSections,

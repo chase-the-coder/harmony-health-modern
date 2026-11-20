@@ -22,6 +22,7 @@ type Props = {
   badge?: { label: string; value: string };
   headlineClassName?: string;
   dnaBackground?: boolean;
+  tallImage?: boolean;
 };
 
 export default function ModernPageHero({
@@ -35,6 +36,7 @@ export default function ModernPageHero({
   badge,
   headlineClassName,
   dnaBackground = false,
+  tallImage = false,
 }: Props) {
   const isExternal = primaryCta.href.startsWith("http");
 
@@ -171,7 +173,7 @@ export default function ModernPageHero({
             className="relative w-full"
           >
             <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
-              <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/3] bg-[#F7F9F8]">
+              <div className={`relative rounded-[calc(2rem-0.375rem)] overflow-hidden ${tallImage ? "aspect-[2/3]" : "aspect-[4/3]"} bg-[#F7F9F8]`}>
                 <Image
                   src={image.src}
                   alt={image.alt}
