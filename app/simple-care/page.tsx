@@ -90,6 +90,7 @@ export default function SimpleCarePage() {
             objectPosition: "center",
           }}
           tallImage
+          sageBackground
           primaryCta={{ label: "Book a sick visit", href: BOOKING_URL }}
           secondaryCta={{ label: "See pricing", href: "#pricing" }}
           badge={{ label: "Telehealth visit", value: "$85 · No membership" }}

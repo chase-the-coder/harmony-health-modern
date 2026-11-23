@@ -37,10 +37,12 @@ const plans = [
       "Individualized hormone optimization plan",
       "Lifestyle & nutrition recommendations",
       "Supplement recommendations when appropriate",
+      "One complimentary EmpowerRF VTone treatment (women)",
+      "One complimentary APEX treatment (men)",
       "Labs and medications billed separately",
     ],
     priceLabel: "One-Time Investment",
-    price: "$400",
+    price: "$450",
     ctaLabel: "Book New Patient visit",
     ctaHref: MEMBER_BOOKING,
   },
@@ -137,7 +139,7 @@ const gynExamSection: PricingSection = {
 const simpleCareSection: PricingSection = {
   title: "Simple Care Sick Visits (Telehealth)",
   body: "Telehealth visits for simple medical needs and minor urgent concerns, such as sinus infections, urinary symptoms, and other common illnesses. For short-term needs only. We do not provide treatment or ongoing management for chronic illnesses.",
-  rows: [{ name: "Simple Care Telehealth Visit (30 min)", price: "$85" }],
+  rows: [{ name: "Simple Care Telehealth Visit (20 min)", price: "$85" }],
   note: "No membership required. One visit per month is included with the Hormone Optimization Program.",
   cta: { label: "Learn more", href: "/simple-care", color: "green" },
 };
@@ -198,10 +200,10 @@ const inmodeSections: PricingSection[] = [
     body: "Morpheus8 combines microneedling with radiofrequency (RF) energy to stimulate collagen and elastin at depth, leading to skin tightening, more even tone, reduced lines, and a more vibrant appearance.",
     tieredLabels: { single: "1 Session", package: "Pkg of 3 (10% off)" },
     tieredRows: [
-      { name: "Full Face", single: "$699", package: "$1,897" },
-      { name: "Face + Neck", single: "$799", package: "$3,150" },
-      { name: "Small Area", single: "$799", package: "$2,197" },
-      { name: "Large Area", single: "$1,155", package: "$3,150" },
+      { name: "Full Face", single: "$699", package: "$1,888" },
+      { name: "Face + Neck", single: "$799", package: "$2,158" },
+      { name: "Small Area", single: "$847", package: "$2,287" },
+      { name: "Large Area", single: "$1,047", package: "$2,827" },
     ],
   },
   {

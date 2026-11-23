@@ -212,7 +212,7 @@ export default function ModernSimpleCare() {
                   Telehealth visit
                 </p>
                 <p className="text-5xl font-bold tracking-tighter text-[#1F2A25] mb-1">$85</p>
-                <p className="text-sm text-[#535353] mb-6">30-minute visit</p>
+                <p className="text-sm text-[#535353] mb-6">20-minute visit</p>
                 <a
                   href={BOOKING_URL}
                   target="_blank"

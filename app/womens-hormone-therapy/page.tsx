@@ -137,7 +137,7 @@ const womensCards: ServiceCard[] = [
     title: "Everyday Medical Care",
     description:
       "Convenient, personalized medical visits for common illnesses and everyday health concerns. From urinary symptoms and sinus infections to medication questions and other routine needs, we’re here when you need care without requiring a wellness membership.",
-    detail: "$85 | Simple Care telehealth visit (30 min)",
+    detail: "$85 | Simple Care telehealth visit (20 min)",
     detailNote:
       "Available as a standalone appointment with no membership required, or one visit per month is included with our Hormone Optimization Program.",
     cta: { label: "Book a visit", href: BOOKING_URL },

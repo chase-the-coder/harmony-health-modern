@@ -23,6 +23,7 @@ type Props = {
   headlineClassName?: string;
   dnaBackground?: boolean;
   tallImage?: boolean;
+  sageBackground?: boolean;
 };
 
 export default function ModernPageHero({
@@ -37,11 +38,12 @@ export default function ModernPageHero({
   headlineClassName,
   dnaBackground = false,
   tallImage = false,
+  sageBackground = false,
 }: Props) {
   const isExternal = primaryCta.href.startsWith("http");
 
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F4] pt-24 pb-16 md:pt-32 md:pb-20">
+    <section className={`relative overflow-hidden ${sageBackground ? "bg-gradient-to-br from-[#6B9680]/25 via-[#6B9680]/15 to-[#80BE9F]/25" : "bg-[#FAF8F4]"} pt-24 pb-16 md:pt-32 md:pb-20`}>
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"

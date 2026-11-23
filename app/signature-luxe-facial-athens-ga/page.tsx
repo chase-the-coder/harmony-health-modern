@@ -36,20 +36,20 @@ export default function SignatureLuxeFacialPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-[#1F2A25] pt-24 pb-16 md:pt-32 md:pb-20">
+        <section className="bg-gradient-to-br from-[#6B9680]/25 via-[#6B9680]/15 to-[#80BE9F]/25 pt-24 pb-16 md:pt-32 md:pb-20">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/10 text-[#9BD3B6] mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9BD3B6]" />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/70 text-[#517563] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
               Signature Treatment · Athens, GA
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] text-white mb-6 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] text-[#1F2A25] mb-6 max-w-3xl">
               Signature Luxe Facial<br />
-              <span className="italic font-light text-[#9BD3B6]">in Athens, Georgia.</span>
+              <span className="italic font-light text-[#517563]">in Athens, Georgia.</span>
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed mb-6 max-w-[52ch]">
+            <p className="text-lg text-[#30373E] leading-relaxed mb-6 max-w-[52ch]">
               The ultimate facial experience — designed for anti-aging, deep hydration, and skin renewal. This luxury treatment combines advanced techniques, powerful ingredients, and optional technologies to give your skin a complete transformation.
             </p>
-            <p className="text-3xl font-bold text-white mb-8">$200</p>
+            <p className="text-3xl font-bold text-[#1F2A25] mb-8">$200</p>
             <Link href={BOOK} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#6B9680] text-white font-medium hover:bg-[#517563] transition-colors">
               Book this facial

@@ -49,7 +49,7 @@ export default function CustomizedFacialPage() {
               </div>
             </div>
             <div className="relative h-[420px] lg:h-[520px] rounded-3xl overflow-hidden order-1 lg:order-2">
-              <Image src="/assets/aesthetic/hero.webp" alt="Customized facial treatment Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
+              <Image src="/images/morpheus8-treatment-hero.webp" alt="Calm spa treatment room for customized facials in Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
             </div>
           </div>
         </section>
