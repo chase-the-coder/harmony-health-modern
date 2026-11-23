@@ -4,6 +4,7 @@ import ModernCTA from "@/components/modern/ModernCTA";
 import { getSEOTags, renderServiceSchema, renderBreadcrumbSchema } from "@/libs/seo";
 import { BOOKING_URLS } from "@/components/harmony/BookingButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = getSEOTags({
   title: "Lash Lift & Tint in Athens, GA | Harmony Health",
@@ -25,23 +26,39 @@ export default function LashLiftTintPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-[#1F2A25] pt-24 pb-16 md:pt-32 md:pb-20">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/10 text-[#9BD3B6] mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9BD3B6]" />
+        <section className="bg-gradient-to-br from-[#6B9680]/25 via-[#6B9680]/15 to-[#80BE9F]/25 pt-24 pb-16 md:pt-32 md:pb-20">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-12 lg:gap-16 items-center">
+            <div className="order-1 lg:order-2 w-full">
+              <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
+                <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/3] bg-[#F7F9F8]">
+                  <Image
+                    src="/images/lash-lift-treatment.webp"
+                    alt="Woman relaxing during a lash lift and tint treatment in Athens GA"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 560px, 100vw"
+                    className="object-cover object-[40%_center]"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="order-2 lg:order-1">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/70 text-[#517563] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
               Lashes · Athens, GA
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] text-white mb-6 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] text-[#1F2A25] mb-6 max-w-3xl">
               Lash Lift & Tint<br />
-              <span className="italic font-light text-[#9BD3B6]">in Athens, Georgia.</span>
+              <span className="italic font-light text-[#517563]">in Athens, Georgia.</span>
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-[52ch]">
+            <p className="text-lg text-[#30373E] leading-relaxed mb-8 max-w-[52ch]">
               Wake up with beautifully lifted, curled, and darkened lashes — no mascara, no lash curler, no extensions. A lash lift and tint gives your natural lashes a semi-permanent boost that lasts 6–8 weeks.
             </p>
             <Link href={BOOK} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#6B9680] text-white font-medium hover:bg-[#517563] transition-colors">
               Book your appointment
             </Link>
+            </div>
           </div>
         </section>
 
