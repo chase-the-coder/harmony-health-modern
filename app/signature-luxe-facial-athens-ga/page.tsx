@@ -37,7 +37,22 @@ export default function SignatureLuxeFacialPage() {
       <main>
         {/* Hero */}
         <section className="bg-gradient-to-br from-[#6B9680]/25 via-[#6B9680]/15 to-[#80BE9F]/25 pt-24 pb-16 md:pt-32 md:pb-20">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_460px] gap-12 lg:gap-20 items-center">
+            <div className="order-1 lg:order-2 w-full max-w-md mx-auto lg:max-w-none">
+              <div className="rounded-[2rem] bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-[0_30px_60px_-20px_rgba(31,42,37,0.15)]">
+                <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/5] bg-[#F7F9F8]">
+                  <Image
+                    src="/images/signature-luxe-facial-brush.webp"
+                    alt="Provider applying a facial treatment with a brush during a Signature Luxe Facial"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 460px, 448px"
+                    className="object-cover object-[center_45%]"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/70 text-[#517563] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#6B9680]" />
               Signature Treatment · Athens, GA
@@ -54,6 +69,7 @@ export default function SignatureLuxeFacialPage() {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#6B9680] text-white font-medium hover:bg-[#517563] transition-colors">
               Book this facial
             </Link>
+            </div>
           </div>
         </section>
 
