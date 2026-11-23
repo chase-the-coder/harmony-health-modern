@@ -35,7 +35,7 @@ export default function LumeccaPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative bg-[#FAF8F4] pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-[#6B9680]/25 via-[#6B9680]/15 to-[#80BE9F]/25 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
           <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="lg:order-1 order-2">
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-6">
@@ -68,8 +68,8 @@ export default function LumeccaPage() {
 
         {/* Benefits */}
         <section className="bg-[#FAF8F4] py-16 md:py-20">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-center">
+            <div className="order-2 lg:order-1">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-5">How it works</span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#1F2A25] leading-[1.1] mb-5">
                 Light-based precision<br /><span className="italic font-light text-[#517563]">for clearer skin.</span>
@@ -80,17 +80,30 @@ export default function LumeccaPage() {
               <p className="text-[#30373E] leading-relaxed">
                 The light energy also stimulates collagen production in the deeper layers of skin, improving texture over time. Most patients see significant improvement after just 1–2 sessions, with final results in 3–4 weeks as pigment rises to the surface and fades.
               </p>
+              <div className="mt-10">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-5">Benefits</span>
+                <ul className="space-y-3">
+                  {benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-3">
+                      <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
+                      <span className="text-[#30373E] leading-relaxed">{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div>
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-[#6B9680]/10 text-[#517563] mb-5">Benefits</span>
-              <ul className="space-y-3">
-                {benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3">
-                    <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#6B9680] shrink-0" />
-                    <span className="text-[#30373E] leading-relaxed">{b}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="order-1 lg:order-2 w-full max-w-sm mx-auto lg:max-w-none">
+              <div className="rounded-3xl bg-white p-1.5 ring-1 ring-[#E5ECE8] shadow-md">
+                <div className="relative rounded-[calc(1.5rem-0.375rem)] overflow-hidden aspect-[2/3]">
+                  <Image
+                    src="/images/lumecca-handpiece.webp"
+                    alt="Gloved hand holding the Lumecca Peak IPL handpiece"
+                    fill
+                    sizes="(min-width: 1024px) 420px, 384px"
+                    className="object-cover scale-[1.6] origin-[40%_58%]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
