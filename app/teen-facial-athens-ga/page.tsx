@@ -49,7 +49,7 @@ export default function TeenFacialPage() {
               </div>
             </div>
             <div className="relative h-[420px] lg:h-[520px] rounded-3xl overflow-hidden order-1 lg:order-2">
-              <Image src="/assets/aesthetic/hero.webp" alt="Teen facial Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
+              <Image src="/images/teen-facial-mask.webp" alt="Young woman smiling as a provider applies a facial mask with a brush during a teen facial in Athens GA" fill className="object-cover object-[40%_center]" sizes="(max-width: 1024px) 100vw, 700px" />
             </div>
           </div>
         </section>

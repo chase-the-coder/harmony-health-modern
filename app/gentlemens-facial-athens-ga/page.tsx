@@ -27,12 +27,27 @@ export default function GentlemensFacialPage() {
       <main>
         {/* Hero */}
         <section className="bg-[#1F2A25] pt-24 pb-16 md:pt-32 md:pb-20">
-          <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_560px] gap-12 lg:gap-16 items-center">
+            <div className="order-1 lg:order-2 w-full">
+              <div className="rounded-[2rem] bg-white/10 p-1.5 ring-1 ring-white/15 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)]">
+                <div className="relative rounded-[calc(2rem-0.375rem)] overflow-hidden aspect-[4/3] bg-[#F7F9F8]">
+                  <Image
+                    src="/images/gentlemens-facial-mask.webp"
+                    alt="Man relaxing as a provider applies a facial mask with a brush during a Gentleman's Facial"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 560px, 100vw"
+                    className="object-cover object-[60%_center]"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-medium bg-white/10 text-[#9BD3B6] mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#9BD3B6]" />
               Men&rsquo;s Skincare · Athens, GA
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] text-white mb-6 max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-[64px] font-bold tracking-tighter leading-[1.05] !text-white mb-6 max-w-3xl">
               Gentleman&rsquo;s Facial<br />
               <span className="italic font-light text-[#9BD3B6]">in Athens, Georgia.</span>
             </h1>
@@ -44,6 +59,7 @@ export default function GentlemensFacialPage() {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#6B9680] text-white font-medium hover:bg-[#517563] transition-colors">
               Book this facial
             </Link>
+            </div>
           </div>
         </section>
 
