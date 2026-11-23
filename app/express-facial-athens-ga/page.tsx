@@ -49,7 +49,7 @@ export default function ExpressFacialPage() {
               </div>
             </div>
             <div className="relative h-[420px] lg:h-[520px] rounded-3xl overflow-hidden order-1 lg:order-2">
-              <Image src="/assets/aesthetic/hero.webp" alt="Express facial treatment Athens GA" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 700px" />
+              <Image src="/images/express-facial-mask-bowl.webp" alt="Provider mixing a facial mask in a gold bowl for an express facial in Athens GA" fill className="object-cover object-[center_60%]" sizes="(max-width: 1024px) 100vw, 700px" />
             </div>
           </div>
         </section>
